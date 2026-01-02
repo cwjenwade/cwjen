@@ -6,7 +6,7 @@ import R02 from './R02.png';
 import R03 from './R03.png';
 import R04 from './R04.png';
 
-// 定義內嵌 SVG 圖示組件 (無需安裝 lucide-react)
+// --- 內嵌 SVG 圖示組件 (無需安裝額外套件) ---
 const IconSparkles = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
 );
@@ -37,14 +37,18 @@ const IconBookOpen = ({ className }: { className?: string }) => (
 const IconQuote = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
 );
+const IconLeaf = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+);
+
 
 const PersonCenteredPage = () => {
   return (
     <div className="min-h-screen bg-[#FDFBFB] text-[#555555] font-serif selection:bg-[#EBCBCE] selection:text-[#4A4A4A]">
-      {/* 頂部裝飾線：象徵金線與柔和的邊界 */}
+      {/* 頂部裝飾線 */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-[#EBCBCE] via-[#D4A373] to-[#EBCBCE] z-50"></div>
 
-      <main className="max-w-4xl mx-auto px-6 md:px-12 py-24">
+      <main className="max-w-5xl mx-auto px-6 md:px-12 py-24">
         
         {/* Header / Intro Section */}
         <header className="mb-24 space-y-8">
@@ -103,7 +107,6 @@ const PersonCenteredPage = () => {
                     className="object-cover"
                   />
                </div>
-               {/* 裝飾性圖示 */}
                <div className="absolute -right-2 top-10 bg-white p-2 rounded-full border border-[#D4A373]/30 shadow-sm">
                  <IconSprout className="text-[#D4A373] w-5 h-5" />
                </div>
@@ -342,14 +345,6 @@ const PersonCenteredPage = () => {
                <p>
                  當治療者能提供一種真誠且獨特的關係，使當事人感受到自己有能力在這樣的關係中成長與改變時，個人的成長就會自然發生。
                </p>
-               <div className="my-6 relative w-full h-48 rounded-sm overflow-hidden border border-[#D4A373]/30">
-                 <Image 
-                    src={R04} 
-                    alt="Therapy Relationship Atmosphere" 
-                    fill 
-                    className="object-cover opacity-90 hover:opacity-100 transition-opacity"
-                 />
-               </div>
                <p>
                  這段關係的形成，必須建立在幾個基本條件之上。首先，兩個人之間必須有真實的心理接觸；其次，當事人正經驗著不一致（incongruence）或焦慮的狀態；同時，治療者在關係中能保持一致（congruence）與真誠（genuineness），讓當事人感受到其真實存在。
                </p>
@@ -363,39 +358,57 @@ const PersonCenteredPage = () => {
            </div>
         </section>
 
-        {/* 14 Learnings */}
-        <section className="mb-24 py-20 bg-[#FDFBFB] relative overflow-hidden">
-          {/* 背景裝飾 */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#EBCBCE]/10 rounded-full blur-3xl -z-10"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#D4A373]/5 rounded-full blur-3xl -z-10"></div>
+        {/* 14 Learnings & R04 Image Layout */}
+        <section className="mb-24 py-20 bg-[#FDFBFB] relative overflow-hidden border-t border-[#D4A373]/20">
           
           <div className="text-center mb-16">
             <IconFeather className="text-[#D4A373] mx-auto mb-4 w-8 h-8" />
             <h2 className="text-3xl text-[#4A4A4A] tracking-wide font-light">Rogers的14項重要學習</h2>
           </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            {/* 左側：14 Learnings List */}
+            <div className="lg:col-span-8 space-y-6">
+              {[
+                "在我與他人的關係中，我發現假裝成不是自己的樣子，長遠來看並沒有幫助。",
+                "當我能接納地傾聽自己、允許自己做自己時，我會更有效率。",
+                "當我允許自己去理解另一個人時，那是極其有價值的。",
+                "當我能敞開自己，讓他人向我表達他們的感受與內在世界時，這是非常充實的經驗。",
+                "我發現，當我能夠接納另一個人時，那是極其有回報的經驗。",
+                "我愈能開放地面對自己與他人的現實，就愈不會急著去「修正」或「改變」他人。",
+                "我可以信任自己的經驗。",
+                "他人的評價並不是我生命的指引。",
+                "對我而言，經驗才是最高的權威。",
+                "我喜歡在經驗中發現其中的秩序與意義。",
+                "事實是友善的。",
+                "最個人的，往往也是最普遍的。",
+                "我的經驗告訴我，人具有基本的正向方向。",
+                "生命在最美好的狀態下，是一個流動、改變而不固定的過程。"
+              ].map((item, index) => (
+                <div key={index} className="flex gap-4 group p-4 border-b border-[#EBCBCE]/30 hover:bg-white hover:shadow-sm transition-all duration-300 rounded-lg">
+                  <div className="flex-shrink-0 mt-1">
+                     <IconLeaf className="w-5 h-5 text-[#D4A373] opacity-60 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <div className="flex gap-3">
+                     <span className="text-[#D4A373] font-serif italic text-lg font-bold w-6 text-right">{index + 1}.</span>
+                     <p className="text-[#555] text-sm leading-relaxed group-hover:text-[#333]">{item}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* 右側：直式圖片區 (R04) */}
+            <div className="lg:col-span-4 relative h-[600px] lg:h-auto lg:sticky lg:top-24 rounded-lg overflow-hidden border-4 border-white shadow-lg">
+               <Image 
+                  src={R04} 
+                  alt="Growth Metaphor Tree" 
+                  fill 
+                  className="object-cover object-center"
+               />
+               <div className="absolute inset-0 bg-gradient-to-t from-[#D4A373]/20 to-transparent pointer-events-none"></div>
+            </div>
           
-          <div className="columns-1 md:columns-2 gap-12 space-y-8">
-            {[
-              "在我與他人的關係中，我發現假裝成不是自己的樣子，長遠來看並沒有幫助。",
-              "當我能接納地傾聽自己、允許自己做自己時，我會更有效率。",
-              "當我允許自己去理解另一個人時，那是極其有價值的。",
-              "當我能敞開自己，讓他人向我表達他們的感受與內在世界時，這是非常充實的經驗。",
-              "我發現，當我能夠接納另一個人時，那是極其有回報的經驗。",
-              "我愈能開放地面對自己與他人的現實，就愈不會急著去「修正」或「改變」他人。",
-              "我可以信任自己的經驗。",
-              "他人的評價並不是我生命的指引。",
-              "對我而言，經驗才是最高的權威。",
-              "我喜歡在經驗中發現其中的秩序與意義。",
-              "事實是友善的。",
-              "最個人的，往往也是最普遍的。",
-              "我的經驗告訴我，人具有基本的正向方向。",
-              "生命在最美好的狀態下，是一個流動、改變而不固定的過程。"
-            ].map((item, index) => (
-              <div key={index} className="break-inside-avoid mb-6 flex gap-5 group hover:bg-white p-4 rounded-lg transition-colors duration-300">
-                <span className="text-[#D4A373] font-serif italic text-xl font-bold opacity-60 group-hover:opacity-100">{index + 1}.</span>
-                <p className="text-[#555] text-sm leading-relaxed group-hover:text-[#333]">{item}</p>
-              </div>
-            ))}
           </div>
         </section>
 
