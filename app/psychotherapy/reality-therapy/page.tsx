@@ -14,7 +14,7 @@ import {
   CheckCircle2,
   BrainCircuit,
   HeartHandshake
-} from 'lucide-react';
+} from './lucide-fallback';
 
 // 引入同一層目錄的圖片 (根據您的截圖路徑)
 // 請確保檔名大小寫與空格完全一致
