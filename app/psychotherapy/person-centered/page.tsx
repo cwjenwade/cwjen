@@ -1,24 +1,42 @@
 import React from 'react';
 import Image from 'next/image';
-// 引入同層目錄的圖片 (根據您的截圖)
+// 引入同層目錄的圖片
 import R01 from './R01.jpg';
 import R02 from './R02.png';
 import R03 from './R03.png';
 import R04 from './R04.png';
 
-// 引入精緻的圖示 (Lucide React)
-import { 
-  Quote, 
-  Sprout, 
-  Users, 
-  Fingerprint, 
-  HeartHandshake, 
-  Compass, 
-  Sparkles, 
-  Feather, 
-  Sun,
-  BookOpen
-} from 'lucide-react';
+// 定義內嵌 SVG 圖示組件 (無需安裝 lucide-react)
+const IconSparkles = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+);
+const IconFeather = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" x2="2" y1="8" y2="22"/><line x1="17.5" x2="9" y1="15" y2="15"/></svg>
+);
+const IconSprout = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.6"/><path d="M4.1 9.7c.6-1.3 2.1-1.1 2.5-.3 0 0-2.2.7-1.8-1.2.4-2 2.6-3.2 4.9-1.7"/></svg>
+);
+const IconSun = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41-1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+);
+const IconHeartHandshake = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.18 4.02l-2.35 2.35"/></svg>
+);
+const IconUsers = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+);
+const IconCompass = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+);
+const IconFingerprint = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 6"/><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"/><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"/><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"/><path d="M8.6 15c-.9 1.4-2 2.5-3.6 2.5"/></svg>
+);
+const IconBookOpen = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+);
+const IconQuote = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
+);
 
 const PersonCenteredPage = () => {
   return (
@@ -32,9 +50,9 @@ const PersonCenteredPage = () => {
         <header className="mb-24 space-y-8">
           <div className="text-center">
             <div className="flex justify-center items-center gap-2 mb-4">
-               <Sparkles size={16} className="text-[#D4A373]" />
+               <IconSparkles className="text-[#D4A373] w-4 h-4" />
                <h2 className="text-[#D4A373] tracking-[0.3em] text-sm uppercase">Psychotherapy</h2>
-               <Sparkles size={16} className="text-[#D4A373]" />
+               <IconSparkles className="text-[#D4A373] w-4 h-4" />
             </div>
             <h1 className="text-4xl md:text-5xl font-medium text-[#4A4A4A] tracking-wide mb-2">Person Centered Approach</h1>
             <div className="w-16 h-[1px] bg-[#D4A373] mx-auto mt-6"></div>
@@ -55,7 +73,7 @@ const PersonCenteredPage = () => {
                 </div>
               </div>
               <div className="mt-4 flex items-center gap-2 text-[#4A4A4A]">
-                <Feather size={14} className="text-[#D4A373]" />
+                <IconFeather className="text-[#D4A373] w-3.5 h-3.5" />
                 <p className="text-lg font-medium tracking-widest">Carl Rogers</p>
               </div>
             </div>
@@ -87,20 +105,24 @@ const PersonCenteredPage = () => {
                </div>
                {/* 裝飾性圖示 */}
                <div className="absolute -right-2 top-10 bg-white p-2 rounded-full border border-[#D4A373]/30 shadow-sm">
-                 <Sprout size={20} className="text-[#D4A373]" />
+                 <IconSprout className="text-[#D4A373] w-5 h-5" />
                </div>
             </div>
 
             <div className="order-1 md:order-2 space-y-10">
               <div className="relative pl-8 border-l-2 border-[#D4A373]">
-                <Sun size={24} className="absolute -left-[13px] -top-1 text-[#D4A373] bg-[#FDFBFB]" />
+                <div className="absolute -left-[13px] -top-1 bg-[#FDFBFB]">
+                  <IconSun className="text-[#D4A373] w-6 h-6" />
+                </div>
                 <h3 className="text-2xl text-[#4A4A4A] mb-4 font-medium">一顆橡樹的種子</h3>
                 <p className="leading-loose text-sm md:text-base text-[#666]">
                   只要有陽光、水分和養分，種子自然會長成一棵健康的大樹；但如果環境裡充滿冷漠、批評、誤解或虛偽，它的成長就會被阻礙。
                 </p>
               </div>
               <div className="relative pl-8 border-l-2 border-[#EBCBCE]">
-                <HeartHandshake size={24} className="absolute -left-[13px] -top-1 text-[#EBCBCE] bg-[#FDFBFB]" />
+                <div className="absolute -left-[13px] -top-1 bg-[#FDFBFB]">
+                  <IconHeartHandshake className="text-[#EBCBCE] w-6 h-6" />
+                </div>
                 <h3 className="text-2xl text-[#4A4A4A] mb-4 font-medium">心的成長也是</h3>
                 <p className="leading-loose text-sm md:text-base text-[#666]">
                   當我們身邊的人能夠真誠地對待我們、願意理解我們、接納我們原本的樣子，我們內在的潛能就會慢慢展開，成為自己能成為的樣子。
@@ -113,7 +135,7 @@ const PersonCenteredPage = () => {
         {/* Influences Section */}
         <section className="mb-24 bg-white p-12 shadow-[0_4px_30px_-15px_rgba(212,163,115,0.2)] border-t border-[#EBCBCE] rounded-sm">
           <div className="flex flex-col items-center mb-12">
-            <Users size={32} className="text-[#D4A373] mb-4 opacity-80" />
+            <IconUsers className="text-[#D4A373] mb-4 opacity-80 w-8 h-8" />
             <h2 className="text-center text-2xl text-[#4A4A4A] tracking-widest">誰影響Rogers形成個人中心治療</h2>
           </div>
           
@@ -140,7 +162,7 @@ const PersonCenteredPage = () => {
         {/* Fully Functioning Person */}
         <section className="mb-24 text-center space-y-8 py-16 bg-gradient-to-b from-[#F5E6E8]/30 to-transparent rounded-lg border border-[#fff]">
           <div className="flex justify-center">
-            <Compass size={40} strokeWidth={1} className="text-[#D4A373]" />
+            <IconCompass className="text-[#D4A373] w-10 h-10" />
           </div>
           <h3 className="text-3xl text-[#4A4A4A] tracking-wider font-light">全然發揮的人</h3>
           <div className="max-w-2xl mx-auto space-y-6">
@@ -159,7 +181,7 @@ const PersonCenteredPage = () => {
         <section className="mb-24 space-y-12">
           <div className="text-center mb-16">
             <div className="flex justify-center items-center gap-3 mb-4">
-               <Fingerprint size={28} className="text-[#D4A373]" />
+               <IconFingerprint className="text-[#D4A373] w-7 h-7" />
                <h2 className="text-3xl text-[#4A4A4A] font-light">Rogers對人性本質的看法 - 論自我 self</h2>
             </div>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#EBCBCE] to-transparent mx-auto"></div>
@@ -187,7 +209,7 @@ const PersonCenteredPage = () => {
                      />
                   </div>
                   <span className="absolute -bottom-8 right-0 text-xs text-[#D4A373] font-sans tracking-widest uppercase flex items-center gap-1">
-                    <BookOpen size={12} />
+                    <IconBookOpen className="w-3 h-3" />
                     Phenomenal Field
                   </span>
                 </div>
@@ -197,7 +219,7 @@ const PersonCenteredPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
             <div className="bg-white p-8 border-t-2 border-[#EBCBCE] hover:shadow-lg transition-shadow duration-300">
               <h4 className="text-[#D4A373] mb-4 font-bold tracking-wide flex items-center gap-2">
-                <Sparkles size={16} /> 每個人的經驗都是獨特的
+                <IconSparkles className="w-4 h-4" /> 每個人的經驗都是獨特的
               </h4>
               <p className="text-sm leading-7 text-[#666] text-justify">
                 人以自身所覺察的領域來界定 現實世界（reality），並以當下的 知覺（perception） 與環境互動。每段經驗對個體而言都具有獨一無二的意義，唯有親身經歷者能深切體驗其中的真實感受。沒有人能僅憑外在觀察完全理解他人的內心世界。
@@ -206,7 +228,7 @@ const PersonCenteredPage = () => {
             
             <div className="bg-white p-8 border-t-2 border-[#D4A373] hover:shadow-lg transition-shadow duration-300">
               <h4 className="text-[#D4A373] mb-4 font-bold tracking-wide flex items-center gap-2">
-                <Sprout size={16} /> 自我概念的形成與環境密不可分
+                <IconSprout className="w-4 h-4" /> 自我概念的形成與環境密不可分
               </h4>
               <p className="text-sm leading-7 text-[#666] text-justify">
                 個體對環境的反應，以及父母、朋友、教師的態度，都會影響自我概念的界定。一旦自我概念形成，便不易改變。然而，人在與環境的互動中，仍能逐漸發現自身的獨特性，並從他人的回饋與社會脈絡中發展出一個有組織、整合而一致的自我。若要理解一個人的行為，必須從他的 內在參考架構（internal frame of reference） 出發，去理解他如何知覺並詮釋世界。
@@ -215,7 +237,7 @@ const PersonCenteredPage = () => {
 
             <div className="bg-white p-8 border-t-2 border-[#D4A373] hover:shadow-lg transition-shadow duration-300">
               <h4 className="text-[#D4A373] mb-4 font-bold tracking-wide flex items-center gap-2">
-                <Compass size={16} /> 每個人都具有追求自我實現的傾向
+                <IconCompass className="w-4 h-4" /> 每個人都具有追求自我實現的傾向
               </h4>
               <p className="text-sm leading-7 text-[#666] text-justify">
                 所有有機體都有向成長與整合前進的自然動力，只要生命仍在，這股力量就不會消失。人渴望一個能促進發展的環境，並在其中不斷學習與成長。人的行為是 目標導向（goal-directed） 的，為了在所處的環境中滿足需求而展開；行為本身是對環境的回應，而覺察與需求的關係會影響行為的方向。
@@ -224,7 +246,7 @@ const PersonCenteredPage = () => {
 
             <div className="bg-white p-8 border-t-2 border-[#EBCBCE] hover:shadow-lg transition-shadow duration-300">
               <h4 className="text-[#D4A373] mb-4 font-bold tracking-wide flex items-center gap-2">
-                <Feather size={16} /> 當人願意改變自己時，行為便有可能轉變
+                <IconFeather className="w-4 h-4" /> 當人願意改變自己時，行為便有可能轉變
               </h4>
               <p className="text-sm leading-7 text-[#666] text-justify">
                 即使在情緒低落或自我批評的時刻，人仍能透過覺察激發新的行為模式，使更健康的反應逐漸浮現。自信心深刻影響著個體解決問題的能力。 行為通常與自我概念一致：消極的行為往往反映出消極的自我概念；積極、樂觀的行為則源於整合且自信的自我概念。自我信任與問題解決能力息息相關。
@@ -233,10 +255,10 @@ const PersonCenteredPage = () => {
           </div>
           
           <div className="bg-[#D4A373]/10 p-10 text-center italic text-[#5D5D5D] leading-relaxed relative rounded-sm">
-            <Quote size={40} className="absolute top-4 left-4 text-[#D4A373]/20" />
+            <div className="absolute top-4 left-4 text-[#D4A373]/20"><IconQuote className="w-10 h-10" /></div>
             <span className="font-bold not-italic text-[#D4A373] block mb-2 text-lg">人性是可以被信任的。</span>
             只要環境真誠、安全並充滿接納與理解，每個人都會自然地朝向更整合、更具創造力與更真實的生命狀態發展。
-            <Quote size={40} className="absolute bottom-4 right-4 text-[#D4A373]/20 rotate-180" />
+            <div className="absolute bottom-4 right-4 text-[#D4A373]/20 rotate-180"><IconQuote className="w-10 h-10" /></div>
           </div>
         </section>
 
@@ -260,7 +282,7 @@ const PersonCenteredPage = () => {
 
             <div className="py-8">
               <h3 className="text-xl text-[#4A4A4A] mb-4 flex items-center gap-2">
-                <Sparkles size={18} className="text-[#EBCBCE]" />
+                <IconSparkles className="text-[#EBCBCE] w-5 h-5" />
                 在勇於當自己的歷程中，Rogers提出了幾個關鍵的轉折。
               </h3>
               <p>
@@ -276,7 +298,7 @@ const PersonCenteredPage = () => {
 
             <div>
               <h3 className="text-xl text-[#4A4A4A] mb-4 flex items-center gap-2">
-                <Sprout size={18} className="text-[#D4A373]" />
+                <IconSprout className="text-[#D4A373] w-5 h-5" />
                 成為自己，也意味著迎向每一個新的經驗。
               </h3>
               <p>
@@ -297,7 +319,7 @@ const PersonCenteredPage = () => {
            {/* Therapy Goals */}
            <div>
              <h2 className="text-2xl text-[#4A4A4A] mb-6 font-light border-b border-[#EBCBCE] pb-2 inline-flex items-center gap-3">
-               <Compass size={22} className="text-[#EBCBCE]" />
+               <IconCompass className="text-[#EBCBCE] w-6 h-6" />
                治療目標
              </h2>
              <div className="space-y-4 text-justify text-sm leading-7 text-[#666]">
@@ -313,7 +335,7 @@ const PersonCenteredPage = () => {
            {/* Therapy Relationship */}
            <div>
              <h2 className="text-2xl text-[#4A4A4A] mb-6 font-light border-b border-[#D4A373] pb-2 inline-flex items-center gap-3">
-               <HeartHandshake size={22} className="text-[#D4A373]" />
+               <IconHeartHandshake className="text-[#D4A373] w-6 h-6" />
                治療關係
              </h2>
              <div className="space-y-4 text-justify text-sm leading-7 text-[#666]">
@@ -349,7 +371,7 @@ const PersonCenteredPage = () => {
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#D4A373]/5 rounded-full blur-3xl -z-10"></div>
           
           <div className="text-center mb-16">
-            <Feather size={32} className="text-[#D4A373] mx-auto mb-4" />
+            <IconFeather className="text-[#D4A373] mx-auto mb-4 w-8 h-8" />
             <h2 className="text-3xl text-[#4A4A4A] tracking-wide font-light">Rogers的14項重要學習</h2>
           </div>
           
