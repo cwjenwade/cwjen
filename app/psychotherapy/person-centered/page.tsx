@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
 
 const Page = () => {
   return (
@@ -7,11 +10,11 @@ const Page = () => {
       <nav className="flex justify-between items-center px-12 py-8 border-b border-[#D4A373]/20 bg-white/50 backdrop-blur-md sticky top-0 z-50">
         <div className="text-2xl font-light tracking-[0.2em] text-[#D4A373]">WADE JEN</div>
         <div className="flex gap-8 text-sm tracking-widest uppercase text-[#8B8B8B]">
-          <a href="#" className="hover:text-[#D4A373] transition-colors">Home</a>
-          <a href="#" className="hover:text-[#D4A373] transition-colors">About</a>
-          <a href="#" className="hover:text-[#D4A373] transition-colors">Psychotherapy</a>
-          <a href="#" className="hover:text-[#D4A373] transition-colors">Project</a>
-          <a href="#" className="hover:text-[#D4A373] transition-colors">Academic</a>
+          <Link href="/" className="hover:text-[#D4A373] transition-colors">Home</Link>
+          <Link href="/about" className="hover:text-[#D4A373] transition-colors">About</Link>
+          <Link href="/psychotherapy" className="hover:text-[#D4A373] transition-colors">Psychotherapy</Link>
+          <Link href="/project" className="hover:text-[#D4A373] transition-colors">Project</Link>
+          <Link href="/academic" className="hover:text-[#D4A373] transition-colors">Academic</Link>
         </div>
       </nav>
 
@@ -122,6 +125,4 @@ const Page = () => {
       </footer>
     </div>
   );
-};
-
 export default Page;
