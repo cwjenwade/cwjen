@@ -342,7 +342,6 @@ const PersonCenteredPage = () => {
                <p>
                  當治療者能提供一種真誠且獨特的關係，使當事人感受到自己有能力在這樣的關係中成長與改變時，個人的成長就會自然發生。
                </p>
-               {/* R04: Therapy Relationship Image */}
                <div className="my-6 relative w-full h-48 rounded-sm overflow-hidden border border-[#D4A373]/30">
                  <Image 
                     src={R04} 
