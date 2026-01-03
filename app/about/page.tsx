@@ -179,7 +179,7 @@ const Portfolio = () => {
               <div className="absolute inset-0 rounded-full border-[1px] border-slate-200 translate-x-3 translate-y-3"></div>
               <div className="w-full h-full rounded-full overflow-hidden shadow-xl border-4 border-white relative z-10">
                 <img 
-                  src="/workspaces/cwjen/app/about/wade.png" 
+                  src="/Photos/wade.png" 
                   alt="Jen Chi-Wei" 
                   className="w-full h-full object-cover"
                 />
