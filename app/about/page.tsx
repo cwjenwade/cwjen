@@ -42,13 +42,13 @@ const Portfolio = () => {
   const experienceData = [
     {
       year: "2025",
-      title: "首獎 (First Prize)",
+      title: "年度首獎 (First Prize)",
       org: "臺灣諮商心理學會 年度優秀碩博士論文",
       type: "award"
     },
     {
       year: "16-19",
-      title: "導師 Mentor / Instructor",
+      title: "臨床實習導師 Mentor / Instructor",
       org: "臺北醫學大學口腔衛生學系",
       type: "job"
     },
@@ -62,6 +62,8 @@ const Portfolio = () => {
 
   const speechPsychology = [
     { year: "2025", title: "走進東歐研討會：學生研究投入的視野拓展與動機啟發", location: "清華大學教育心理與諮商學系" },
+    { year: "2024", title: "童年情感忽視；暖心熊抱團體圖書會", location: "陽明交通大學諮商中心" },
+    { year: "2024", title: "舒心熊熊-流體熊藝術創作療癒工作坊", location: "陽明交通大學諮商中心" },
     { year: "2022", title: "傾聽的藝術：跨世代陪談與人文關懷的實踐哲學", location: "老玩客陪談師訓練計畫" }
   ];
 
