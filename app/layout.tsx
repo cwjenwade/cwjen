@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Noto_Serif_TC, Inter } from 'next/font/google';
-import Navbar from '@/components/Navbar';
+import Navigation from '@/components/Navigation';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className="bg-[#F7F5F3] text-stone-800 font-sans antialiased min-h-screen flex flex-col">
         
         {/* 頂部導覽列 (包含桌面 Hover 選單與手機漢堡選單) */}
-        <Navbar />
+        <Navigation />
 
         {/* 主要內容區域 */}
         {/* pt-20 是為了預留 Navbar 的高度，避免內容被遮擋 */}
