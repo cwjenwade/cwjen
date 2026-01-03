@@ -110,8 +110,8 @@ export default function TopNavbar() {
                 <Anchor className="text-stone-600 group-hover:text-teal-800 transition-colors" size={26} />
               </div>
               <div className="flex flex-col">
-                <span className="font-serif text-xl font-bold text-stone-800 tracking-tight leading-none">TITANIC</span>
-                <span className="text-[11px] text-stone-500 uppercase tracking-widest font-medium mt-1">Psychology</span>
+                <span className="font-serif text-xl font-bold text-stone-800 tracking-tight leading-none">Wade Jen</span>
+                <span className="text-[11px] text-stone-500 uppercase tracking-widest font-medium mt-1">A Cross-Field Learner</span>
               </div>
             </Link>
 
