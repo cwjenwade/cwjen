@@ -55,7 +55,7 @@ const PostmodernTherapyChapter = () => {
             <Sparkles className={`w-12 h-12 ${colors.accentBlueText}`} />
           </div>
           <h1 className={`text-4xl md:text-5xl font-serif font-bold ${colors.primaryText}`}>
-            Chap 13 後現代取向
+            後現代取向
           </h1>
           <div className={`flex flex-wrap justify-center gap-6 ${colors.secondaryText} text-sm font-medium uppercase tracking-widest`}>
             <span>Insoo Kim Berg</span>

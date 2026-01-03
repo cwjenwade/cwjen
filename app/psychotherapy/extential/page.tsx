@@ -44,7 +44,7 @@ const ExistentialTherapyChapter = () => {
             <Feather className={`w-14 h-14 ${colors.accentGreenText}`} />
           </div>
           <h1 className={`text-4xl md:text-6xl font-serif font-bold ${colors.primaryText}`}>
-            Chap 6 存在主義治療
+            存在主義治療
           </h1>
           <div className={`flex flex-wrap justify-center gap-6 ${colors.secondaryText} text-lg font-serif italic`}>
             <span>Victor Frankl</span>

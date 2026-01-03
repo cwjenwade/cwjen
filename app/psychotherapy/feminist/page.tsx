@@ -43,7 +43,7 @@ const FeministTherapyChapter = () => {
             <Scale className={`w-14 h-14 ${colors.accentPinkText}`} />
           </div>
           <h1 className={`text-4xl md:text-6xl font-serif font-bold ${colors.primaryText}`}>
-            Chap 12 女性主義治療
+            女性主義治療
           </h1>
           <p className={`${colors.secondaryText} text-lg max-w-2xl mx-auto italic`}>
             "個人即政治 (The Personal Is Political)"

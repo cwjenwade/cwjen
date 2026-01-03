@@ -40,7 +40,7 @@ const PsychoanalysisChapter = () => {
             <Brain className={`w-12 h-12 ${colors.accentBlueText}`} />
           </div>
           <h1 className={`text-4xl md:text-5xl font-serif font-bold ${colors.primaryText}`}>
-            Chap 4 精神分析治療
+            精神分析治療
           </h1>
           <div className={`flex justify-center items-center gap-6 ${colors.secondaryText} text-lg font-serif italic`}>
             <span>Sigmund Freud</span>

@@ -46,7 +46,7 @@ const AdlerianTherapyChapter = () => {
             <Feather className={`w-14 h-14 ${colors.accentBlueText}`} />
           </div>
           <h1 className={`text-4xl md:text-6xl font-serif font-bold ${colors.primaryText}`}>
-            Chap 5 阿德勒治療
+            阿德勒治療
           </h1>
           <div className={`flex flex-wrap justify-center items-center gap-4 ${colors.secondaryText} text-lg font-serif italic`}>
             <span>Alfred Adler</span>

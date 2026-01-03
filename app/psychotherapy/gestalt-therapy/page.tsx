@@ -44,7 +44,7 @@ const GestaltTherapyChapter = () => {
           
           <div className="relative z-10">
             <h1 className={`text-4xl md:text-6xl font-serif font-bold ${colors.primaryText} mb-6`}>
-              Chap 8 完形治療
+              完形治療
             </h1>
             <div className={`flex flex-wrap justify-center gap-4 ${colors.secondaryText} text-sm font-medium uppercase tracking-widest`}>
               <span className="px-3 py-1 bg-white rounded shadow-sm">Fritz Perls</span>
