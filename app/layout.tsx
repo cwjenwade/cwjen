@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Noto_Serif_TC, Inter } from 'next/font/google';
-import Navigation from '@/components/Navigation';
+import Navbar from '@/components/Navbar'; // 確保路徑正確指向剛才建立的 Navbar 組件
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -11,8 +11,8 @@ const notoserif = Noto_Serif_TC({
 });
 
 export const metadata: Metadata = {
-  title: 'Titanic | Psychology Research',
-  description: 'Academic resources and research notes on psychotherapy.',
+  title: 'Wade Jen | Psychology Research',
+  description: 'Personal academic website for psychotherapy and counseling.',
 };
 
 export default function RootLayout({
@@ -24,8 +24,8 @@ export default function RootLayout({
     <html lang="zh-TW" className={`${inter.variable} ${notoserif.variable}`}>
       <body className="bg-[#F7F5F3] text-stone-800 font-sans antialiased min-h-screen flex flex-col">
         
-        {/* 頂部導覽列 (包含桌面 Hover 選單與手機漢堡選單) */}
-        <Navigation />
+        {/* 這裡載入新的 Navbar，會取代原本藍色的 header */}
+        <Navbar />
 
         {/* 主要內容區域 */}
         {/* pt-20 是為了預留 Navbar 的高度，避免內容被遮擋 */}
