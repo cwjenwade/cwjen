@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { 
   BookOpen, 
@@ -11,11 +13,10 @@ import {
   FileText,
   Anchor,
   Users,
-  Palette,
-  Briefcase
+  Palette
 } from 'lucide-react';
 
-const Portfolio = () => {
+export default function AboutPage() {
   // --- Data & Content ---
   
   const educationData = [
@@ -138,40 +139,15 @@ const Portfolio = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] font-sans text-slate-800 selection:bg-amber-100">
+    // 這裡使用 div 而不是 main，因為 layout 已經有 main 了
+    // 刪除了 min-h-screen，因為內容會自動撐開
+    <div className="font-sans text-slate-800 selection:bg-amber-100 pb-12">
       
-      {/* --- Navigation --- */}
-      <nav className="sticky top-0 z-50 bg-[#FDFBF7]/90 backdrop-blur-sm border-b border-stone-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="text-xl font-serif font-bold tracking-wider text-slate-900">Wade Jen</div>
-            <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-              <a href="#about" className="hover:text-blue-900 transition-colors">About</a>
-              <a href="#home" className="hover:text-blue-900 transition-colors">Home</a>
-              <div className="group relative cursor-pointer flex items-center gap-1 hover:text-blue-900">
-                Eis Heauton <span className="text-xs">▼</span>
-                <div className="absolute top-full left-0 mt-2 w-32 bg-white shadow-lg rounded-md py-2 hidden group-hover:block border border-stone-100">
-                  <a href="#" className="block px-4 py-2 hover:bg-stone-50">合一</a>
-                  <a href="#" className="block px-4 py-2 hover:bg-stone-50">自由</a>
-                </div>
-              </div>
-              <div className="group relative cursor-pointer flex items-center gap-1 hover:text-blue-900">
-                Psychotherapy <span className="text-xs">▼</span>
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 hidden group-hover:block border border-stone-100">
-                  <a href="#" className="block px-4 py-2 hover:bg-stone-50">Person Centered</a>
-                  <a href="#" className="block px-4 py-2 hover:bg-stone-50">Reality Therapy</a>
-                  <a href="#" className="block px-4 py-2 hover:bg-stone-50">Group Therapy</a>
-                </div>
-              </div>
-              <a href="#project" className="hover:text-blue-900 transition-colors flex items-center gap-1">Project <span className="text-xs">▶</span></a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {/* ⚠️ 移除了 <nav> 區塊，避免與全域導覽列重複 */}
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        {/* --- Hero Section: Profile + Education Only --- */}
+        {/* --- Hero Section --- */}
         <section id="home" className="flex flex-col lg:flex-row gap-12 items-start mb-12">
           
           {/* Left: Photo & Title */}
@@ -199,7 +175,7 @@ const Portfolio = () => {
             </div>
           </div>
 
-          {/* Right: Education Timeline ONLY */}
+          {/* Right: Education Timeline */}
           <div className="lg:w-2/3 bg-white p-8 rounded-2xl shadow-sm border border-stone-100 h-full">
             <div className="flex items-center gap-3 mb-8 border-b border-stone-100 pb-4">
               <GraduationCap className="text-blue-900" size={24} />
@@ -207,21 +183,16 @@ const Portfolio = () => {
             </div>
 
             <div className="space-y-10 relative pl-2">
-              {/* Vertical Line */}
               <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-stone-200"></div>
-
               {educationData.map((item, index) => (
                 <div key={index} className="relative pl-8 group">
-                  {/* Dot */}
                   <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full border-2 border-white shadow-sm z-10 bg-blue-900"></div>
-                  
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
                     <h3 className="text-lg font-bold text-slate-800">{item.school}</h3>
                     <span className="text-sm font-mono text-slate-500 bg-slate-50 px-2 py-0.5 rounded">
                       {item.period}
                     </span>
                   </div>
-                  
                   <h4 className="text-md text-slate-700 font-medium mb-1">{item.degree}</h4>
                   <p className="text-sm text-slate-500 font-light">{item.dept}</p>
                 </div>
@@ -230,16 +201,13 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* --- New Split Section: Experience vs Skills --- */}
+        {/* --- Experience vs Skills --- */}
         <section className="mb-24 grid md:grid-cols-3 gap-8">
-          
-          {/* Left Block: Experience & Awards (Span 2) */}
           <div className="md:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
             <div className="flex items-center gap-3 mb-8 border-b border-stone-100 pb-4">
               <Award className="text-amber-600" size={24} />
               <h2 className="text-xl font-bold text-slate-800">Experience & Awards</h2>
             </div>
-            
             <div className="space-y-8 relative pl-2">
                <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-stone-200"></div>
                {experienceData.map((item, index) => (
@@ -257,13 +225,11 @@ const Portfolio = () => {
             </div>
           </div>
 
-          {/* Right Block: Professional Skills (Span 1) */}
           <div className="md:col-span-1 bg-white p-8 rounded-2xl shadow-sm border border-stone-100 h-fit">
              <div className="flex items-center gap-3 mb-6 pb-2 border-b border-stone-100">
                 <Palette className="text-slate-500" size={20}/> 
                 <h2 className="text-lg font-bold text-slate-700">Professional Skills</h2>
              </div>
-             
              <div className="flex flex-wrap gap-2 mb-6">
                 {skills.map((skill, i) => (
                   <span key={i} className="px-3 py-2 bg-stone-50 text-stone-600 rounded-lg text-sm border border-stone-100 hover:bg-stone-100 hover:border-stone-200 transition-colors">
@@ -271,15 +237,13 @@ const Portfolio = () => {
                   </span>
                 ))}
              </div>
-             
              <p className="text-xs text-slate-400 italic leading-relaxed">
                Specialized in cross-disciplinary integration: Brand consulting, Team operations, Project management, and Medical dispute resolution.
              </p>
           </div>
-
         </section>
 
-        {/* --- About Me Section --- */}
+        {/* --- About Me --- */}
         <section id="about" className="mb-24 grid md:grid-cols-2 gap-12 items-stretch">
           <div className="bg-white p-10 rounded-2xl shadow-sm border border-stone-100">
             <h2 className="text-2xl font-serif font-bold text-slate-900 mb-6 flex items-center gap-3">
@@ -322,7 +286,6 @@ const Portfolio = () => {
             <h2 className="text-2xl font-bold text-slate-800 tracking-tight">Psychotherapy Training</h2>
             <div className="h-px bg-slate-200 flex-grow"></div>
           </div>
-
           <div className="grid md:grid-cols-2 gap-6">
             {training.map((t, idx) => (
               <div key={idx} className="bg-white p-6 rounded-xl border border-stone-100 hover:shadow-md transition-shadow duration-300">
@@ -342,15 +305,13 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* --- Speaking Experience (Split) --- */}
+        {/* --- Speaking Experience --- */}
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
              <Mic className="text-slate-800" size={24} />
              <h2 className="text-2xl font-bold text-slate-800">Speaking Experience</h2>
           </div>
-          
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Left: Psychology */}
             <div>
               <h3 className="text-lg font-bold text-blue-900 mb-6 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-blue-900"></span>
@@ -368,8 +329,6 @@ const Portfolio = () => {
                 ))}
               </div>
             </div>
-
-            {/* Right: Dental & Brand */}
             <div>
               <h3 className="text-lg font-bold text-amber-800 mb-6 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-amber-800"></span>
@@ -390,13 +349,12 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* --- Academic Publications --- */}
+        {/* --- Publications --- */}
         <section id="academic" className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-stone-100">
           <div className="flex items-center gap-3 mb-8">
             <BookOpen className="text-slate-800" size={24} />
             <h2 className="text-2xl font-bold text-slate-800">Academic Publications</h2>
           </div>
-
           <div className="mb-10">
             <h3 className="inline-block bg-slate-100 text-slate-600 px-3 py-1 rounded text-sm font-bold tracking-wide mb-6 uppercase">
               Journal Articles
@@ -410,7 +368,6 @@ const Portfolio = () => {
               ))}
             </ul>
           </div>
-
           <div>
             <h3 className="inline-block bg-slate-100 text-slate-600 px-3 py-1 rounded text-sm font-bold tracking-wide mb-6 uppercase">
               Conference Presentations
@@ -426,16 +383,10 @@ const Portfolio = () => {
           </div>
         </section>
 
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-slate-50 border-t border-stone-200 py-12 text-center text-slate-400 text-sm font-serif">
-        <p>© 2026 Jen Chi-Wei. All rights reserved.</p>
-        <p className="mt-2 text-xs">Designed with Morandi Aesthetic</p>
-      </footer>
+      </div>
+      
+      {/* ⚠️ 移除了 <footer> 區塊 */}
 
     </div>
   );
 };
-
-export default Portfolio;
