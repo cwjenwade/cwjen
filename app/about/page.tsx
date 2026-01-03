@@ -7,12 +7,12 @@ import {
   Brain, 
   Layers, 
   GraduationCap, 
-  Briefcase, 
   Quote, 
   FileText,
   Anchor,
   Users,
-  Palette
+  Palette,
+  Briefcase
 } from 'lucide-react';
 
 const Portfolio = () => {
@@ -24,21 +24,18 @@ const Portfolio = () => {
       school: "National Taiwan University",
       degree: "Ph.D. Program in Clinical Psychology",
       dept: "國立臺灣大學心理學系暨研究所 臨床心理博士班研究",
-      type: "edu"
     },
     {
       period: "2018 - 2021",
       school: "National Tsing Hua University",
       degree: "M.A. in Educational Psychology and Counseling",
       dept: "國立清華大學 教育心理與諮商學系 碩士",
-      type: "edu"
     },
     {
       period: "2014 - 2018",
       school: "Kaohsiung Medical University",
       degree: "B.S. in Oral Hygiene",
       dept: "高雄醫學大學 口腔衛生學系 學士",
-      type: "edu"
     }
   ];
 
@@ -63,7 +60,6 @@ const Portfolio = () => {
     }
   ];
 
-  // Manually categorized based on content
   const speechPsychology = [
     { year: "2025", title: "走進東歐研討會：學生研究投入的視野拓展與動機啟發", location: "清華大學教育心理與諮商學系" },
     { year: "2022", title: "傾聽的藝術：跨世代陪談與人文關懷的實踐哲學", location: "老玩客陪談師訓練計畫" }
@@ -174,8 +170,8 @@ const Portfolio = () => {
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        {/* --- Hero Section: Profile + Education/Exp --- */}
-        <section id="home" className="flex flex-col lg:flex-row gap-12 items-start mb-24">
+        {/* --- Hero Section: Profile + Education Only --- */}
+        <section id="home" className="flex flex-col lg:flex-row gap-12 items-start mb-12">
           
           {/* Left: Photo & Title */}
           <div className="lg:w-1/3 flex flex-col items-center lg:items-start text-center lg:text-left">
@@ -202,59 +198,84 @@ const Portfolio = () => {
             </div>
           </div>
 
-          {/* Right: Integrated Education & Experience Timeline */}
-          <div className="lg:w-2/3 bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
+          {/* Right: Education Timeline ONLY */}
+          <div className="lg:w-2/3 bg-white p-8 rounded-2xl shadow-sm border border-stone-100 h-full">
             <div className="flex items-center gap-3 mb-8 border-b border-stone-100 pb-4">
               <GraduationCap className="text-blue-900" size={24} />
-              <h2 className="text-xl font-bold text-slate-800">Education & Professional Background</h2>
+              <h2 className="text-xl font-bold text-slate-800">Education</h2>
             </div>
 
-            <div className="space-y-8 relative pl-2">
+            <div className="space-y-10 relative pl-2">
               {/* Vertical Line */}
               <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-stone-200"></div>
 
-              {[...educationData, ...experienceData].map((item, index) => (
+              {educationData.map((item, index) => (
                 <div key={index} className="relative pl-8 group">
                   {/* Dot */}
-                  <div className={`absolute left-0 top-1.5 w-4 h-4 rounded-full border-2 border-white shadow-sm z-10 ${item.type === 'edu' ? 'bg-blue-900' : (item.type === 'award' ? 'bg-amber-500' : 'bg-stone-500')}`}></div>
+                  <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full border-2 border-white shadow-sm z-10 bg-blue-900"></div>
                   
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                    <h3 className="text-lg font-bold text-slate-800">
-                      {'school' in item ? item.school : item.title}
-                    </h3>
+                    <h3 className="text-lg font-bold text-slate-800">{item.school}</h3>
                     <span className="text-sm font-mono text-slate-500 bg-slate-50 px-2 py-0.5 rounded">
-                      {'period' in item ? item.period : item.year}
+                      {item.period}
                     </span>
                   </div>
                   
-                  <h4 className="text-md text-slate-700 font-medium mb-1">
-                    {'degree' in item ? item.degree : item.org}
-                  </h4>
-                  
-                  {'dept' in item && (
-                    <p className="text-sm text-slate-500 font-light">{item.dept}</p>
-                  )}
+                  <h4 className="text-md text-slate-700 font-medium mb-1">{item.degree}</h4>
+                  <p className="text-sm text-slate-500 font-light">{item.dept}</p>
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* --- New Split Section: Experience vs Skills --- */}
+        <section className="mb-24 grid md:grid-cols-3 gap-8">
+          
+          {/* Left Block: Experience & Awards (Span 2) */}
+          <div className="md:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
+            <div className="flex items-center gap-3 mb-8 border-b border-stone-100 pb-4">
+              <Award className="text-amber-600" size={24} />
+              <h2 className="text-xl font-bold text-slate-800">Experience & Awards</h2>
+            </div>
             
-            {/* Skills Mini Section */}
-            <div className="mt-10 pt-6 border-t border-stone-100">
-               <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-                 <Palette size={14}/> Professional Skills
-               </h3>
-               <div className="flex flex-wrap gap-2">
-                  {skills.map((skill, i) => (
-                    <span key={i} className="px-3 py-1 bg-stone-50 text-stone-600 rounded-md text-sm border border-stone-100">
-                      {skill}
+            <div className="space-y-8 relative pl-2">
+               <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-stone-200"></div>
+               {experienceData.map((item, index) => (
+                <div key={index} className="relative pl-8 group">
+                  <div className={`absolute left-0 top-1.5 w-4 h-4 rounded-full border-2 border-white shadow-sm z-10 ${item.type === 'award' ? 'bg-amber-500' : 'bg-stone-500'}`}></div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                    <h3 className="text-lg font-bold text-slate-800">{item.title}</h3>
+                    <span className="text-sm font-mono text-slate-500 bg-slate-50 px-2 py-0.5 rounded">
+                      {item.year}
                     </span>
-                  ))}
-               </div>
-               <p className="mt-4 text-xs text-slate-400 italic">
-                 Specialized in cross-disciplinary integration: Brand consulting, Team operations, Project management, and Medical dispute resolution.
-               </p>
+                  </div>
+                  <h4 className="text-md text-slate-600 font-medium">{item.org}</h4>
+                </div>
+               ))}
             </div>
           </div>
+
+          {/* Right Block: Professional Skills (Span 1) */}
+          <div className="md:col-span-1 bg-white p-8 rounded-2xl shadow-sm border border-stone-100 h-fit">
+             <div className="flex items-center gap-3 mb-6 pb-2 border-b border-stone-100">
+                <Palette className="text-slate-500" size={20}/> 
+                <h2 className="text-lg font-bold text-slate-700">Professional Skills</h2>
+             </div>
+             
+             <div className="flex flex-wrap gap-2 mb-6">
+                {skills.map((skill, i) => (
+                  <span key={i} className="px-3 py-2 bg-stone-50 text-stone-600 rounded-lg text-sm border border-stone-100 hover:bg-stone-100 hover:border-stone-200 transition-colors">
+                    {skill}
+                  </span>
+                ))}
+             </div>
+             
+             <p className="text-xs text-slate-400 italic leading-relaxed">
+               Specialized in cross-disciplinary integration: Brand consulting, Team operations, Project management, and Medical dispute resolution.
+             </p>
+          </div>
+
         </section>
 
         {/* --- About Me Section --- */}
