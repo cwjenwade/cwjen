@@ -24,7 +24,6 @@ const NAV_ITEMS = [
     zh: '心理治療',
     icon: <Brain size={18} />,
     href: '/psychotherapy',
-    // 根據您的截圖資料夾結構
     subItems: [
       { en: 'Psychoanalysis', zh: '精神分析', href: '/psychotherapy/psychoanalysis' },
       { en: 'Adlerian Therapy', zh: '阿德勒學派', href: '/psychotherapy/adler' },
@@ -84,7 +83,8 @@ const NAV_ITEMS = [
   }
 ];
 
-export default function Navbar() {
+// 修改函式名稱為 TopNavbar 以配合檔名
+export default function TopNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpand, setMobileExpand] = useState<string | null>(null);

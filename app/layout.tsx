@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Noto_Serif_TC, Inter } from 'next/font/google';
-import Navbar from '@/components/navbar'; // ✅ 這裡改成小寫路徑，對應 navbar.tsx
+import TopNavbar from '@/components/TopNavbar'; // ✅ 引用新檔案
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className="bg-[#F7F5F3] text-stone-800 font-sans antialiased min-h-screen flex flex-col">
         
         {/* 頂部導覽列 */}
-        <Navbar />
+        <TopNavbar />
 
         {/* 主要內容區域 */}
         <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
