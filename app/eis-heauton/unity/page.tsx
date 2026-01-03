@@ -16,7 +16,8 @@ const AcademicArticle = () => {
 
   return (
     <div className={`min-h-screen ${colors.bg} font-sans py-12 px-4 sm:px-6 lg:px-8`}>
-      <article className="max-w-4xl mx-auto space-y-16">
+      {/* Expanded max-width for better screen utilization */}
+      <article className="max-w-6xl mx-auto space-y-16">
         
         {/* Header Section */}
         <header className="text-center space-y-4 border-b pb-8 border-[#D1D1D1]">
@@ -36,8 +37,9 @@ const AcademicArticle = () => {
             <h2 className={`text-2xl font-bold ${colors.textPrimary}`}>最初的合一</h2>
           </div>
 
-          <div className="relative w-full h-auto mb-8 rounded-lg overflow-hidden shadow-md">
-            <img src="/Photos/H1.png" alt="H1 - 最初的合一" className="w-full object-cover" />
+          {/* Adjusted image container for better proportion and sizing */}
+          <div className="relative w-full h-auto mb-8 rounded-lg overflow-hidden shadow-md flex justify-center">
+            <img src="/Photos/H1.png" alt="H1 - 最初的合一" className="w-auto h-full object-cover max-h-[500px]" />
           </div>
 
           <div className={`prose max-w-none ${colors.textPrimary} leading-relaxed space-y-6`}>
