@@ -144,8 +144,8 @@ const Portfolio = () => {
           <div className="flex justify-between items-center h-16">
             <div className="text-xl font-serif font-bold tracking-wider text-slate-900">Wade Jen</div>
             <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-              <a href="#home" className="hover:text-blue-900 transition-colors">Home</a>
               <a href="#about" className="hover:text-blue-900 transition-colors">About</a>
+              <a href="#home" className="hover:text-blue-900 transition-colors">Home</a>
               <div className="group relative cursor-pointer flex items-center gap-1 hover:text-blue-900">
                 Eis Heauton <span className="text-xs">▼</span>
                 <div className="absolute top-full left-0 mt-2 w-32 bg-white shadow-lg rounded-md py-2 hidden group-hover:block border border-stone-100">
@@ -162,7 +162,6 @@ const Portfolio = () => {
                 </div>
               </div>
               <a href="#project" className="hover:text-blue-900 transition-colors flex items-center gap-1">Project <span className="text-xs">▶</span></a>
-              <a href="#academic" className="hover:text-blue-900 transition-colors">Academic</a>
             </div>
           </div>
         </div>
