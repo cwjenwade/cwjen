@@ -20,19 +20,19 @@ const Portfolio = () => {
   
   const educationData = [
     {
-      period: "2023 - Present",
+      period: "2025 - Present",
       school: "National Taiwan University",
       degree: "Ph.D. Program in Clinical Psychology",
       dept: "國立臺灣大學心理學系暨研究所 臨床心理博士班研究",
     },
     {
-      period: "2018 - 2021",
+      period: "2022 - 2025",
       school: "National Tsing Hua University",
       degree: "M.A. in Educational Psychology and Counseling",
       dept: "國立清華大學 教育心理與諮商學系 碩士",
     },
     {
-      period: "2014 - 2018",
+      period: "2012 - 2014",
       school: "Kaohsiung Medical University",
       degree: "B.S. in Oral Hygiene",
       dept: "高雄醫學大學 口腔衛生學系 學士",
