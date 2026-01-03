@@ -1,39 +1,38 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navigation from "@/components/Navigation";
+import type { Metadata } from 'next';
+import { Noto_Serif_TC, Inter } from 'next/font/google';
+import Navbar from '@/components/Navbar';
+import './globals.css';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const notoserif = Noto_Serif_TC({ 
+  weight: ['400', '500', '600', '700'], 
+  subsets: ['latin'],
+  variable: '--font-serif' 
 });
 
 export const metadata: Metadata = {
-  title: "Wade Jen",
-  description: "Wade Jen - Psychotherapy and Personal Development",
+  title: 'Titanic | Psychology Research',
+  description: 'Academic resources and research notes on psychotherapy.',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="zh-TW">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <div className="flex flex-col min-h-screen">
-          <Navigation />
-          <main className="flex-1 max-w-4xl mx-auto w-full px-4 py-8">
-            {children}
-          </main>
-        </div>
+    <html lang="zh-TW" className={`${inter.variable} ${notoserif.variable}`}>
+      <body className="bg-[#F7F5F3] text-stone-800 font-sans antialiased min-h-screen flex flex-col">
+        
+        {/* 頂部導覽列 (包含桌面 Hover 選單與手機漢堡選單) */}
+        <Navbar />
+
+        {/* 主要內容區域 */}
+        {/* pt-20 是為了預留 Navbar 的高度，避免內容被遮擋 */}
+        <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
+          {children}
+        </main>
+        
       </body>
     </html>
   );
