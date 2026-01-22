@@ -61,7 +61,7 @@ const NAV_ITEMS = [
     en: 'Couple Therapy',
     zh: '伴侶治療',
     icon: <HeartHandshake size={18} />, // 使用 HeartHandshake icon
-    href: '/couple-therapy',            // 設定路徑
+    href: '/coupletherapy',            // 設定路徑
     subItems: [] 
   },
   // ------------------------------
