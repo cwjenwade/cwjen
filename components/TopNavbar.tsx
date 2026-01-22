@@ -13,11 +13,22 @@ import {
   Users, 
   FolderGit2, 
   User,
-  HeartHandshake // 新增：引入伴侶治療的圖示
+  HeartHandshake,
+  Home // 新增：引入首頁圖示
 } from 'lucide-react';
 
 // --- 資料結構：定義選單項目 (中英對照) ---
 const NAV_ITEMS = [
+  // 1. Home (首頁) - 新增
+  {
+    key: 'home',
+    en: 'Home',
+    zh: '首頁',
+    icon: <Home size={18} />,
+    href: '/',
+    subItems: []
+  },
+  // 2. About (關於我)
   {
     key: 'about',
     en: 'About',
@@ -26,6 +37,19 @@ const NAV_ITEMS = [
     href: '/about',
     subItems: []
   },
+  // 3. Eis-heauton (思想起) - 順序調整至此
+  {
+    key: 'eis-heauton',
+    en: 'Eis-heauton',
+    zh: '思想起',
+    icon: <Feather size={18} />,
+    href: '/eis-heauton',
+    subItems: [
+      { en: 'Freedom', zh: '自由', href: '/eis-heauton/freedom' },
+      { en: 'Unity', zh: '合一', href: '/eis-heauton/unity' },
+    ]
+  },
+  // 4. Psychotherapy (心理治療) - 順序調整至此
   {
     key: 'psychotherapy',
     en: 'Psychotherapy',
@@ -44,27 +68,16 @@ const NAV_ITEMS = [
       { en: 'Postmodern', zh: '後現代取向', href: '/psychotherapy/postmodern' },
     ]
   },
-  {
-    key: 'eis-heauton',
-    en: 'Eis-heauton',
-    zh: '思想起',
-    icon: <Feather size={18} />,
-    href: '/eis-heauton',
-    subItems: [
-      { en: 'Freedom', zh: '自由', href: '/eis-heauton/freedom' },
-      { en: 'Unity', zh: '統整', href: '/eis-heauton/unity' },
-    ]
-  },
-  // --- 新增區塊：Couple Therapy ---
+  // 5. Couple Therapy (伴侶治療)
   {
     key: 'couple',
     en: 'Couple Therapy',
     zh: '伴侶治療',
-    icon: <HeartHandshake size={18} />, // 使用 HeartHandshake icon
-    href: '/coupletherapy',            // 設定路徑
+    icon: <HeartHandshake size={18} />,
+    href: '/coupletherapy',
     subItems: [] 
   },
-  // ------------------------------
+  // 6. Group Therapy (團體治療)
   {
     key: 'group',
     en: 'Group Therapy',
@@ -73,6 +86,7 @@ const NAV_ITEMS = [
     href: '/group-therapy',
     subItems: [] 
   },
+  // 7. Projects (專案計畫)
   {
     key: 'project',
     en: 'Projects',
@@ -129,7 +143,7 @@ export default function TopNavbar() {
             {/* --- Desktop Navigation --- */}
             <nav className="hidden lg:flex items-center gap-2">
               {NAV_ITEMS.map((item) => {
-                const isActive = pathname.startsWith(item.href);
+                const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
                 const hasSub = item.subItems.length > 0;
 
                 return (
@@ -221,7 +235,7 @@ export default function TopNavbar() {
             {NAV_ITEMS.map((item) => {
               const hasSub = item.subItems.length > 0;
               const isExpanded = mobileExpand === item.key;
-              const isActive = pathname.startsWith(item.href);
+              const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
 
               return (
                 <div key={item.key} className="border-b border-stone-100 last:border-0 pb-2">

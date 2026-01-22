@@ -74,14 +74,24 @@ const AcademicNewsletter = () => {
               </div>
 
               <p>
-                只要一哭，媽媽就會馬上出現、給奶喝。寶寶覺得世界會聽他的話，好像自己是小小的神一樣。可是慢慢地，寶寶會發現事情不是這樣。媽媽有時候沒那麼快來，或是在做別的事。這時他開始懂得：「原來媽媽是一個客體（object），是和我不一樣的人。我是我，媽媽是媽媽。」當他明白這件事時，心裡會有各種感覺：他可能生氣、覺得媽媽不好，也可能害怕、難過。這些情緒在心理學裡叫做<span className="bg-[#FAEBD7] px-1 rounded">「投射（projection）」</span>——就是把心裡的感覺丟到別人身上。
+                只要一哭，媽媽就會馬上出現、給奶喝。寶寶覺得世界會聽他的話，好像自己是小小的神一樣。可是慢慢地，寶寶會發現事情不是這樣。媽媽有時候沒那麼快來，或是在做別的事。這時他開始懂得：「原來媽媽是一個客體（object），是和我不一樣的人。我是我，媽媽是媽媽。」
+              </p>
+              
+              {/* Diagram Tag: Separation-Individuation */}
+              <div className="my-8 p-6 bg-gray-50 border border-dashed border-[#C5A059]/40 rounded-lg text-sm text-[#9C8B7E] text-center italic flex flex-col items-center gap-2">
+                 <Layers className="w-6 h-6 opacity-50"/>
+                 <span>[Diagram: The Separation-Individuation Process in Object Relations Theory]</span>
+              </div>
+
+              <p>
+                 當他明白這件事時，心裡會有各種感覺：他可能生氣、覺得媽媽不好，也可能害怕、難過。這些情緒在心理學裡叫做<span className="bg-[#FAEBD7] px-1 rounded">「投射（projection）」</span>——就是把心裡的感覺丟到別人身上。
               </p>
               <p>
                 雖然這樣的心情很複雜，但這正是人開始長大的過程。當寶寶發現自己和媽媽不同，他就慢慢進入所謂的「個體化（individuation）」——意思是，他開始變成一個有自己想法、自己感覺的人。
               </p>
             </div>
 
-            {/* English Text Block (Styled as Reference) */}
+            {/* English Text Block */}
             <div className="bg-[#F9F9F7] p-8 rounded-xl border border-[#EBEBEB] text-[#6B655F] font-serif leading-7 text-sm space-y-4">
               <div className="flex items-center gap-2 mb-2 text-[#C5A059] uppercase text-xs font-bold tracking-widest">
                 <BookOpen className="w-4 h-4" /> English Reference
@@ -254,6 +264,12 @@ const AcademicNewsletter = () => {
                <h2 className={`text-3xl font-bold ${theme.textMain}`}>真實與假性的合一</h2>
             </div>
             
+            {/* Diagram Tag: Fromm's Theory */}
+            <div className="mb-10 p-6 bg-gray-50 border border-dashed border-[#C5A059]/40 rounded-lg text-sm text-[#9C8B7E] text-center italic flex flex-col items-center gap-2">
+                <Layers className="w-6 h-6 opacity-50"/>
+                <span>[Diagram: Symbiotic Union vs. Mature Love in Fromm's Theory]</span>
+            </div>
+
             <div className="grid grid-cols-1 gap-12">
                
                {/* 4.1 TRUE UNION */}
