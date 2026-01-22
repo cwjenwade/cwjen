@@ -21,66 +21,94 @@ export default function GroupTherapyPage() {
   return (
     <main className="min-h-screen bg-[#F7F5F3] font-sans text-stone-700 selection:bg-teal-100 selection:text-teal-900">
       
-      {/* --- Hero Section --- */}
-      <section className="pt-36 pb-24 px-6 relative overflow-hidden">
-        {/* 背景色塊 (靜態) */}
-        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-teal-50/50 rounded-full blur-3xl -z-10 opacity-70 mix-blend-multiply"></div>
-        <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-stone-200/60 rounded-full blur-3xl -z-10 opacity-60 mix-blend-multiply"></div>
+      {/* ================= HERO SECTION ================= */}
+      {/* Layout Change: Split View with Organic Image Container */}
+      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+        {/* 背景裝飾 */}
+        <div className="absolute top-0 right-0 w-[50%] h-[80%] bg-gradient-to-bl from-teal-50/80 to-transparent -z-10 rounded-bl-[100px]"></div>
 
-        <div className="max-w-5xl mx-auto text-center relative z-10">
-           <div className="inline-flex items-center gap-2 px-4 py-2 bg-stone-200/40 rounded-full mb-8 backdrop-blur-sm border border-stone-200/50">
-            <Users size={18} className="text-teal-700" />
-            <span className="text-xs font-bold tracking-widest text-stone-600 uppercase">Group Therapy</span>
-          </div>
-          <h1 className="font-serif text-4xl md:text-6xl text-stone-800 leading-[1.2] mb-8 font-medium">
-            團體諮商與心理治療<br />
-            <span className="text-teal-800/90 mt-3 block text-3xl md:text-5xl">讓改變，在連結中發生</span>
-          </h1>
-        </div>
-
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mt-20 relative z-10">
-          <div className="prose prose-lg prose-stone leading-loose font-light">
-            <p className="text-2xl font-serif text-stone-800 mb-8 leading-snug">
-              團體不只是「很多人在一起的心理治療」，<br/>它是一個具有生命力與互動歷程的場域。
-            </p>
-            <p>
-              團體治療是一種專業心理治療的形式，由一位或多位具備資格的心理師帶領，與一群參與者共同工作。在這樣的治療空間中，參與者通常帶著相似的困擾或人生課題，彼此分享經驗、傾聽故事、表達情緒、探索內在，同時學習建立更健康的人際關係。
-            </p>
-            <div className="my-8 pl-6 border-l-4 border-teal-700/30">
-              <p className="text-stone-700 italic font-medium">
-               在這裡，你會發現自己在人群中的樣貌，也看見他人是如何感受、理解與回應你。
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left: Text Content */}
+          <div className="relative z-10 lg:pr-10">
+             <div className="inline-flex items-center gap-2 px-4 py-2 bg-stone-200/40 rounded-full mb-8 backdrop-blur-sm border border-stone-200/50">
+              <Users size={18} className="text-teal-700" />
+              <span className="text-xs font-bold tracking-widest text-stone-600 uppercase">Group Therapy</span>
+            </div>
+            <h1 className="font-serif text-4xl md:text-6xl text-stone-800 leading-[1.2] mb-8 font-medium">
+              團體諮商與心理治療<br />
+              <span className="text-teal-800/90 mt-3 block text-3xl md:text-5xl">讓改變，在連結中發生</span>
+            </h1>
+            <div className="prose prose-lg prose-stone leading-loose font-light text-stone-600">
+              <p className="text-xl font-serif text-stone-800 mb-6 leading-snug">
+                團體不只是「很多人在一起的心理治療」，<br/>它是一個具有生命力與互動歷程的場域。
               </p>
+              <p className="mb-6">
+                團體治療是一種專業心理治療的形式，由一位或多位具備資格的心理師帶領，與一群參與者共同工作。在這樣的治療空間中，參與者通常帶著相似的困擾或人生課題，彼此分享經驗、傾聽故事、表達情緒、探索內在，同時學習建立更健康的人際關係。
+              </p>
+              <div className="pl-6 border-l-4 border-teal-700/30">
+                <p className="text-stone-700 italic font-medium">
+                 在這裡，你會發現自己在人群中的樣貌，也看見他人是如何感受、理解與回應你。
+                </p>
+              </div>
             </div>
           </div>
-          
-          {/* Image: gp0.png - 圍坐成圈，支持氛圍 */}
-          <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-sm border border-stone-200 bg-white p-4">
-             <img 
-               src="/group-therapy/gp0.png" 
-               alt="多位成人圍坐成圈進行團體對話，展現支持與互動氛圍" 
-               className="w-full h-full object-contain"
-             />
+
+          {/* Right: Image (gp0.png) - Replaces Animation */}
+          {/* Layout: Organic Rounded Container */}
+          <div className="relative mt-12 lg:mt-0">
+            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl shadow-stone-200 border-8 border-white transform rotate-1 hover:rotate-0 transition-transform duration-700">
+               <img 
+                 src="https://cwjen.vercel.app/Photos/gp0.png" 
+                 alt="多位成人圍坐成圈進行團體對話，呈現支持性與互動性的團體氛圍"
+                 className="w-full h-auto object-cover scale-105 hover:scale-100 transition-transform duration-1000"
+               />
+               <div className="absolute inset-0 bg-teal-900/10 mix-blend-multiply pointer-events-none"></div>
+            </div>
+            {/* Decorative dots */}
+            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-stone-200/50 rounded-full blur-xl -z-10"></div>
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-teal-100/50 rounded-full blur-xl -z-10"></div>
           </div>
         </div>
 
-        {/* Logistics Banner */}
-        <div className="max-w-4xl mx-auto mt-24 bg-white/60 backdrop-blur-md p-8 rounded-2xl shadow-sm border border-stone-200/60 flex flex-wrap justify-around gap-8 text-sm md:text-base relative z-10">
-          <div className="flex items-center gap-3 text-stone-700 font-medium">
-            <Users className="text-teal-600" size={22}/>
-            <span>每團約 5-15 人 (小型約 4 人)</span>
-          </div>
-          <div className="flex items-center gap-3 text-stone-700 font-medium">
-            <Clock className="text-teal-600" size={22}/>
-            <span>每次會談約 1.5 - 2 小時</span>
-          </div>
-          <div className="flex items-center gap-3 text-stone-700 font-medium">
-            <Video className="text-teal-600" size={22}/>
-            <span>形式多元：面對面或線上進行</span>
+        {/* Logistics Banner with Image (gp6.png) */}
+        {/* Layout: Integrating image as a visual anchor for logistics */}
+        <div className="max-w-5xl mx-auto mt-24">
+          <div className="bg-white rounded-3xl shadow-sm border border-stone-100 overflow-hidden flex flex-col md:flex-row">
+             <div className="md:w-1/3 bg-stone-50 relative min-h-[200px]">
+                <img 
+                  src="https://cwjen.vercel.app/Photos/gp6.png" 
+                  alt="空圓桌周圍擺放數張椅子與杯子，象徵團體會談前的準備狀態"
+                  className="absolute inset-0 w-full h-full object-cover opacity-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20"></div>
+             </div>
+             <div className="md:w-2/3 p-8 flex flex-col justify-center">
+                <h3 className="font-serif text-xl text-stone-800 mb-6 flex items-center gap-2">
+                  <Sparkles size={20} className="text-teal-600"/>
+                  團體設置
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-stone-600">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-teal-700 shrink-0"><Users size={20}/></div>
+                    <span className="font-medium">每團約 5-15 人<br/><span className="text-xs text-stone-400 font-normal">小型約 4 人</span></span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-teal-700 shrink-0"><Clock size={20}/></div>
+                    <span className="font-medium">每次會談<br/><span className="text-xs text-stone-400 font-normal">約 1.5 - 2 小時</span></span>
+                  </div>
+                  <div className="flex items-center gap-3 sm:col-span-2">
+                    <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-teal-700 shrink-0"><Video size={20}/></div>
+                    <span className="font-medium">形式多元：面對面或線上進行</span>
+                  </div>
+                </div>
+             </div>
           </div>
         </div>
       </section>
 
-      {/* --- Core Features --- */}
+      {/* ================= CORE FEATURES ================= */}
+      {/* Layout: Broken Grid with Image Interruption */}
       <section className="py-24 px-6 bg-white relative z-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
@@ -88,102 +116,79 @@ export default function GroupTherapyPage() {
             <p className="text-stone-500 font-light">為什麼我們需要「在一起」接受治療？</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div className="grid grid-cols-1 gap-8">
-              <div className="flex gap-5 items-start p-6 rounded-2xl bg-[#F7F5F3]/50 border border-stone-100">
-                <div className="p-3 bg-teal-100/50 rounded-xl text-teal-600 shrink-0"><Shield size={24}/></div>
-                <div>
-                  <h3 className="text-xl font-bold text-stone-800 mb-2">一個安全、真實的互動空間</h3>
-                  <p className="text-stone-600 leading-relaxed font-light">在治療師的引導下，每位成員都可以表達真實感受、歷程與困難，同時從他人身上看見「我並不孤單」，彼此理解、支持與陪伴。</p>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            
+            {/* Left Column: Features List */}
+            <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex flex-col p-6 rounded-2xl bg-[#F7F5F3] border border-stone-100 hover:border-teal-200 transition-colors h-full">
+                <div className="w-12 h-12 bg-white rounded-xl text-teal-600 flex items-center justify-center mb-4 shadow-sm"><Shield size={24}/></div>
+                <h3 className="text-lg font-bold text-stone-800 mb-2">安全、真實的空間</h3>
+                <p className="text-stone-600 text-sm leading-relaxed font-light">在引導下表達真實感受，看見「我並不孤單」，彼此理解與陪伴。</p>
               </div>
-              <div className="flex gap-5 items-start p-6 rounded-2xl bg-[#F7F5F3]/50 border border-stone-100">
-                <div className="p-3 bg-teal-100/50 rounded-xl text-teal-600 shrink-0"><Users size={24}/></div>
-                <div>
-                  <h3 className="text-xl font-bold text-stone-800 mb-2">彼此學習與模仿的場域</h3>
-                  <p className="text-stone-600 leading-relaxed font-light">我們總是在關係中學會自己是誰。團體中，你可以看到別人怎麼說出情緒、表達需要，進而學習新的應對方式與人際溝通策略。</p>
-                </div>
+               <div className="flex flex-col p-6 rounded-2xl bg-[#F7F5F3] border border-stone-100 hover:border-teal-200 transition-colors h-full">
+                <div className="w-12 h-12 bg-white rounded-xl text-teal-600 flex items-center justify-center mb-4 shadow-sm"><Users size={24}/></div>
+                <h3 className="text-lg font-bold text-stone-800 mb-2">彼此學習的場域</h3>
+                <p className="text-stone-600 text-sm leading-relaxed font-light">看見別人怎麼表達需要，進而學習新的應對方式與溝通策略。</p>
               </div>
-              <div className="flex gap-5 items-start p-6 rounded-2xl bg-[#F7F5F3]/50 border border-stone-100">
-                <div className="p-3 bg-teal-100/50 rounded-xl text-teal-600 shrink-0"><Layers size={24}/></div>
-                <div>
-                  <h3 className="text-xl font-bold text-stone-800 mb-2">多元議題都能適用</h3>
-                  <p className="text-stone-600 leading-relaxed font-light">應用非常廣泛，從焦慮、憂鬱、創傷修復，到親密關係、自我探索、情緒調節、人際互動，皆有對應的團體形式。</p>
-                </div>
+               <div className="flex flex-col p-6 rounded-2xl bg-[#F7F5F3] border border-stone-100 hover:border-teal-200 transition-colors h-full">
+                <div className="w-12 h-12 bg-white rounded-xl text-teal-600 flex items-center justify-center mb-4 shadow-sm"><Layers size={24}/></div>
+                <h3 className="text-lg font-bold text-stone-800 mb-2">多元議題適用</h3>
+                <p className="text-stone-600 text-sm leading-relaxed font-light">從焦慮、憂鬱、創傷修復，到親密關係、自我探索皆適用。</p>
+              </div>
+               <div className="flex flex-col p-6 rounded-2xl bg-[#F7F5F3] border border-stone-100 hover:border-teal-200 transition-colors h-full">
+                <div className="w-12 h-12 bg-white rounded-xl text-teal-600 flex items-center justify-center mb-4 shadow-sm"><Puzzle size={24}/></div>
+                <h3 className="text-lg font-bold text-stone-800 mb-2">與個別治療互補</h3>
+                <p className="text-stone-600 text-sm leading-relaxed font-light">許多人同時參與，以不同角度深化自我理解與改變歷程。</p>
               </div>
             </div>
 
-            {/* Image: gp5.png - 放鬆姿態，共享空間 */}
-            <div className="space-y-8">
-               <div className="w-full rounded-3xl overflow-hidden shadow-sm border border-stone-100 bg-[#F7F5F3] p-6">
+            {/* Right Column: Visual Anchor (gp5.png) */}
+            <div className="lg:col-span-5 sticky top-24">
+               <div className="relative rounded-2xl overflow-hidden shadow-lg border-4 border-stone-100">
                   <img 
-                    src="/group-therapy/gp5.png" 
+                    src="https://cwjen.vercel.app/Photos/gp5.png" 
                     alt="多位成員圍坐成圈，姿態放鬆，呈現團體聚集與共享空間的情境" 
                     className="w-full h-auto object-cover"
                   />
-                  <p className="text-center text-stone-500 text-sm mt-4 font-serif italic">支持性的團體歷程，帶來安定的力量</p>
+                  <div className="absolute bottom-0 left-0 w-full bg-white/90 backdrop-blur-sm p-6 border-t border-stone-100">
+                    <p className="font-serif text-stone-800 text-lg italic">
+                      "Shared Space, Shared Growth"
+                    </p>
+                    <p className="text-xs text-stone-500 mt-1 uppercase tracking-wider">Supportive Atmosphere</p>
+                  </div>
                </div>
-               
-               <div className="flex gap-5 items-start p-6 rounded-2xl bg-[#F7F5F3]/50 border border-stone-100">
-                <div className="p-3 bg-teal-100/50 rounded-xl text-teal-600 shrink-0"><Puzzle size={24}/></div>
-                <div>
-                  <h3 className="text-xl font-bold text-stone-800 mb-2">可以與個別治療互補</h3>
-                  <p className="text-stone-600 leading-relaxed font-light">許多參與者會在進行個別治療的同時，也參加團體治療，以不同角度深化自我理解與改變歷程。</p>
-                </div>
-              </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* --- Comparison Table --- */}
-      <section className="py-24 px-6 bg-[#F7F5F3] relative z-10">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-serif text-3xl text-center text-stone-800 mb-16">團體治療與支持性團體的差異</h2>
-          
-          <div className="overflow-hidden rounded-3xl border border-stone-200/80 shadow-sm bg-white">
-            <div className="grid grid-cols-3 bg-stone-100/80 p-5 text-stone-800 font-bold text-center border-b border-stone-200">
-              <div className="col-span-1 text-left pl-6">項目</div>
-              <div className="col-span-1 text-teal-800">團體治療 (Group Therapy)</div>
-              <div className="col-span-1 text-stone-500">支持性／自助團體 (Support Group)</div>
-            </div>
-            
-            <div className="divide-y divide-stone-100">
-              <div className="grid grid-cols-3 p-6 items-center leading-relaxed">
-                <div className="font-medium text-stone-700 flex items-center gap-3 pl-2"><ChevronDown size={18} className="text-teal-400 shrink-0"/>引導者</div>
-                <div className="text-center text-stone-800 font-medium bg-teal-50/50 py-3 rounded-xl mx-4">由專業心理師帶領</div>
-                <div className="text-center text-stone-600 font-light">無專業引導，常由成員自組</div>
-              </div>
-              <div className="grid grid-cols-3 p-6 items-center leading-relaxed">
-                <div className="font-medium text-stone-700 flex items-center gap-3 pl-2"><ChevronDown size={18} className="text-teal-400 shrink-0"/>結構性</div>
-                <div className="text-center text-stone-800 font-medium bg-teal-50/50 py-3 rounded-xl mx-4">有心理治療架構與目標</div>
-                <div className="text-center text-stone-600 font-light">以經驗分享、支持為主</div>
-              </div>
-               <div className="grid grid-cols-3 p-6 items-center leading-relaxed">
-                <div className="font-medium text-stone-700 flex items-center gap-3 pl-2"><ChevronDown size={18} className="text-teal-400 shrink-0"/>工作重點</div>
-                <div className="text-center text-stone-800 font-medium bg-teal-50/50 py-3 rounded-xl mx-4">深入探索互動、促進改變</div>
-                <div className="text-center text-stone-600 font-light">提供陪伴、舒緩孤單感</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- Why it works (Block background) --- */}
-      <section className="py-24 px-6 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-[#F7F5F3] -z-20"></div>
+      {/* ================= WHY IT WORKS ================= */}
+      {/* Layout: Image as Background/Texture (gp2.png) */}
+      <section className="py-24 px-6 relative overflow-hidden bg-stone-900 text-stone-200">
         
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+           <img 
+             src="https://cwjen.vercel.app/Photos/gp2.png" 
+             alt="四人圍坐進行深度交談"
+             className="w-full h-full object-cover opacity-20 filter grayscale contrast-125" 
+           />
+           <div className="absolute inset-0 bg-stone-900/60"></div>
+        </div>
+
         <div className="max-w-5xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl text-stone-800 mb-8">為什麼團體治療能帶來改變？</h2>
-            <p className="text-lg text-stone-600 leading-loose font-light max-w-3xl mx-auto">
-              團體諮商與心理治療是一種深層的轉化歷程。它的影響來自<span className="text-teal-700 font-medium">關係中的真實接觸與互動經驗</span>。
+          <div className="text-center mb-20">
+            <h2 className="font-serif text-3xl md:text-4xl text-stone-50 mb-8">為什麼團體治療能帶來改變？</h2>
+            <p className="text-lg text-stone-300 leading-loose font-light max-w-3xl mx-auto">
+              團體諮商與心理治療是一種深層的轉化歷程。它的影響來自<span className="text-teal-400 font-medium">關係中的真實接觸與互動經驗</span>。
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div>
-              <h3 className="font-serif text-2xl text-stone-800 mb-8 flex items-center gap-3">
+            {/* Left: Mechanisms */}
+            <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-3xl border border-stone-700/50">
+              <h3 className="font-serif text-2xl text-teal-100 mb-8 flex items-center gap-3">
                 <Sparkles className="text-teal-500" strokeWidth={1.5} />
                 改變的核心機制
               </h3>
@@ -192,31 +197,32 @@ export default function GroupTherapyPage() {
                   "減少孤立感，感受到「我不是一個人」",
                   "在互動中學會新的關係模式與情緒表達方式",
                   "增進對自我的理解與覺察",
-                  "來自多位成員的支持與被接納的經驗，看見不同觀點",
+                  "來自多位成員的支持與被接納的經驗",
                   "提供一個安全的實驗場，勇敢嘗試過去不敢做的事"
                 ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-4 p-5 bg-white/70 rounded-2xl shadow-sm border border-stone-100">
-                    <div className="w-8 h-8 rounded-full bg-teal-100/50 flex items-center justify-center text-teal-700 font-serif shrink-0 text-sm">{index + 1}</div>
-                    <p className="text-stone-700 leading-relaxed pt-1 font-light">{item}</p>
+                  <li key={index} className="flex items-start gap-4">
+                    <div className="w-6 h-6 rounded-full border border-teal-500/50 flex items-center justify-center text-teal-400 font-serif shrink-0 text-xs">{index + 1}</div>
+                    <p className="text-stone-300 leading-relaxed pt-0.5 font-light">{item}</p>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="bg-white/60 backdrop-blur-md p-10 rounded-[2.5rem] border border-stone-200/60 shadow-sm">
-              <h3 className="font-serif text-2xl text-stone-800 mb-8">回應現代人的核心需求</h3>
-              <div className="space-y-8">
+            {/* Right: Modern Needs */}
+            <div className="py-8">
+              <h3 className="font-serif text-2xl text-stone-100 mb-8">回應現代人的核心需求</h3>
+              <div className="space-y-10 border-l border-stone-700 pl-8">
                 <div>
-                  <h4 className="text-lg font-bold text-teal-800 mb-2">一個可以被理解的空間</h4>
-                  <p className="text-stone-600 text-sm leading-relaxed font-light">能夠安心表達，不被評價，也不是被教訓，而是被真正聽見。</p>
+                  <h4 className="text-lg font-bold text-teal-500 mb-2">被理解的空間</h4>
+                  <p className="text-stone-400 text-sm leading-relaxed font-light">能夠安心表達，不被評價，也不是被教訓，而是被真正聽見。</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-teal-800 mb-2">練習人際互動與表達的場域</h4>
-                  <p className="text-stone-600 text-sm leading-relaxed font-light">許多人難以說出真正的感受或設下界線，團體是練習關係的實驗場。</p>
+                  <h4 className="text-lg font-bold text-teal-500 mb-2">人際互動實驗場</h4>
+                  <p className="text-stone-400 text-sm leading-relaxed font-light">許多人難以說出真正的感受或設下界線，團體是練習關係的場所。</p>
                 </div>
                  <div>
-                  <h4 className="text-lg font-bold text-teal-800 mb-2">經濟與心理上可負擔的支持</h4>
-                  <p className="text-stone-600 text-sm leading-relaxed font-light">相較個別治療，團體治療成本較低，也更容易持續參與。</p>
+                  <h4 className="text-lg font-bold text-teal-500 mb-2">可負擔的支持</h4>
+                  <p className="text-stone-400 text-sm leading-relaxed font-light">相較個別治療，團體治療成本較低，也更容易持續參與。</p>
                 </div>
               </div>
             </div>
@@ -224,122 +230,161 @@ export default function GroupTherapyPage() {
         </div>
       </section>
 
-      {/* --- Special Feature: Unstructured Group --- */}
-      <section className="py-24 px-6 relative overflow-hidden bg-white">
+      {/* ================= COMPARISON TABLE ================= */}
+      <section className="py-24 px-6 bg-[#F7F5F3] relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="font-serif text-3xl text-center text-stone-800 mb-16">團體治療 vs 支持性團體</h2>
+          
+          <div className="overflow-hidden rounded-3xl border border-stone-200/80 shadow-sm bg-white">
+            <div className="grid grid-cols-3 bg-stone-100/50 p-5 text-stone-800 font-bold text-center border-b border-stone-200">
+              <div className="col-span-1 text-left pl-6">項目</div>
+              <div className="col-span-1 text-teal-800">團體治療 (Therapy)</div>
+              <div className="col-span-1 text-stone-500">支持團體 (Support)</div>
+            </div>
+            
+            <div className="divide-y divide-stone-100">
+              <div className="grid grid-cols-3 p-6 items-center hover:bg-stone-50/50 transition-colors leading-relaxed">
+                <div className="font-medium text-stone-700 pl-2">引導者</div>
+                <div className="text-center text-stone-800 font-medium bg-teal-50/50 py-2 rounded-lg mx-2 text-sm">由專業心理師帶領</div>
+                <div className="text-center text-stone-600 font-light text-sm">無專業引導，成員自組</div>
+              </div>
+              <div className="grid grid-cols-3 p-6 items-center hover:bg-stone-50/50 transition-colors leading-relaxed">
+                <div className="font-medium text-stone-700 pl-2">結構性</div>
+                <div className="text-center text-stone-800 font-medium bg-teal-50/50 py-2 rounded-lg mx-2 text-sm">有心理治療架構與目標</div>
+                <div className="text-center text-stone-600 font-light text-sm">以經驗分享、支持為主</div>
+              </div>
+               <div className="grid grid-cols-3 p-6 items-center hover:bg-stone-50/50 transition-colors leading-relaxed">
+                <div className="font-medium text-stone-700 pl-2">工作重點</div>
+                <div className="text-center text-stone-800 font-medium bg-teal-50/50 py-2 rounded-lg mx-2 text-sm">深入探索互動、促進改變</div>
+                <div className="text-center text-stone-600 font-light text-sm">提供陪伴、舒緩孤單感</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= COMMON TYPES ================= */}
+      <section className="py-24 px-6 bg-white border-t border-stone-100">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-serif text-3xl text-center text-stone-800 mb-20">常見的團體類型</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: MessageCircle, title: "動力取向團體", desc: "聚焦人際歷程，探索互動與情感反應。" },
+              { icon: BookOpen, title: "技能訓練團體", desc: "教導具體技巧，如情緒調節、正念練習。" },
+              { icon: HeartPulse, title: "支持性／問題導向", desc: "聚焦在特定困擾，如成癮、悲傷、失戀等。" },
+              { icon: HandHeart, title: "心理教育團體", desc: "傳授心理知識與自我照顧方法。" }
+            ].map((type, idx) => (
+              <div key={idx} className="p-8 rounded-2xl bg-stone-50 border border-stone-100 text-center hover:bg-teal-50/30 transition-colors">
+                <type.icon size={32} className="text-teal-600 mx-auto mb-4" strokeWidth={1.5} />
+                <h3 className="text-lg font-bold text-stone-800 mb-2">{type.title}</h3>
+                <p className="text-stone-600 font-light text-sm">{type.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= UNSTRUCTURED GROUP ================= */}
+      {/* Layout: Image replacing flow animation (gp1.png) */}
+      <section className="py-24 px-6 relative overflow-hidden bg-[#F0FDF4]/30">
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="inline-block px-4 py-1.5 bg-teal-100/50 text-teal-700 text-xs tracking-widest font-bold rounded-full mb-6 border border-teal-100">特別介紹</div>
           <h2 className="font-serif text-4xl md:text-5xl text-stone-900 mb-10 leading-tight font-medium">
             非結構團體<br/>
-            <span className="text-3xl md:text-4xl text-teal-800/70 mt-2 block">(Unstructured Group)</span>
+            <span className="text-3xl md:text-4xl text-teal-800/70 mt-2 block font-normal">(Unstructured Group)</span>
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+            {/* Text */}
             <div className="prose prose-lg prose-stone leading-loose font-light">
               <p>
                 非結構團體，也常被稱為「人際歷程團體」或「探索式團體」，是一種沒有明確主題或教學活動安排的開放式團體。焦點不在課程，而是在<strong className="text-teal-700 font-medium">當下彼此的情緒、互動與關係中</strong>。
               </p>
-              <div className="my-10 pl-6 border-l-4 border-teal-300 italic text-stone-700 text-xl font-serif">
+              <div className="my-8 pl-6 border-l-4 border-teal-300 italic text-stone-700 text-xl font-serif">
                 <p>這種團體強調的是「與人真實相遇」，而不是「學到某個技巧」。</p>
               </div>
-              <h4 className="text-lg font-bold text-stone-800 mb-6">進行方式：</h4>
-              <ul className="marker:text-teal-400 space-y-3">
-                <li>沒有固定議題，由成員自由分享感受或對他人的回應</li>
-                <li>治療師不主導內容，而是促進互動、觀察動力、適時介入</li>
+              <ul className="space-y-2 list-disc pl-5 text-base">
+                <li>沒有固定議題，由成員自由分享感受</li>
+                <li>治療師不主導內容，而是促進互動、觀察動力</li>
                 <li>主題自然浮現，例如焦慮、疏離、親密的渴望</li>
-                <li>沉默、對視、衝突、靠近、退縮，都被視為重要的訊號</li>
               </ul>
             </div>
-            
-            {/* Image: gp2.png - 深度交談，肢體前傾 */}
-            <div>
-              <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-sm border border-stone-100 bg-[#F7F5F3] p-4">
-                <img 
-                  src="/group-therapy/gp2.png" 
-                  alt="四人圍坐進行深度交談，肢體微微前傾，呈現投入與回應中的互動關係" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-               <p className="text-center text-stone-400 text-sm mt-6 font-serif italic">（象徵互動自然流動，專注於當下的關係）</p>
+
+            {/* Image (gp1.png) - Dynamic Discussion */}
+            <div className="relative">
+               <div className="p-4 bg-white border border-stone-200 rounded-lg shadow-sm rotate-2">
+                 <img 
+                   src="https://cwjen.vercel.app/Photos/gp1.png" 
+                   alt="數人圍繞圓桌進行討論，畫面聚焦於對話中的姿態與專注狀態" 
+                   className="w-full h-auto grayscale-[20%] contrast-[1.1]"
+                 />
+                 <p className="text-center text-xs text-stone-400 mt-2 font-serif italic tracking-wide">
+                   Flow of Interaction
+                 </p>
+               </div>
             </div>
           </div>
 
-          {/* Core Value & Unmasking */}
-          <div className="bg-[#F7F5F3]/60 p-12 rounded-[3rem] shadow-sm border border-stone-100 text-center max-w-4xl mx-auto">
+          {/* Unmasking Section with Image (gp3.png) */}
+          <div className="bg-white p-12 rounded-[3rem] shadow-xl shadow-stone-200/50 border border-stone-100 text-center max-w-3xl mx-auto">
              
-             {/* Image: gp3.png - 空椅人臉，隱喻性 */}
-             <div className="w-64 mx-auto mb-8 aspect-square rounded-full overflow-hidden border-4 border-white shadow-sm">
+             {/* Image: Unmasking Metaphor */}
+             <div className="w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-stone-50 shadow-inner bg-stone-100 relative">
                 <img 
-                  src="/group-therapy/gp3.png" 
+                  src="https://cwjen.vercel.app/Photos/gp3.png" 
                   alt="一張空椅上出現人臉意象，象徵缺席、沉默或尚未被表述的主體位置" 
-                  className="w-full h-full object-cover scale-110"
+                  className="w-full h-full object-cover scale-125 translate-y-2 opacity-90"
                 />
              </div>
             
-            <h3 className="font-serif text-3xl text-stone-800 mb-8">為什麼非結構團體這麼有力量？</h3>
-            <p className="text-lg text-stone-600 leading-loose mb-12 max-w-3xl mx-auto font-light">
-              在日常生活中，我們經常在角色與功能中行走，習慣戴著面具互動。但在非結構團體中，這些防衛可以被放下，讓真實的情緒流動，讓內在的需求被看見。<br/><br/>
+            <h3 className="font-serif text-3xl text-stone-800 mb-6">為什麼非結構團體這麼有力量？</h3>
+            <p className="text-lg text-stone-600 leading-loose mb-10 max-w-2xl mx-auto font-light">
+              在日常生活中，我們經常在角色與功能中行走，習慣戴著面具互動。但在這裡，這些防衛可以被放下，讓真實的情緒流動。<br/>
               這是一個提醒你：<strong className="text-teal-700 font-medium">「你可以不一樣，你可以真實」</strong>的場域。
             </p>
             
-            <div className="flex flex-wrap justify-center gap-4 font-serif text-lg text-teal-800/80">
-              <span className="px-6 py-3 bg-white rounded-full border border-stone-200">原來我一直是這樣靠近他人</span>
-              <span className="px-6 py-3 bg-white rounded-full border border-stone-200">原來我很渴望被看見</span>
-              <span className="px-6 py-3 bg-teal-50/50 rounded-full border border-teal-100 font-bold text-teal-800">原來，我可以改變</span>
+            <div className="flex flex-wrap justify-center gap-4 font-serif text-base text-teal-800/80">
+              <span className="px-5 py-2 bg-[#F7F5F3] rounded-full border border-stone-200">原來我一直是這樣靠近他人</span>
+              <span className="px-5 py-2 bg-teal-50/50 rounded-full border border-teal-100 font-bold text-teal-800">原來，我可以改變</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* --- Comparison Table 2: Structured vs Unstructured --- */}
-      <section className="py-24 px-6 bg-white relative z-20 border-t border-stone-100">
+      {/* ================= COMPARISON TABLE 2 ================= */}
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-serif text-3xl text-center text-stone-800 mb-16">非結構 vs 結構團體的比較</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* 非結構團體 Card */}
-            <div className="bg-teal-50/40 rounded-[2.5rem] p-10 border border-teal-100/60 shadow-sm overflow-hidden relative">
-              <h3 className="font-serif text-2xl text-teal-800 mb-8 text-center">非結構團體</h3>
-              <ul className="space-y-5 text-stone-700 leading-relaxed font-light">
-                <li className="flex gap-4"><span className="font-bold text-teal-700 shrink-0">主題來源：</span>當下互動自然浮現</li>
-                <li className="flex gap-4"><span className="font-bold text-teal-700 shrink-0">進行方式：</span>開放性討論，自由互動</li>
-                <li className="flex gap-4"><span className="font-bold text-teal-700 shrink-0">治療目標：</span>關係與自我覺察</li>
-                <li className="flex gap-4"><span className="font-bold text-teal-700 shrink-0">治療師角色：</span>促進者、動力觀察者</li>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* 非結構 */}
+            <div className="bg-teal-50/30 rounded-3xl p-8 border border-teal-100">
+              <h3 className="font-serif text-2xl text-teal-800 mb-6 text-center">非結構團體</h3>
+              <ul className="space-y-4 text-stone-700 text-sm leading-relaxed">
+                <li className="flex justify-between border-b border-teal-100 pb-2"><span>主題</span><span className="font-medium text-teal-900">自然浮現</span></li>
+                <li className="flex justify-between border-b border-teal-100 pb-2"><span>方式</span><span className="font-medium text-teal-900">開放討論，自由互動</span></li>
+                <li className="flex justify-between border-b border-teal-100 pb-2"><span>目標</span><span className="font-medium text-teal-900">關係與自我覺察</span></li>
+                <li className="flex justify-between pt-2"><span>角色</span><span className="font-medium text-teal-900">促進者、觀察者</span></li>
               </ul>
             </div>
 
-             {/* 結構團體 Card */}
-            <div className="bg-[#F7F5F3] rounded-[2.5rem] p-10 border border-stone-100 shadow-sm overflow-hidden relative flex flex-col">
-              <h3 className="font-serif text-2xl text-stone-800 mb-8 text-center">結構團體</h3>
-              
-              {/* Image: gp1.png - 圓桌，結構性 */}
-              <div className="w-full aspect-video rounded-xl overflow-hidden mb-8 border border-stone-200">
-                 <img 
-                   src="/group-therapy/gp1.png" 
-                   alt="數人圍繞圓桌進行討論，聚焦於對話姿態與專注狀態" 
-                   className="w-full h-full object-cover"
-                 />
-              </div>
-
-              <ul className="space-y-5 text-stone-700 leading-relaxed font-light">
-                <li className="flex gap-4"><span className="font-bold text-stone-600 shrink-0">主題來源：</span>治療師事先設定</li>
-                <li className="flex gap-4"><span className="font-bold text-stone-600 shrink-0">進行方式：</span>明確流程與教學練習</li>
-                <li className="flex gap-4"><span className="font-bold text-stone-600 shrink-0">治療目標：</span>技能學習、心理教育</li>
+             {/* 結構 */}
+            <div className="bg-stone-50 rounded-3xl p-8 border border-stone-100">
+              <h3 className="font-serif text-2xl text-stone-800 mb-6 text-center">結構團體</h3>
+              <ul className="space-y-4 text-stone-700 text-sm leading-relaxed">
+                <li className="flex justify-between border-b border-stone-200 pb-2"><span>主題</span><span className="font-medium text-stone-900">事先設定</span></li>
+                <li className="flex justify-between border-b border-stone-200 pb-2"><span>方式</span><span className="font-medium text-stone-900">明確流程與練習</span></li>
+                <li className="flex justify-between border-b border-stone-200 pb-2"><span>目標</span><span className="font-medium text-stone-900">技能學習、教育</span></li>
+                <li className="flex justify-between pt-2"><span>角色</span><span className="font-medium text-stone-900">引導者、教學者</span></li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* --- CTA Section --- */}
+      {/* ================= CTA SECTION ================= */}
       <section className="py-24 px-6 text-center bg-stone-800 text-stone-200 relative overflow-hidden">
-        {/* Image: gp6.png - 空圓桌，準備狀態 */}
-        <div className="absolute inset-0 w-full h-full opacity-10">
-           <img 
-             src="/group-therapy/gp6.png" 
-             alt="空圓桌周圍擺放數張椅子與杯子，象徵團體會談前的準備狀態" 
-             className="w-full h-full object-cover"
-           />
-        </div>
         <div className="max-w-3xl mx-auto relative z-10">
           <h2 className="font-serif text-3xl md:text-4xl mb-8 leading-tight font-medium text-stone-100">
             準備好在關係中探索自己了嗎？
@@ -347,9 +392,9 @@ export default function GroupTherapyPage() {
           <p className="text-stone-300 text-lg mb-12 leading-loose font-light">
             如需安排團體體驗、初談諮詢或獲得最新團體開課資訊，<br/>歡迎與我們聯繫。
           </p>
-          <button className="inline-flex items-center gap-3 px-10 py-4 bg-teal-700 text-white text-lg font-bold rounded-full overflow-hidden shadow-lg hover:bg-teal-600">
-            <span>聯絡我們，開始探索</span>
-            <ArrowRight size={20}/>
+          <button className="group relative inline-flex items-center gap-3 px-10 py-4 bg-teal-700 text-white text-lg font-bold rounded-full overflow-hidden shadow-lg shadow-teal-900/20 hover:bg-teal-600 transition-all duration-300">
+            <span className="relative z-10 tracking-wider">聯絡我們，開始探索</span>
+            <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform"/>
           </button>
         </div>
       </section>
