@@ -48,20 +48,21 @@ export default function AboutPage() {
       type: "award"
     },
     {
-      year: "16-19",
-      title: "臨床實習導師 Mentor / Instructor",
-      org: "臺北醫學大學口腔衛生學系",
-      type: "job"
+      year: "2024",
+      title: "培育跨領域教育領袖獲獎人",
+      org: "清華大學竹師教育學院",
+      type: "honor"
     },
     {
-      year: "16-18",
-      title: "輔導委員 Advisory Supervisor",
-      org: "教育部國民及學前教育署，台灣",
-      type: "job"
-    }
+      year: "2023, 2024",
+      title: "徐道寧教授數學人文關懷獎學金獲獎人",
+      org: "國立清華大學",
+      type: "honor"
+    },
   ];
 
   const speechPsychology = [
+    { year: "2026", title: "當工作觸發我們的依附：非營利組織的職場心理健康", location: "台灣公益社會實踐協會" },
     { year: "2025", title: "走進東歐研討會：學生研究投入的視野拓展與動機啟發", location: "清華大學教育心理與諮商學系" },
     { year: "2024", title: "童年情感忽視；暖心熊抱團體圖書會", location: "陽明交通大學諮商中心" },
     { year: "2024", title: "舒心熊熊-流體熊藝術創作療癒工作坊", location: "陽明交通大學諮商中心" },
@@ -84,7 +85,7 @@ export default function AboutPage() {
       "任祈蔚（2025）。以依附為基礎的家族治療於青少年憂鬱與自殺介入之應用與本土化考量。輔導季刊，61(3)，33-49。"
     ],
     conferences: [
-      "Jen, C.-W., & Hsu, Y.-K. (2025, November 15). Narrative inquiry for the transformation process of alexithymia tendency college students in group counseling based on interpersonal interaction orientation [Conference presentation]. Taiwan Counseling Association Annual Meeting, Taichung, Taiwan.",
+      "Jen, C.-W., & Hsu, Y. K. (2025, November 15). Narrative inquiry for the transformation process of alexithymia tendency college students in group counseling based on interpersonal interaction orientation [Conference presentation]. Taiwan Counseling Association Annual Meeting, Taichung, Taiwan.",
       "Jen, C. W. Hsu, Y. K. (2025, June 25-29). The Emotions and Emodiversity in Alexithymia. [Conference presentation] 56th International Annual Meeting of the Society for Psychotherapy Research (SPR). Krakow, Poland.",
       "Jen, C.-W., Hsu, Y. K., & Chuah, S. K. (2025, June 25-29). Defensiveness in Encounter Groups for Taiwanese Sexual Minority Males. [Conference presentation] 56th International Annual Meeting of the Society for Psychotherapy Research (SPR). Krakow, Poland.",
       "Jen, C. W. (2024, Nov 25-29). Integration of Group Counseling in Taiwan’s Learning Assistance Program: an Action Research Approach. [Poster presentation] 16th The Asian Conference on Education.",
