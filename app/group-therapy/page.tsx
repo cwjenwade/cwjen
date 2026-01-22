@@ -188,7 +188,7 @@ export default function GroupTherapyPage() {
               </div>
             </div>
              <div className="flex gap-5 items-start p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow">
-              <div className="p-3 bg-blue-100/50 rounded-xl text-blue-600 shrink-0"><Mirror size={24}/></div>
+              <div className="p-3 bg-blue-100/50 rounded-xl text-blue-600 shrink-0"><Users size={24}/></div>
               <div>
                 <h3 className="text-xl font-bold text-slate-800 mb-3">彼此學習與模仿的場域</h3>
                 <p className="text-slate-600 leading-relaxed">我們總是在關係中學會自己是誰。團體中，你可以看到別人怎麼說出情緒、表達需要，進而學習新的應對方式與人際溝通策略。</p>
