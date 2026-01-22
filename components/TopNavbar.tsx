@@ -12,7 +12,8 @@ import {
   Feather, 
   Users, 
   FolderGit2, 
-  User 
+  User,
+  HeartHandshake // 新增：引入伴侶治療的圖示
 } from 'lucide-react';
 
 // --- 資料結構：定義選單項目 (中英對照) ---
@@ -54,6 +55,16 @@ const NAV_ITEMS = [
       { en: 'Unity', zh: '統整', href: '/eis-heauton/unity' },
     ]
   },
+  // --- 新增區塊：Couple Therapy ---
+  {
+    key: 'couple',
+    en: 'Couple Therapy',
+    zh: '伴侶治療',
+    icon: <HeartHandshake size={18} />, // 使用 HeartHandshake icon
+    href: '/couple-therapy',            // 設定路徑
+    subItems: [] 
+  },
+  // ------------------------------
   {
     key: 'group',
     en: 'Group Therapy',
