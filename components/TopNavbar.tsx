@@ -47,7 +47,7 @@ const NAV_ITEMS = [
   {
     key: 'eis-heauton',
     en: 'Eis-heauton',
-    zh: '自我探問',
+    zh: '思想起',
     icon: <Feather size={18} />,
     href: '/eis-heauton',
     subItems: [
