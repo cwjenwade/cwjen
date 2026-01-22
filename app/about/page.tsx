@@ -49,13 +49,13 @@ export default function AboutPage() {
     },
     {
       year: "2024",
-      title: "培育跨領域教育領袖獲獎人",
-      org: "清華大學竹師教育學院",
+      title: "培育跨領域教育領袖計畫 獲獎人",
+      org: "國立清華大學竹師教育學院",
       type: "honor"
     },
     {
       year: "2023, 2024",
-      title: "徐道寧教授數學人文關懷獎學金獲獎人",
+      title: "徐道寧教授數學人文關懷獎學金 獲獎人",
       org: "國立清華大學",
       type: "honor"
     },
