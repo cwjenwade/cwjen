@@ -16,7 +16,8 @@ import {
   Map,
   Compass,
   Lightbulb,
-  Fingerprint
+  Fingerprint,
+  HeartHandshake
 } from 'lucide-react';
 
 export default function PsychotherapyPage() {
