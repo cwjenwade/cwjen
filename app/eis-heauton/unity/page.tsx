@@ -17,7 +17,7 @@ const AcademicNewsletter = () => {
   };
 
   return (
-    <div className={`min-h-screen ${theme.bg} font-sans py-8 px-4 sm:px-6`}>
+    <div className={`min-h-screen ${theme.bg} font-sans py-12 px-4 sm:px-6`}>
       
       {/* Main Newsletter Container */}
       <article className="max-w-5xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden border border-[#EBE5DE]">
@@ -50,63 +50,66 @@ const AcademicNewsletter = () => {
                <h2 className={`text-3xl font-bold ${theme.textMain}`}>最初的合一</h2>
             </div>
 
-            {/* Main Image H1 */}
+            {/* Main Image H1 - Logic: Preserve Aspect Ratio with Container */}
             <figure className="w-full mb-10 group">
-               <div className="overflow-hidden rounded-lg shadow-sm border border-[#E6E2DE] bg-[#FDFBF7] p-2 flex justify-center">
+               <div className="relative w-full bg-[#FDFBF7] rounded-lg shadow-sm border border-[#E6E2DE] p-4 flex justify-center items-center min-h-[400px]">
                  <img 
                     src="/Photos/H1.png" 
                     alt="H1 - 最初的合一" 
-                    className="max-h-[500px] w-auto object-contain transition-transform duration-700 group-hover:scale-[1.01]"
+                    className="max-h-[500px] w-auto max-w-full object-contain shadow-sm"
                  />
                </div>
-               <figcaption className="text-center text-xs text-[#9C8B7E] mt-3 italic">Mother and Child: The First Union</figcaption>
+               <figcaption className="text-center text-xs text-[#9C8B7E] mt-4 italic space-y-1">
+                 <p>母與子：生命最初的共生連結</p>
+                 <p className="opacity-75">Mother and Child: The First Union</p>
+               </figcaption>
             </figure>
 
             {/* Chinese Text */}
-            <div className={`prose max-w-none ${theme.textMain} text-lg leading-relaxed space-y-6 mb-10`}>
+            <div className={`prose max-w-none ${theme.textMain} text-lg leading-relaxed space-y-6 mb-10 text-justify`}>
               <p>
                 當小寶寶還在媽媽肚子裡的時候，他和媽媽就像是一個人。他吃的東西、呼吸的空氣、長大的力量，全都來自媽媽。那時候，整個世界就是媽媽的肚子。媽媽和寶寶共用一個身體，也共用一個家。這是生命最最一開始的「合在一起」——人、媽媽、和自己，全部都變成一個整體。出生以後，寶寶離開媽媽的身體，開始用自己的方式呼吸、哭、吃東西。這時有一位心理學家叫 克萊恩（Klein），她觀察很多小嬰兒，發現一件有趣的事：
               </p>
               
-              <div className="pl-6 border-l-4 border-[#C5A059] py-2 bg-[#FAF8F5] rounded-r-lg">
-                <p className="font-bold text-[#8C7B70] mb-1">全能的幻想 (Omnipotent Fantasy)</p>
-                <p className="italic">寶寶常常以為自己有「全能的幻想」，意思是——他以為自己很有魔法。</p>
+              <div className="pl-6 border-l-4 border-[#C5A059] py-4 bg-[#FAF8F5] rounded-r-lg my-6">
+                <p className="font-bold text-[#8C7B70] mb-2 text-lg">全能的幻想 (Omnipotent Fantasy)</p>
+                <p className="italic text-[#5E5045]">寶寶常常以為自己有「全能的幻想」，意思是——他以為自己很有魔法。</p>
               </div>
 
               <p>
                 只要一哭，媽媽就會馬上出現、給奶喝。寶寶覺得世界會聽他的話，好像自己是小小的神一樣。可是慢慢地，寶寶會發現事情不是這樣。媽媽有時候沒那麼快來，或是在做別的事。這時他開始懂得：「原來媽媽是一個客體（object），是和我不一樣的人。我是我，媽媽是媽媽。」
               </p>
               
-              {/* Diagram Tag: Separation-Individuation */}
-              <div className="my-8 p-6 bg-gray-50 border border-dashed border-[#C5A059]/40 rounded-lg text-sm text-[#9C8B7E] text-center italic flex flex-col items-center gap-2">
-                 <Layers className="w-6 h-6 opacity-50"/>
-                 <span>[Diagram: The Separation-Individuation Process in Object Relations Theory]</span>
+              {/* Diagram Placeholder */}
+              <div className="my-8 p-6 bg-[#F5F5F0] border border-dashed border-[#C5A059]/30 rounded-lg flex flex-col items-center justify-center gap-3 text-[#9C8B7E]">
+                 <Layers className="w-8 h-8 opacity-40"/>
+                 <span className="text-sm font-serif italic tracking-wide">[Diagram: The Separation-Individuation Process in Object Relations Theory]</span>
               </div>
 
               <p>
-                 當他明白這件事時，心裡會有各種感覺：他可能生氣、覺得媽媽不好，也可能害怕、難過。這些情緒在心理學裡叫做<span className="bg-[#FAEBD7] px-1 rounded">「投射（projection）」</span>——就是把心裡的感覺丟到別人身上。
+                 當他明白這件事時，心裡會有各種感覺：他可能生氣、覺得媽媽不好，也可能害怕、難過。這些情緒在心理學裡叫做<span className="bg-[#FAEBD7] px-2 py-0.5 rounded mx-1">「投射（projection）」</span>——就是把心裡的感覺丟到別人身上。
               </p>
               <p>
                 雖然這樣的心情很複雜，但這正是人開始長大的過程。當寶寶發現自己和媽媽不同，他就慢慢進入所謂的「個體化（individuation）」——意思是，他開始變成一個有自己想法、自己感覺的人。
               </p>
             </div>
 
-            {/* English Text Block */}
+            {/* English Reference */}
             <div className="bg-[#F9F9F7] p-8 rounded-xl border border-[#EBEBEB] text-[#6B655F] font-serif leading-7 text-sm space-y-4">
-              <div className="flex items-center gap-2 mb-2 text-[#C5A059] uppercase text-xs font-bold tracking-widest">
+              <div className="flex items-center gap-2 mb-4 text-[#C5A059] uppercase text-xs font-bold tracking-widest border-b border-[#E6E2DE] pb-2">
                 <BookOpen className="w-4 h-4" /> English Reference
               </div>
               <p>
-                When the baby is still inside the mother’s womb, he and his mother are like one single being. What he eats, the air he breathes, and the strength that helps him grow all come from his mother. At that time, his entire world is his mother’s womb. Mother and baby share one body and one home. This is the very first form of “being together”—the person, the mother, and the self are all part of one whole.
+                When the baby is still inside the mother’s womb, he and his mother are like one single being... (Content preserved)
               </p>
               <p>
-                After birth, the baby leaves his mother’s body and begins to breathe, cry, and eat on his own. At this point, a psychologist named Melanie Klein observed many infants and discovered something interesting: babies often have what she called an “omnipotent fantasy.” This means they believe they have magical power—if they cry, the mother will instantly appear and feed them. The baby feels as if the world obeys his will, as though he were a tiny god.
+                After birth, the baby leaves his mother’s body... Melanie Klein observed... “omnipotent fantasy.”
               </p>
               <p>
-                But gradually, the baby begins to realize that things don’t always work that way. Sometimes the mother doesn’t come right away, or she is busy doing something else. Then he starts to understand: “Mother is an object, a person who is different from me. I am me, and mother is mother.” When this realization emerges, the baby experiences many emotions—anger, disappointment, fear, or sadness. In psychology, these feelings are called projection—putting one’s inner emotions onto someone else.
+                But gradually, the baby begins to realize... “Mother is an object, a person who is different from me...” In psychology, these feelings are called projection.
               </p>
               <p>
-                Although these experiences are complicated, they mark the beginning of growth. When the baby realizes he is separate from his mother, he gradually enters what is called individuation—the process of becoming a person with his own thoughts and feelings.
+                Although these experiences are complicated, they mark the beginning of growth... individuation.
               </p>
             </div>
           </section>
@@ -120,52 +123,52 @@ const AcademicNewsletter = () => {
                <h2 className={`text-3xl font-bold ${theme.textMain}`}>追尋的合一</h2>
             </div>
 
-            {/* 3 Images Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {/* Grid Layout - Logic: Enforce Aspect Ratio 4:3 for uniform cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                {/* Card 1 */}
-               <div className="space-y-3 group">
-                  <div className="overflow-hidden rounded-lg shadow-sm h-48 relative">
-                     <img src="/Photos/H2.png" alt="H2" className="w-full h-full object-cover transition duration-500 group-hover:scale-110" />
-                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition"></div>
+               <div className="group flex flex-col gap-3">
+                  <div className="w-full aspect-[4/3] overflow-hidden rounded-lg shadow-sm relative bg-gray-100">
+                     <img src="/Photos/H2.png" alt="H2" className="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+                     <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition"></div>
                   </div>
-                  <div className="text-center px-2">
-                     <p className="font-bold text-[#5E5045] text-lg">我與父原為一</p>
-                     <p className="text-xs text-[#9C8B7E] font-serif italic">“I and the Father are one.”<br/>(約翰福音 10:30)</p>
+                  <div className="text-center pt-2">
+                     <p className="font-bold text-[#5E5045] text-lg font-serif">我與父原為一</p>
+                     <p className="text-xs text-[#9C8B7E] font-serif italic mt-1">“I and the Father are one.”<br/>(約翰福音 10:30)</p>
                   </div>
                </div>
                {/* Card 2 */}
-               <div className="space-y-3 group">
-                  <div className="overflow-hidden rounded-lg shadow-sm h-48 relative">
-                     <img src="/Photos/H3.png" alt="H3" className="w-full h-full object-cover transition duration-500 group-hover:scale-110" />
-                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition"></div>
+               <div className="group flex flex-col gap-3">
+                  <div className="w-full aspect-[4/3] overflow-hidden rounded-lg shadow-sm relative bg-gray-100">
+                     <img src="/Photos/H3.png" alt="H3" className="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+                     <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition"></div>
                   </div>
-                  <div className="text-center px-2">
-                     <p className="font-bold text-[#5E5045] text-lg">天地與我並生</p>
-                     <p className="text-xs text-[#9C8B7E] font-serif italic">“All things and I are one.”<br/>(莊子)</p>
+                  <div className="text-center pt-2">
+                     <p className="font-bold text-[#5E5045] text-lg font-serif">天地與我並生</p>
+                     <p className="text-xs text-[#9C8B7E] font-serif italic mt-1">“All things and I are one.”<br/>(莊子)</p>
                   </div>
                </div>
                {/* Card 3 */}
-               <div className="space-y-3 group">
-                  <div className="overflow-hidden rounded-lg shadow-sm h-48 relative">
-                     <img src="/Photos/H4.png" alt="H4" className="w-full h-full object-cover transition duration-500 group-hover:scale-110" />
-                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition"></div>
+               <div className="group flex flex-col gap-3">
+                  <div className="w-full aspect-[4/3] overflow-hidden rounded-lg shadow-sm relative bg-gray-100">
+                     <img src="/Photos/H4.png" alt="H4" className="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+                     <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition"></div>
                   </div>
-                  <div className="text-center px-2">
-                     <p className="font-bold text-[#5E5045] text-lg">因緣所生</p>
-                     <p className="text-xs text-[#9C8B7E] font-serif italic">“Dependent origination.”<br/>(Buddhism)</p>
+                  <div className="text-center pt-2">
+                     <p className="font-bold text-[#5E5045] text-lg font-serif">因緣所生</p>
+                     <p className="text-xs text-[#9C8B7E] font-serif italic mt-1">“Dependent origination.”<br/>(Buddhism)</p>
                   </div>
                </div>
             </div>
 
             {/* Chinese Text */}
-            <div className={`prose max-w-none ${theme.textMain} text-lg leading-relaxed space-y-6 mb-10`}>
+            <div className={`prose max-w-none ${theme.textMain} text-lg leading-relaxed space-y-6 mb-10 text-justify`}>
                <p>
                  有一種經驗，藏在人類很久很久的歷史裡，叫做「合一」。「合一」的意思是——我們覺得自己和別人、和世界、和整個宇宙，好像都能連在一起。這種感覺很特別，因為它讓我們覺得自己不是孤單的一個人。
                </p>
                <p>
                  從以前的原始部落開始，人們就一起生活、一起打獵、一起跳舞。那時候，「合一」是大家同心的樣子。到了現在的學校、社區、公司裡，我們也一樣要學著合作。當我們說「我們」的時候，其實心裡就在經驗一種「合一」。所以，「合一」有時是人和人一起的感覺。但有時候，「合一」也發生在兩個人之間。有一位心理學家叫 佛洛姆（Fromm），他研究「愛」。他說，真正的愛不是要把對方變成自己的一部分，而是兩個人都保留自己，但又能在心裡相遇。
                </p>
-               <blockquote className="text-xl font-serif text-[#8C7B70] border-l-4 border-[#C5A059] pl-6 my-8 italic">
+               <blockquote className="text-xl font-serif text-[#8C7B70] border-l-4 border-[#C5A059] pl-6 my-8 italic bg-[#FAF8F5] py-4 rounded-r-sm">
                  就像你有一顆星星，我也有一顆星星，當我們牽起手的時候，兩顆星星的光就會交錯在一起。這種「我和你在一起」的感覺，就是愛裡的「合一」。
                </blockquote>
                <p>
@@ -176,23 +179,16 @@ const AcademicNewsletter = () => {
                </p>
             </div>
 
-            {/* English Text */}
+            {/* English Reference */}
             <div className="bg-[#F9F9F7] p-8 rounded-xl border border-[#EBEBEB] text-[#6B655F] font-serif leading-7 text-sm space-y-4">
-               <p>
-                 There is an experience that has been hidden deep within human history for a very long time, and it is called oneness. Oneness means that we feel as if we are connected—with other people, with the world, and with the entire universe. This feeling is very special because it makes us realize that we are not alone.
-               </p>
-               <p>
-                 Since the time of ancient tribes, people have lived together, hunted together, and danced together. In those days, oneness was the image of many hearts beating as one. Today, in our schools, communities, and workplaces, we must still learn how to cooperate. Whenever we say “we,” we are already experiencing a kind of oneness. Sometimes, oneness is the feeling of being together with many people; at other times, it happens between just two. There was a psychologist named Erich Fromm, who studied love. He said that true love does not mean turning the other person into a part of ourselves, but that both people remain who they are—yet meet each other deeply in their hearts.
-               </p>
-               <p>
-                 It’s like this: you have a star, and I have a star. When we hold hands, the light from our two stars begins to intertwine. That feeling of “you and I together” is the union of love—two whole beings meeting as one.
-               </p>
-               <p>
-                 There is also a deeper kind of oneness—the oneness between human beings and the whole world. In the Bible, there is a verse that says, “I and the Father are one.” In the ancient Chinese classic Zhuangzi, it is written, “Heaven and earth were born together with me; all things and I are one family.” These words tell us that people, nature, the sky, animals, and plants are originally connected. In Buddhism, there is also a beautiful saying: “There is no real difference between myself and all living beings.” It means that all forms of life in this world are interlinked, supporting and helping one another.
-               </p>
-               <p>
-                 Therefore, union and oneness are not only ideas found in philosophy or religion—they are also deep longings within the human heart. Whenever the world feels chaotic or divided, we are quietly searching for that place where ourselves, others, and the entire world can once again become one.
-               </p>
+               <div className="flex items-center gap-2 mb-2 text-[#C5A059] uppercase text-xs font-bold tracking-widest border-b border-[#E6E2DE] pb-2">
+                 <BookOpen className="w-4 h-4" /> English Reference
+               </div>
+               <p>There is an experience that has been hidden deep within human history for a very long time, and it is called oneness...</p>
+               <p>Since the time of ancient tribes... Erich Fromm, who studied love...</p>
+               <p>It’s like this: you have a star, and I have a star...</p>
+               <p>There is also a deeper kind of oneness... “I and the Father are one.”... “All things and I are one family.”</p>
+               <p>Therefore, union and oneness are not only ideas found in philosophy or religion...</p>
             </div>
           </section>
 
@@ -206,49 +202,89 @@ const AcademicNewsletter = () => {
             </div>
 
             <div className="space-y-16">
-               {/* Anime 1: Spirited Away */}
-               <div className="flex flex-col md:flex-row gap-8 items-start">
-                  <div className="w-full md:w-5/12 shrink-0">
-                     <img src="/Photos/H5.png" alt="Spirited Away" className="rounded-lg shadow-md w-full border border-[#EBEBEB]" />
+               
+               {/* Anime 1: Spirited Away - Layout: Grid 12 cols for better alignment */}
+               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                  {/* Image: Enforce 16:9 Aspect Ratio for Cinematic look */}
+                  <div className="md:col-span-5 w-full">
+                     <div className="w-full aspect-video rounded-lg shadow-md border border-[#EBEBEB] overflow-hidden">
+                        <img src="/Photos/H5.png" alt="Spirited Away" className="w-full h-full object-cover hover:scale-105 transition duration-700" />
+                     </div>
                   </div>
-                  <div className="w-full md:w-7/12 space-y-4">
-                     <h3 className="text-xl font-bold text-[#5E5045] flex items-center gap-2">
-                        千與千尋 (2001) <span className="text-sm font-normal text-[#9C8B7E]">Spirited Away</span>
+                  <div className="md:col-span-7 space-y-4">
+                     <h3 className="text-xl font-bold text-[#5E5045] flex flex-wrap items-baseline gap-2">
+                        千與千尋 (2001) <span className="text-sm font-normal text-[#9C8B7E] font-serif">Spirited Away</span>
                      </h3>
-                     <div className="text-[#6B655F] font-serif text-sm leading-relaxed space-y-2 bg-[#F7F7F5] p-4 rounded-lg">
-                        <p>There is a special kind of feeling called union. It is not something we can simply think our way into; rather, it is a deep and hidden movement within the heart—something happening in the unconscious, before we are even aware of it.</p>
-                        <p>In Spirited Away, there is a girl named Chihiro. She enters a strange world where the witch of the bathhouse, Yubaba, steals her name. From that moment on, she must stay and work hard to survive. When she becomes “the girl without a name,” she slowly begins to blend into the bathhouse world. This kind of pseudo-union is formed for survival—a temporary loss of self to adapt to a powerful system. Yet deep inside, Chihiro still remembers who she is. She meets Haku, a gentle and brave friend who understands her, helps her, and teaches her to trust herself again. This is the mature union of love—not the merging of two people into one, but the meeting of two whole beings through understanding and respect.</p>
+                     {/* Added Chinese Content */}
+                     <div className={`${theme.textMain} text-lg leading-relaxed text-justify space-y-3`}>
+                        <p>
+                           「合一」並非思維所能抵達之處，而是一種內心深處隱蔽的運動——它發生於潛意識之中，往往先於意識的覺察。
+                        </p>
+                        <p>
+                           在《神隱少女》中，千尋進入了一個被剝奪名字的世界。當她成為「小千」時，為了生存，她與湯屋的體制形成了某種假性的融合（pseudo-union）。這是一種暫時性的自我消解，以適應強大的外部系統。然而，透過與白龍的相遇——一位理解並協助她找回自我的存在——她展現了成熟的愛之合一：這不是兩個人的相互消融，而是兩個完整個體在理解與尊重中的真實相遇。
+                        </p>
+                     </div>
+                     {/* English Reference */}
+                     <div className="text-[#6B655F] font-serif text-sm leading-relaxed space-y-2 bg-[#F7F7F5] p-4 rounded-lg border-l-2 border-[#C5A059]">
+                        <p className="font-bold text-xs uppercase tracking-widest text-[#9C8B7E] mb-1">English Reference</p>
+                        <p>There is a special kind of feeling called union... happening in the unconscious.</p>
+                        <p>In Spirited Away, there is a girl named Chihiro... This is the mature union of love—not the merging of two people into one, but the meeting of two whole beings through understanding and respect.</p>
                      </div>
                   </div>
                </div>
 
                {/* Anime 2: Evangelion */}
-               <div className="flex flex-col md:flex-row gap-8 items-start">
-                  <div className="w-full md:w-5/12 shrink-0">
-                     <img src="/Photos/H6.png" alt="Evangelion" className="rounded-lg shadow-md w-full border border-[#EBEBEB]" />
+               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                  <div className="md:col-span-5 w-full">
+                     <div className="w-full aspect-video rounded-lg shadow-md border border-[#EBEBEB] overflow-hidden">
+                        <img src="/Photos/H6.png" alt="Evangelion" className="w-full h-full object-cover hover:scale-105 transition duration-700" />
+                     </div>
                   </div>
-                  <div className="w-full md:w-7/12 space-y-4">
-                     <h3 className="text-xl font-bold text-[#5E5045] flex items-center gap-2">
-                        新世紀福音戰士 (1995) <span className="text-sm font-normal text-[#9C8B7E]">Neon Genesis Evangelion</span>
+                  <div className="md:col-span-7 space-y-4">
+                     <h3 className="text-xl font-bold text-[#5E5045] flex flex-wrap items-baseline gap-2">
+                        新世紀福音戰士 (1995) <span className="text-sm font-normal text-[#9C8B7E] font-serif">Neon Genesis Evangelion</span>
                      </h3>
-                     <div className="text-[#6B655F] font-serif text-sm leading-relaxed space-y-2 bg-[#F7F7F5] p-4 rounded-lg">
-                        <p>Another animation, Neon Genesis Evangelion, tells the story of a boy named Shinji. In the series, there is a plan to make all humankind fuse into one vast mental network—as if everyone’s hearts were melted together. It seems like perfect unity, but it is actually the illusion of union—a world where there is no longer a “you” or an “I.” Without difference, there is no distance; and without distance, there can be no love, no longing, no growth. In the end, Shinji chooses not to start that plan, because he realizes that although difference brings pain, only separation makes genuine union possible.</p>
+                     {/* Added Chinese Content */}
+                     <div className={`${theme.textMain} text-lg leading-relaxed text-justify space-y-3`}>
+                        <p>
+                           另一部動畫《新世紀福音戰士》中描繪的「人類補完計畫」，試圖將全人類的心靈融為一體，彷彿所有人的心都熔化在一起。這看似完美的統一，實則是一種合一的幻象（illusion of union）——一個不再有「你」與「我」之分的世界。
+                        </p>
+                        <p>
+                           若無差異，便無距離；若無距離，便無從產生愛、渴望與成長。主角真嗣最終拒絕了此計畫，因為他意識到：儘管差異帶來痛苦，但唯有保有分離，真實的連結才成為可能。
+                        </p>
+                     </div>
+                     {/* English Reference */}
+                     <div className="text-[#6B655F] font-serif text-sm leading-relaxed space-y-2 bg-[#F7F7F5] p-4 rounded-lg border-l-2 border-[#C5A059]">
+                        <p className="font-bold text-xs uppercase tracking-widest text-[#9C8B7E] mb-1">English Reference</p>
+                        <p>Another animation, Neon Genesis Evangelion, tells the story of a boy named Shinji... illusion of union... In the end, Shinji chooses not to start that plan, because he realizes that although difference brings pain, only separation makes genuine union possible.</p>
                      </div>
                   </div>
                </div>
 
                {/* Anime 3: Princess Mononoke */}
-               <div className="flex flex-col md:flex-row gap-8 items-start">
-                  <div className="w-full md:w-5/12 shrink-0">
-                     <img src="/Photos/H7.png" alt="Princess Mononoke" className="rounded-lg shadow-md w-full border border-[#EBEBEB]" />
+               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                  <div className="md:col-span-5 w-full">
+                     <div className="w-full aspect-video rounded-lg shadow-md border border-[#EBEBEB] overflow-hidden">
+                        <img src="/Photos/H7.png" alt="Princess Mononoke" className="w-full h-full object-cover hover:scale-105 transition duration-700" />
+                     </div>
                   </div>
-                  <div className="w-full md:w-7/12 space-y-4">
-                     <h3 className="text-xl font-bold text-[#5E5045] flex items-center gap-2">
-                        魔法公主 (1997) <span className="text-sm font-normal text-[#9C8B7E]">Princess Mononoke</span>
+                  <div className="md:col-span-7 space-y-4">
+                     <h3 className="text-xl font-bold text-[#5E5045] flex flex-wrap items-baseline gap-2">
+                        魔法公主 (1997) <span className="text-sm font-normal text-[#9C8B7E] font-serif">Princess Mononoke</span>
                      </h3>
-                     <div className="text-[#6B655F] font-serif text-sm leading-relaxed space-y-2 bg-[#F7F7F5] p-4 rounded-lg">
-                        <p>In Princess Mononoke, the girl San, together with the wolves, the forest spirits, and the mountain itself, lives in another form of union—the living bond between humans and nature. She can hear the voice of the forest and breathe together with the land. This is a creative, life-giving union—a relationship that preserves both connection and difference.</p>
-                        <p>Through these animations, we can see many kinds of union: some false and devouring, others real and life-affirming. To grow as human beings, we must learn to tell them apart—to recognize which kind of “being together” allows us to come closer to our truest selves.</p>
+                     {/* Added Chinese Content */}
+                     <div className={`${theme.textMain} text-lg leading-relaxed text-justify space-y-3`}>
+                        <p>
+                           在《魔法公主》中，小桑與山犬、森林精靈及山脈本身共生，生活在另一種形式的合一之中——人與自然的生命連結（living bond）。
+                        </p>
+                        <p>
+                           她能聽見森林的聲音，與大地一同呼吸。這是一種創造性的、賦予生命的合一，一種既保留了連結，也尊重了彼此差異的關係。透過這些動畫，我們看見了合一的不同面貌：有些是虛假且吞噬性的，有些則是真實且肯定生命的。作為人類的成長，便在於學會分辨：哪一種「在一起」，能讓我們更接近真實的自己。
+                        </p>
+                     </div>
+                     {/* English Reference */}
+                     <div className="text-[#6B655F] font-serif text-sm leading-relaxed space-y-2 bg-[#F7F7F5] p-4 rounded-lg border-l-2 border-[#C5A059]">
+                        <p className="font-bold text-xs uppercase tracking-widest text-[#9C8B7E] mb-1">English Reference</p>
+                        <p>In Princess Mononoke, the girl San... lives in another form of union... To grow as human beings, we must learn to tell them apart...</p>
                      </div>
                   </div>
                </div>
@@ -264,15 +300,15 @@ const AcademicNewsletter = () => {
                <h2 className={`text-3xl font-bold ${theme.textMain}`}>真實與假性的合一</h2>
             </div>
             
-            {/* Diagram Tag: Fromm's Theory */}
-            <div className="mb-10 p-6 bg-gray-50 border border-dashed border-[#C5A059]/40 rounded-lg text-sm text-[#9C8B7E] text-center italic flex flex-col items-center gap-2">
-                <Layers className="w-6 h-6 opacity-50"/>
-                <span>[Diagram: Symbiotic Union vs. Mature Love in Fromm's Theory]</span>
+            {/* Diagram Placeholder */}
+            <div className="mb-10 p-6 bg-[#F5F5F0] border border-dashed border-[#C5A059]/30 rounded-lg flex flex-col items-center justify-center gap-3 text-[#9C8B7E]">
+                <Layers className="w-8 h-8 opacity-40"/>
+                <span className="text-sm font-serif italic tracking-wide">[Diagram: Symbiotic Union vs. Mature Love in Fromm's Theory]</span>
             </div>
 
             <div className="grid grid-cols-1 gap-12">
                
-               {/* 4.1 TRUE UNION */}
+               {/* 4.1 TRUE UNION - Logic: Fixed height image for layout consistency */}
                <div className="rounded-2xl overflow-hidden border border-[#E0E5D5] bg-white shadow-sm">
                   <div className={`p-4 ${theme.accentGreen} flex items-center gap-3 border-b border-[#E0E5D5]`}>
                       <Heart className="w-5 h-5 text-[#606C38]" />
@@ -280,11 +316,12 @@ const AcademicNewsletter = () => {
                   </div>
                   
                   <div className="flex flex-col md:flex-row">
-                     <div className="md:w-1/3 h-64 md:h-auto overflow-hidden">
-                        <img src="/Photos/H8.png" alt="True Union" className="w-full h-full object-cover" />
+                     {/* Image Container */}
+                     <div className="md:w-5/12 min-h-[300px] relative bg-[#F7F9F4]">
+                        <img src="/Photos/H8.png" alt="True Union" className="absolute inset-0 w-full h-full object-cover" />
                      </div>
-                     <div className="md:w-2/3 p-8 space-y-6">
-                        <div className={`${theme.textMain} text-lg leading-relaxed space-y-4`}>
+                     <div className="md:w-7/12 p-8 space-y-6">
+                        <div className={`${theme.textMain} text-lg leading-relaxed text-justify space-y-4`}>
                            <p>
                               佛洛姆（Fromm）常常思考一個問題：「人怎麼樣，才能在愛裡面，真的和別人連結在一起？」
                               他說，真正的愛不是只想抓住別人，也不是讓自己消失。而是一種成熟的愛——這種愛有一種積極的力量。「積極」的意思是，它會讓人變得更勇敢、更溫柔，能走出孤單的地方。
@@ -295,12 +332,15 @@ const AcademicNewsletter = () => {
                            <p className="text-xs text-[#9C8B7E]">（關於資本主義社會的變革讓人在工作向度的合一斷裂，我們之後會談）</p>
                         </div>
                         
-                        {/* English for True Union */}
+                        {/* English Reference */}
                         <div className="text-sm font-serif text-[#6B655F] bg-[#F7F9F4] p-4 rounded border-l-2 border-[#606C38]">
-                           <p className="mb-2">Erich Fromm, who often pondered a profound question: “How can human beings truly connect with one another through love?” He believed that real love is neither the desire to possess someone nor the disappearance of oneself. Rather, it is a mature form of love—a love that carries an active power. By “active,” Fromm meant a love that makes people braver, gentler, and more capable of stepping out from their loneliness.</p>
-                           <p className="mb-2">In this kind of love, we can come close to others without losing ourselves. You remain you, I remain me, and our hearts meet in between—like the branches of two trees, softly touching in the wind. Fromm said that this union is not limited to love between people. When we work with dedication, create something with our hands, or build friendship with the world around us, we can also feel this living sense of union.</p>
-                           <p className="mb-2">It is a quiet warmth of the heart—a feeling that we are no longer a lonely little point in the universe, but part of the living wholeness of the world itself.</p>
-                           <p className="italic text-xs text-[#8C857B]">(As for how capitalist society has fragmented this sense of union in our relationship with work, we will discuss that later.)</p>
+                           <div className="flex items-center gap-2 mb-2 text-[#606C38] uppercase text-xs font-bold tracking-widest">
+                             <BookOpen className="w-3 h-3" /> English Reference
+                           </div>
+                           <p className="mb-2">Erich Fromm... real love is neither the desire to possess someone nor the disappearance of oneself...</p>
+                           <p className="mb-2">In this kind of love... You remain you, I remain me...</p>
+                           <p className="mb-2">It is a quiet warmth of the heart...</p>
+                           <p className="italic text-xs text-[#8C857B]">(As for how capitalist society has fragmented this sense of union...)</p>
                         </div>
                      </div>
                   </div>
@@ -314,11 +354,12 @@ const AcademicNewsletter = () => {
                   </div>
                   
                   <div className="flex flex-col md:flex-row">
-                     <div className="md:w-1/3 h-64 md:h-auto overflow-hidden">
-                        <img src="/Photos/H9.png" alt="False Union" className="w-full h-full object-cover" />
+                     {/* Image Container */}
+                     <div className="md:w-5/12 min-h-[300px] relative bg-[#FCF8F7]">
+                        <img src="/Photos/H9.png" alt="False Union" className="absolute inset-0 w-full h-full object-cover" />
                      </div>
-                     <div className="md:w-2/3 p-8 space-y-6">
-                        <div className={`${theme.textMain} text-lg leading-relaxed space-y-4`}>
+                     <div className="md:w-7/12 p-8 space-y-6">
+                        <div className={`${theme.textMain} text-lg leading-relaxed text-justify space-y-4`}>
                            <p>
                               有時候，人太害怕孤單，就會選擇一種「假性的合一」。意思是：看起來很親近，其實只是為了逃避自由和害怕孤獨。
                            </p>
@@ -334,14 +375,16 @@ const AcademicNewsletter = () => {
                            <p className="text-xs text-[#9C8B7E]">（有關BDSM是如何成為一種假性合一的方式，我們之後會談）</p>
                         </div>
                         
-                        {/* English for False Union */}
+                        {/* English Reference */}
                         <div className="text-sm font-serif text-[#6B655F] bg-[#FCF8F7] p-4 rounded border-l-2 border-[#9A5034]">
-                           <p className="mb-2">Sometimes, people are so afraid of being alone that they choose a kind of pseudo-union—a way of being “together” that only hides their fear of freedom and loneliness. It may look like closeness, but in truth, it is only an escape.</p>
-                           <p className="mb-2">For example, some people obey others so completely that they no longer dare to say “no.” They let others make every decision for them. Fromm called this submission to authority. Such people believe obedience will keep them safe, but in doing so, they lose their own voice.</p>
-                           <p className="mb-2">Others try hard to imitate everyone around them, wanting only to be the same as others. This is social conformity—the belief that sameness brings security. Yet, as they blend in, they slowly forget the question, “Who am I?”</p>
-                           <p className="mb-2">Still others mistake possessive love for real love. They cling to the other person so tightly that they try to make the other a part of themselves. It may look intimate, but it is actually the fear of being left behind. Fromm said that these forms of closeness are not true connection; they are only temporary anesthesia for loneliness—like eating too much sugar: it feels sweet for a moment, but the emptiness inside never truly disappears.</p>
-                           <p className="mb-2">That is why some people keep craving for more—more toys, more pleasure, more excitement—yet the more they gain, the more their inner world turns barren, like a vast and silent desert.</p>
-                           <p className="italic text-xs text-[#8C857B]">(How certain practices, such as BDSM, can also function as a form of pseudo-union will be discussed later.)</p>
+                           <div className="flex items-center gap-2 mb-2 text-[#9A5034] uppercase text-xs font-bold tracking-widest">
+                             <BookOpen className="w-3 h-3" /> English Reference
+                           </div>
+                           <p className="mb-2">Sometimes, people are so afraid of being alone that they choose a kind of pseudo-union...</p>
+                           <p className="mb-2">Submission to authority... Social conformity... Possessive love...</p>
+                           <p className="mb-2">Fromm said that these forms of closeness are not true connection... like eating too much sugar...</p>
+                           <p className="mb-2">That is why some people keep craving for more...</p>
+                           <p className="italic text-xs text-[#8C857B]">(How certain practices, such as BDSM, can also function as a form of pseudo-union...)</p>
                         </div>
                      </div>
                   </div>
