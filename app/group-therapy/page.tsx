@@ -6,7 +6,6 @@ import {
   Clock, 
   Video, 
   Shield, 
-  Mirror, 
   Layers, 
   Puzzle,
   MessageCircle,
