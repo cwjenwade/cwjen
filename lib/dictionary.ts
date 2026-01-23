@@ -26,10 +26,6 @@ export const DICTIONARY = {
       title: 'Psychotherapy',
       description: 'Approaches and resources.'
     },
-    couple: {
-      title: 'Couple Therapy',
-      description: 'Work with couples.'
-    },
     group: {
       title: 'Group Therapy',
       description: 'Group processes and research.'
@@ -90,10 +86,6 @@ export const DICTIONARY = {
     psychotherapy: {
       title: '心理治療',
       description: '治療方法與資源。'
-    },
-    couple: {
-      title: '伴侶治療',
-      description: '伴侶工作。'
     },
     group: {
       title: '團體治療',
