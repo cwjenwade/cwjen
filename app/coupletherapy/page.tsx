@@ -22,7 +22,7 @@ export default function CoupleTherapyPage() {
   };
 
   const { language } = useLanguage();
-  const QA_LIST = (DICTIONARY as any)[language]?.couple?.qa ?? [];
+  const QA_LIST: Array<{ q: string; a: string }> = (DICTIONARY as any)[language]?.couple?.qa ?? [];
 
   return (
     <main className="min-h-screen bg-[#F9F8F6] font-sans selection:bg-[#EBD0C5] selection:text-[#5E4B45]">
