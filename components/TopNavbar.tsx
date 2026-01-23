@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import type { Locale } from '@/lib/dictionary';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/app/context/LanguageContext'; 
@@ -92,7 +93,7 @@ export default function TopNavbar() {
   }, []);
 
   const toggleLanguage = useCallback(() => {
-    setLanguage(prev => prev === 'en' ? 'zh' : 'en');
+    setLanguage((prev: Locale) => (prev === 'en' ? 'zh' : 'en'));
   }, [setLanguage]);
 
   // --- 字體樣式定義 ---
