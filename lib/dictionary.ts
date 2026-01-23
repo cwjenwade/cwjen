@@ -12,11 +12,12 @@ export const DICTIONARY = {
     home: {
       title: 'Welcome to Wade Jen',
       description: 'Academic and professional resources on psychotherapy and counseling.',
-      content: 'This site shares work on psychotherapy, counselling and related projects.'
+      content: 'This site presents work on psychotherapy, counseling, and related projects, including research, teaching, and clinical reflections.'
     },
     about: {
       title: 'About Wade Jen',
       description: 'Professional background and academic work.',
+      content: 'I compile academic writing, clinical reflections, and project work focused on psychotherapy and counseling.'
     },
     'eis-heauton': {
       title: 'Eis-heauton',

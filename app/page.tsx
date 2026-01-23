@@ -14,6 +14,9 @@ export default function Home() {
         <div>
           <h1 className="text-4xl font-bold text-slate-900">{dict.home.title}</h1>
           <p className="text-lg text-slate-700">{dict.home.description}</p>
+          {dict.home.content && (
+            <p className="text-base text-slate-600 mt-4">{dict.home.content}</p>
+          )}
         </div>
         <LanguageSwitcher />
       </div>
