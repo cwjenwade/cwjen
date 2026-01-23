@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useLanguage } from '@/app/context/LanguageContext';
-import { DICTIONARY } from '@/lib/dictionary';
+import { useLanguage } from '@/app/context/LanguageContext'; 
+// 移除未使用的 DICTIONARY 導入
 import { 
   Menu, 
   X, 
@@ -16,88 +16,57 @@ import {
   FolderGit2, 
   User,
   HeartHandshake,
-  Home // 新增：引入首頁圖示
+  Home,
+  Globe
 } from 'lucide-react';
 
-// --- 資料結構：定義選單項目 (中英對照) ---
-const NAV_ITEMS = [
-  // 1. Home (首頁) - 新增
-  {
-    key: 'home',
-    en: 'Home',
-    zh: '首頁',
-    icon: <Home size={18} />,
-    href: '/',
-    subItems: []
-  },
-  // 2. About (關於我)
-  {
-    key: 'about',
-    en: 'About',
-    zh: '關於我',
-    icon: <User size={18} />,
-    href: '/about',
-    subItems: []
-  },
-  // 3. Eis-heauton (思想起) - 順序調整至此
-  {
-    key: 'eis-heauton',
-    en: 'Eis-heauton',
-    zh: '思想起',
-    icon: <Feather size={18} />,
-    href: '/eis-heauton',
+// --- 型別定義 (Type Definitions) ---
+interface SubItem {
+  en: string;
+  zh: string;
+  href: string;
+}
+
+interface NavItem {
+  key: string;
+  en: string;
+  zh: string;
+  icon: React.ReactNode;
+  href: string;
+  subItems: SubItem[];
+}
+
+const NAV_ITEMS: NavItem[] = [
+  { key: 'home', en: 'Home', zh: '首頁', icon: <Home size={18} />, href: '/', subItems: [] },
+  { key: 'about', en: 'About', zh: '關於我', icon: <User size={18} />, href: '/about', subItems: [] },
+  { 
+    key: 'eis-heauton', en: 'Eis-heauton', zh: '思想起', icon: <Feather size={18} />, href: '/eis-heauton', 
     subItems: [
       { en: 'Freedom', zh: '自由', href: '/eis-heauton/freedom' },
       { en: 'Unity', zh: '合一', href: '/eis-heauton/unity' },
-    ]
+    ] 
   },
-  // 4. Psychotherapy (心理治療) - 順序調整至此
-  {
-    key: 'psychotherapy',
-    en: 'Psychotherapy',
-    zh: '心理治療',
-    icon: <Brain size={18} />,
-    href: '/psychotherapy',
+  { 
+    key: 'psychotherapy', en: 'Psychotherapy', zh: '心理治療', icon: <Brain size={18} />, href: '/psychotherapy', 
     subItems: [
       { en: 'Psychoanalysis', zh: '精神分析', href: '/psychotherapy/psychoanalysis' },
       { en: 'Adlerian Therapy', zh: '阿德勒學派', href: '/psychotherapy/adler' },
-      { en: 'Existential Therapy', zh: '存在主義', href: '/psychotherapy/extential' },
+      { en: 'Existential Therapy', zh: '存在主義', href: '/psychotherapy/existential' }, // 修正拼字
       { en: 'Person-Centered', zh: '個人中心', href: '/psychotherapy/person-centered' },
       { en: 'Gestalt Therapy', zh: '完形治療', href: '/psychotherapy/gestalt-therapy' },
       { en: 'CBT', zh: '認知行為', href: '/psychotherapy/cbt' },
       { en: 'Reality Therapy', zh: '現實治療', href: '/psychotherapy/reality-therapy' },
       { en: 'Feminist Therapy', zh: '女性主義', href: '/psychotherapy/feminist' },
       { en: 'Postmodern', zh: '後現代取向', href: '/psychotherapy/postmodern' },
-    ]
+    ] 
   },
-  // 5. Couple Therapy (伴侶治療)
-  {
-    key: 'couple',
-    en: 'Couple Therapy',
-    zh: '伴侶治療',
-    icon: <HeartHandshake size={18} />,
-    href: '/coupletherapy',
-    subItems: [] 
-  },
-  // 6. Group Therapy (團體治療)
-  {
-    key: 'group',
-    en: 'Group Therapy',
-    zh: '團體治療',
-    icon: <Users size={18} />,
-    href: '/group-therapy',
-    subItems: [] 
-  },
-  // 7. Projects (專案計畫)
-  {
-    key: 'project',
-    en: 'Projects',
-    zh: '專案計畫',
-    icon: <FolderGit2 size={18} />,
-    href: '/project',
+  { key: 'couple', en: 'Couple Therapy', zh: '伴侶治療', icon: <HeartHandshake size={18} />, href: '/couple-therapy', subItems: [] }, // 修正路由格式
+  { key: 'group', en: 'Group Therapy', zh: '團體治療', icon: <Users size={18} />, href: '/group-therapy', subItems: [] },
+  { 
+    key: 'project', en: 'Projects', zh: '專案計畫', icon: <FolderGit2 size={18} />, href: '/project', 
     subItems: [
       { en: 'Male Sexual Minority', zh: '男性性少數', href: '/project/male-sexual-minority' },
-    ]
+    ] 
   }
 ];
 
@@ -106,6 +75,9 @@ export default function TopNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpand, setMobileExpand] = useState<string | null>(null);
   const pathname = usePathname();
+  
+  // 1. 取得全域語言狀態
+  const { language, setLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -115,15 +87,26 @@ export default function TopNavbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMobileExpand = (key: string) => {
-    setMobileExpand(mobileExpand === key ? null : key);
-  };
+  const toggleMobileExpand = useCallback((key: string) => {
+    setMobileExpand(prev => prev === key ? null : key);
+  }, []);
+
+  const toggleLanguage = useCallback(() => {
+    setLanguage(prev => prev === 'en' ? 'zh' : 'en');
+  }, [setLanguage]);
+
+  // --- 字體樣式定義 ---
+  // 中文：襯線體 (Serif) + 寬字距 (高貴感)
+  // 英文：無襯線體 (Sans) + 緊湊字距 (現代感)
+  const fontStyle = language === 'zh' 
+    ? "font-serif tracking-widest font-medium" 
+    : "font-sans tracking-tight font-bold";
 
   return (
     <>
-      {/* --- Desktop & Mobile Top Bar --- */}
+      {/* --- Desktop & Mobile Header --- */}
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out font-sans
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out
         ${isScrolled 
           ? 'bg-[#F7F5F3]/95 backdrop-blur-md shadow-sm border-b border-stone-200/50 py-3' 
           : 'bg-[#F7F5F3] py-5 border-b border-transparent'}`}
@@ -143,74 +126,88 @@ export default function TopNavbar() {
             </Link>
 
             {/* --- Desktop Navigation --- */}
-            <nav className="hidden lg:flex items-center gap-2">
-              {NAV_ITEMS.map((item) => {
-                const isActive = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href || '');
-                const hasSub = item.subItems.length > 0;
-                const { language } = useLanguage();
-                const navLabel = (DICTIONARY as any)[language]?.navigation?.[item.key] ?? item.en;
-                const navLabelZh = (DICTIONARY as any)[language === 'zh' ? 'zh' : 'en']?.navigation?.[item.key] ?? item.zh;
+            <div className="hidden lg:flex items-center gap-1">
+              <nav className="flex items-center gap-1 mr-4">
+                {NAV_ITEMS.map((item) => {
+                  const isActive = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href || '');
+                  const hasSub = item.subItems.length > 0;
+                  
+                  // 嚴格切換顯示文字
+                  const displayText = language === 'zh' ? item.zh : item.en;
 
-                return (
-                  <div key={item.key} className="relative group px-1">
-                    {/* Main Menu Item */}
-                    <Link 
-                      href={item.href}
-                      className={`
-                        flex flex-col items-center px-5 py-2.5 rounded-xl transition-all duration-300 group-hover:-translate-y-0.5
-                        ${isActive ? 'bg-stone-200/60' : 'hover:bg-stone-200/40'}
-                      `}
-                    >
-                      <span className={`text-[15px] font-bold tracking-tight ${isActive ? 'text-teal-900' : 'text-stone-700'}`}>
-                        {navLabel}
-                      </span>
-                      <span className="text-xs text-stone-500 font-medium mt-0.5 group-hover:text-stone-600 transition-colors">
-                        {language === 'zh' ? item.zh : ''}
-                      </span>
-                    </Link>
+                  return (
+                    <div key={item.key} className="relative group px-1">
+                      <Link 
+                        href={item.href}
+                        className={`
+                          flex items-center px-4 py-2 rounded-xl transition-all duration-300 group-hover:-translate-y-0.5
+                          ${isActive ? 'bg-stone-200/60 text-teal-900' : 'hover:bg-stone-200/40 text-stone-700'}
+                        `}
+                      >
+                        <span className={`text-[15px] ${fontStyle}`}>
+                          {displayText}
+                        </span>
+                      </Link>
 
-                    {/* Dropdown Menu */}
-                    {hasSub && (
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out transform group-hover:translate-y-0 translate-y-2 w-max min-w-[240px] z-50">
-                        <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-stone-100/80 p-3 overflow-hidden">
-                          <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-l border-t border-stone-100"></div>
-                          
-                          <div className={`grid ${item.subItems.length > 6 ? 'grid-cols-2 gap-x-3' : 'grid-cols-1'} gap-y-1`}>
-                            {item.subItems.map((sub) => {
-                              const subLabel = (DICTIONARY as any)[language]?.navigation?.[sub.href?.split('/').pop() ?? ''] ?? sub.en;
-                              return (
+                      {/* Desktop Dropdown */}
+                      {hasSub && (
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out transform group-hover:translate-y-0 translate-y-2 w-max min-w-[180px] z-50">
+                          <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-stone-100/80 p-2 overflow-hidden">
+                            <div className="grid grid-cols-1 gap-1">
+                              {item.subItems.map((sub) => (
                                 <Link 
                                   key={sub.href}
                                   href={sub.href}
-                                  className="flex items-center justify-between px-4 py-3 rounded-xl hover:bg-stone-50 transition-all duration-200 group/sub"
+                                  className="block px-4 py-2.5 rounded-xl hover:bg-stone-50 transition-all duration-200 group/sub"
                                 >
-                                  <div className="flex flex-col">
-                                    <span className="text-[14px] font-bold text-stone-600 group-hover/sub:text-teal-800 transition-colors">
-                                      {language === 'zh' ? sub.zh : sub.en}
-                                    </span>
-                                    <span className="text-xs text-stone-400 group-hover/sub:text-stone-500 font-medium mt-0.5">
-                                      {''}
-                                    </span>
-                                  </div>
+                                  {/* 子選單嚴格切換 */}
+                                  <span className={`text-[14px] text-stone-600 group-hover/sub:text-teal-800 transition-colors ${fontStyle}`}>
+                                    {language === 'zh' ? sub.zh : sub.en}
+                                  </span>
                                 </Link>
-                              );
-                            })}
+                              ))}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </nav>
+                      )}
+                    </div>
+                  );
+                })}
+              </nav>
 
-            {/* --- Mobile Menu Button --- */}
-            <button 
-              onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden p-2.5 text-stone-600 hover:bg-stone-200/50 rounded-full transition-colors"
-            >
-              <Menu size={26} />
-            </button>
+              {/* Desktop Language Toggle */}
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-stone-200 hover:border-stone-400 transition-all duration-300 shadow-sm"
+              >
+                <Globe size={14} className="text-stone-400" />
+                <div className="flex items-center text-xs">
+                  <span className={`${language === 'en' ? 'font-bold text-stone-800' : 'text-stone-300'}`}>EN</span>
+                  <span className="mx-1 text-stone-200">/</span>
+                  <span className={`${language === 'zh' ? 'font-bold text-stone-800 font-serif' : 'text-stone-300 font-serif'}`}>繁</span>
+                </div>
+              </button>
+            </div>
+
+            {/* --- Mobile Buttons --- */}
+            <div className="lg:hidden flex items-center gap-3">
+               {/* Mobile Language Toggle */}
+               <button
+                onClick={toggleLanguage}
+                className="px-3 py-1.5 rounded-full bg-stone-100 text-stone-600 border border-stone-200/50"
+              >
+                <span className={`text-xs ${fontStyle}`}>
+                  {language === 'zh' ? '繁' : 'EN'}
+                </span>
+              </button>
+
+              <button 
+                onClick={() => setMobileMenuOpen(true)}
+                className="p-2.5 text-stone-600 hover:bg-stone-200/50 rounded-full transition-colors"
+              >
+                <Menu size={26} />
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -241,7 +238,10 @@ export default function TopNavbar() {
             {NAV_ITEMS.map((item) => {
               const hasSub = item.subItems.length > 0;
               const isExpanded = mobileExpand === item.key;
-              const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+              const isActive = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href || '');
+              
+              // 手機版：同樣嚴格切換
+              const mobileText = language === 'zh' ? item.zh : item.en;
 
               return (
                 <div key={item.key} className="border-b border-stone-100 last:border-0 pb-2">
@@ -257,11 +257,10 @@ export default function TopNavbar() {
                       <div className={`p-3 rounded-xl ${isActive ? 'bg-teal-50 text-teal-700' : 'bg-stone-100 text-stone-500'}`}>
                         {item.icon}
                       </div>
-                      <div className="flex flex-col text-left">
-                        <span className="text-lg font-bold text-stone-800">{item.en}</span>
-                        {/* 手機版中文改為 text-sm (14px) 以利閱讀 */}
-                        <span className="text-sm text-stone-500 font-medium">{item.zh}</span>
-                      </div>
+                      {/* 只顯示單一語言 */}
+                      <span className={`text-lg ${fontStyle} text-stone-800`}>
+                        {mobileText}
+                      </span>
                     </Link>
                     
                     {hasSub && (
@@ -274,13 +273,14 @@ export default function TopNavbar() {
                     )}
                   </div>
 
+                  {/* 手機版子選單 */}
                   <div 
                     className={`
                       overflow-hidden transition-all duration-300 ease-in-out
                       ${isExpanded ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}
                     `}
                   >
-                    <div className="pl-[4rem] pr-2 pb-5 space-y-4">
+                    <div className="pl-[4rem] pr-2 pb-5 space-y-3">
                       {item.subItems.map((sub) => (
                         <Link 
                           key={sub.href}
@@ -288,8 +288,10 @@ export default function TopNavbar() {
                           onClick={() => setMobileMenuOpen(false)}
                           className="flex items-center justify-between py-1 group"
                         >
-                          <span className="text-[15px] text-stone-600 font-medium group-hover:text-teal-700">{sub.en}</span>
-                          <span className="text-xs text-stone-500 bg-stone-200/60 px-2.5 py-1 rounded-md">{sub.zh}</span>
+                          {/* 子項目只顯示單一語言 */}
+                          <span className={`text-[15px] text-stone-600 group-hover:text-teal-700 ${fontStyle}`}>
+                            {language === 'zh' ? sub.zh : sub.en}
+                          </span>
                         </Link>
                       ))}
                     </div>
