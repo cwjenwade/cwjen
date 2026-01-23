@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Serif_TC, Inter } from 'next/font/google';
 import TopNavbar from '@/components/TopNavbar';
-import './globals.css';
+import '../globals.css';
 import type { Locale } from '@/lib/locale';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
