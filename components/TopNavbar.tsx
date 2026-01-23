@@ -106,7 +106,7 @@ export default function TopNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpand, setMobileExpand] = useState<string | null>(null);
   const pathname = usePathname();
-  const { language, navMode, setNavMode } = useLanguage();
+  const { language, navMode, setNavMode, setLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -213,16 +213,16 @@ export default function TopNavbar() {
               {/* Nav display-mode toggle (desktop) */}
               <div className="hidden lg:flex items-center gap-2 ml-2">
                 <button
-                  onClick={() => setNavMode('both')}
-                  className={`px-3 py-1 rounded-md text-sm ${navMode === 'both' ? 'bg-stone-200' : 'bg-transparent'}`}
+                  onClick={() => setLanguage('en')}
+                  className={`px-3 py-1 rounded-md text-sm ${language === 'en' ? 'bg-stone-200' : 'bg-transparent'}`}
                 >
-                  雙語
+                  English
                 </button>
                 <button
-                  onClick={() => setNavMode('single')}
-                  className={`px-3 py-1 rounded-md text-sm ${navMode === 'single' ? 'bg-stone-200' : 'bg-transparent'}`}
+                  onClick={() => setLanguage('zh')}
+                  className={`px-3 py-1 rounded-md text-sm ${language === 'zh' ? 'bg-stone-200' : 'bg-transparent'}`}
                 >
-                  單語
+                  繁體中文
                 </button>
               </div>
             </nav>
@@ -253,16 +253,16 @@ export default function TopNavbar() {
                 <span className="text-xs text-stone-500 uppercase tracking-widest font-medium">Navigation</span>
                 <div className="mt-3 flex items-center gap-2">
                   <button
-                    onClick={() => setNavMode('both')}
-                    className={`px-3 py-1 rounded ${navMode === 'both' ? 'bg-stone-200' : 'bg-transparent'}`}
+                    onClick={() => setLanguage('en')}
+                    className={`px-3 py-1 rounded ${language === 'en' ? 'bg-stone-200' : 'bg-transparent'}`}
                   >
-                    雙語
+                    English
                   </button>
                   <button
-                    onClick={() => setNavMode('single')}
-                    className={`px-3 py-1 rounded ${navMode === 'single' ? 'bg-stone-200' : 'bg-transparent'}`}
+                    onClick={() => setLanguage('zh')}
+                    className={`px-3 py-1 rounded ${language === 'zh' ? 'bg-stone-200' : 'bg-transparent'}`}
                   >
-                    單語
+                    繁體中文
                   </button>
                 </div>
               </div>
