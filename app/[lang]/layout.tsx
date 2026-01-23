@@ -1,4 +1,4 @@
-import type { Metadata, LayoutProps } from 'next';
+import type { Metadata } from 'next'; // 移除 LayoutProps
 import { Noto_Serif_TC, Inter } from 'next/font/google';
 import TopNavbar from '@/components/TopNavbar';
 import '../globals.css';
@@ -23,11 +23,19 @@ export async function generateStaticParams() {
   ];
 }
 
-export default async function RootLayout({ children, params }: LayoutProps) {
-  const langParam = params?.lang;
-  const lang = isLocale(typeof langParam === 'string' ? langParam : (Array.isArray(langParam) ? langParam[0] : String(langParam)))
-    ? (Array.isArray(langParam) ? langParam[0] : (typeof langParam === 'string' ? langParam : 'zh'))
-    : 'zh';
+// 這裡定義 Props 的介面
+interface RootLayoutProps {
+  children: React.ReactNode;
+  params: Promise<{ lang: string }>; // Next.js 15+ 的 params 是 Promise
+}
+
+// 修正函式簽章
+export default async function RootLayout({ children, params }: RootLayoutProps) {
+  // 等待 params 解析 (Next.js 15+ 必須)
+  const resolvedParams = await params;
+  const langParam = resolvedParams.lang;
+  
+  const lang = isLocale(langParam) ? langParam : 'zh';
   const htmlLang = lang === 'zh' ? 'zh-TW' : 'en';
 
   return (
