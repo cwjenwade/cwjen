@@ -1,4 +1,3 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/app/coupletherapy/page.tsx b/app/coupletherapy/page.tsx
 index 4e2700d5b7a03199d04002b4de708cf02639a53d..1c92e6958c73f2990549d143ff50b44207b3f4ac 100644
 --- a/app/coupletherapy/page.tsx
@@ -471,6 +470,3 @@ index 4e2700d5b7a03199d04002b4de708cf02639a53d..1c92e6958c73f2990549d143ff50b442
 -}
 \ No newline at end of file
 +}
- 
-EOF
-)

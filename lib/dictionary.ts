@@ -1,4 +1,3 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/lib/dictionary.ts b/lib/dictionary.ts
 index 381064e721a1df31d3e0a57a74d71bcabd04a0bf..923a16dab1af2a2bdccaf821f3d73123a7fa31ba 100644
 --- a/lib/dictionary.ts
@@ -382,6 +381,3 @@ index 381064e721a1df31d3e0a57a74d71bcabd04a0bf..923a16dab1af2a2bdccaf821f3d73123
  
  export type Dict = typeof DICTIONARY;
  export type Locale = keyof Dict;
- 
-EOF
-)

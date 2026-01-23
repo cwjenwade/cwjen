@@ -1,4 +1,3 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/components/TopNavbar.tsx b/components/TopNavbar.tsx
 index 0f3a1d41d4ed2eeec133f3880b87f90445e69eab..2555ee5a1cb0d2367f30d9d5f3d6e99ec385bf21 100644
 --- a/components/TopNavbar.tsx
@@ -193,6 +192,3 @@ index 0f3a1d41d4ed2eeec133f3880b87f90445e69eab..2555ee5a1cb0d2367f30d9d5f3d6e99e
 -}
 \ No newline at end of file
 +}
- 
-EOF
-)
