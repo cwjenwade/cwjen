@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Noto_Serif_TC, Inter } from 'next/font/google';
 import TopNavbar from '@/components/TopNavbar';
 import '../globals.css';
-import type { Locale } from '@/lib/locale';
+import { isLocale } from '@/lib/locale';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const notoserif = Noto_Serif_TC({
@@ -20,7 +20,7 @@ export async function generateStaticParams() {
   return [
     { lang: 'en' },
     { lang: 'zh' },
-  ] as { lang: Locale }[];
+  ];
 }
 
 export default function RootLayout({
@@ -28,9 +28,9 @@ export default function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: Locale };
+  params: { lang: string };
 }) {
-  const lang = params.lang;
+  const lang = isLocale(params.lang) ? params.lang : 'zh';
   const htmlLang = lang === 'zh' ? 'zh-TW' : 'en';
 
   return (

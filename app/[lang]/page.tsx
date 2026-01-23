@@ -1,9 +1,10 @@
-import type { Locale } from '@/lib/locale';
+import { isLocale } from '@/lib/locale';
 import getDictionary from '../dictionaries/get-dictionary';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
-export default async function Page({ params }: { params: { lang: Locale } }) {
-  const dict = await getDictionary(params.lang);
+export default async function Page({ params }: { params: { lang: string } }) {
+  const lang = isLocale(params.lang) ? params.lang : 'zh';
+  const dict = await getDictionary(lang);
 
   return (
     <section>
