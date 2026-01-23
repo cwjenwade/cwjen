@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, LayoutProps } from 'next';
 import { Noto_Serif_TC, Inter } from 'next/font/google';
 import TopNavbar from '@/components/TopNavbar';
 import '../globals.css';
@@ -23,14 +23,11 @@ export async function generateStaticParams() {
   ];
 }
 
-export default function RootLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: { lang: string };
-}) {
-  const lang = isLocale(params.lang) ? params.lang : 'zh';
+export default async function RootLayout({ children, params }: LayoutProps) {
+  const langParam = params?.lang;
+  const lang = isLocale(typeof langParam === 'string' ? langParam : (Array.isArray(langParam) ? langParam[0] : String(langParam)))
+    ? (Array.isArray(langParam) ? langParam[0] : (typeof langParam === 'string' ? langParam : 'zh'))
+    : 'zh';
   const htmlLang = lang === 'zh' ? 'zh-TW' : 'en';
 
   return (
