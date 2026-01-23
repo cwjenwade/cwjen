@@ -40,7 +40,7 @@ export const DICTIONARY = {
         },
         {
           q: 'Will I be asked to share emotions or thoughts I am not ready to disclose?',
-          a: 'The therapist will continually adjust the pace to ensure emotional experiences are touched within a tolerable range. The depth and speed of emotional expression are adapted to each person''s state, not prescribed by a method.'
+          a: 'The therapist will continually adjust the pace to ensure emotional experiences are touched within a tolerable range. The depth and speed of emotional expression are adapted to each person\'s state, not prescribed by a method.'
         },
         {
           q: 'If our real problem is practical issues or value differences, how will the therapist handle it?',
@@ -48,7 +48,7 @@ export const DICTIONARY = {
         },
         {
           q: 'Will therapy turn into one partner being constantly criticized or asked to change?',
-          a: 'The unit of work is the relationship''s interactional patterns, not individual personalities or positions. If the process appears to favor one person, the therapist will actively return the focus to the couple''s mutual interactional structure.'
+          a: 'The unit of work is the relationship\'s interactional patterns, not individual personalities or positions. If the process appears to favor one person, the therapist will actively return the focus to the couple\'s mutual interactional structure.'
         },
         {
           q: 'If one partner speaks more and the other withdraws, how will the therapist manage that?',
@@ -68,7 +68,7 @@ export const DICTIONARY = {
         },
         {
           q: 'If we ultimately discover we cannot continue together, is the therapy still meaningful?',
-          a: 'The therapist accompanies the couple to a place of greater understanding of each other''s positions and limits, with less defensiveness and confusion. That understanding itself constitutes meaningful relational work.'
+          a: 'The therapist accompanies the couple to a place of greater understanding of each other\'s positions and limits, with less defensiveness and confusion. That understanding itself constitutes meaningful relational work.'
         }
       ]
     },
