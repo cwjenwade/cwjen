@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  /* 設定預設為米白色，避免系統深色模式將整頁變黑 */
+  --background: #FAF9F6; /* 米白 */
   --foreground: #171717;
 }
 
@@ -12,9 +13,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* 即使使用者偏好深色模式，也保持背景為米白（避免側邊黑邊） */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #FAF9F6;
     --foreground: #ededed;
   }
 }
