@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-TW" className={`${inter.variable} ${notoserif.variable}`}>
-      <body className="bg-[#F7F5F3] text-stone-800 font-sans antialiased min-h-screen flex flex-col">
+      <body className="bg-[#FAF9F6] text-stone-800 font-sans antialiased min-h-screen flex flex-col">
         {/* [新增] Google 翻譯樣式修正：隱藏頂部橫幅與預設樣式 */}
         <style>{`
           /* 隱藏 Google 翻譯的頂部工具列 */
