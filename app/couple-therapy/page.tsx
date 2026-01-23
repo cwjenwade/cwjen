@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useLanguage } from '@/app/context/LanguageContext';
+import { DICTIONARY } from '@/lib/dictionary';
 import { 
   HeartHandshake, 
   Sparkles, 
@@ -8,59 +10,69 @@ import {
   Anchor, 
   Fingerprint, 
   ChevronDown, 
-  MessageCircle,
   ShieldCheck
 } from 'lucide-react';
+
+// --- 在此處直接定義 QA 資料 (Hardcoded Data) ---
+const LOCAL_QA_DATA = [
+  {
+    q: "在伴侶治療中，治療師會如何工作？",
+    a: "我們每次卡住的點都一樣，治療師還會要我們再談一次嗎？治療師不會只是重複討論事件本身，而是協助你們在治療現場中覺察：當同樣的互動再度發生時，彼此是如何被拉進那個熟悉的循環。工作的重點放在當下，而非一再回顧過去。"
+  },
+  {
+    q: "如果其中一方其實已經很累，甚至不確定還想不想繼續，治療還能進行嗎？",
+    a: "治療師會將「疲累」視為一項重要的關係訊號，而不是治療無效的指標。治療並不要求雙方一開始就做出關係承諾，而是先去理解彼此目前困在什麼樣的互動模式中。"
+  },
+  {
+    q: "治療時，會不會被要求說出自己其實還沒準備好的情緒或想法？",
+    a: "治療師會持續調整治療的節奏，確保情緒經驗能在可承受的範圍內被觸及。情感的表達深度與速度，會根據每個人的狀態而調整，而不是由治療方法預設。"
+  },
+  {
+    q: "如果我們真正卡住的是現實問題或價值觀差異，治療師會怎麼處理？",
+    a: "治療師會聚焦於這些議題如何影響彼此的情感連結，而不是急於解決問題本身。治療的目的是讓討論能在更穩定、安全的關係狀態中進行。"
+  },
+  {
+    q: "會不會變成其中一方一直被檢討或被要求改變？",
+    a: "治療師的工作單位是關係中的「互動模式」，而非個別的個性或立場。如果治療過程偏向某一方，治療師會主動將視角拉回到雙方的互動結構。"
+  },
+  {
+    q: "如果一方比較會表達，另一方比較退縮，治療師會怎麼處理？",
+    a: "治療師會同時照顧不同位置的需求。表達較多的一方會被協助放慢、調整步調；而退縮的一方則會在不被逼迫的情況下，逐漸建立起自己的表達空間。"
+  },
+  {
+    q: "治療會不會讓衝突一開始反而更嚴重？",
+    a: "治療師會以穩定互動為優先目標。如果衝突強度升高，會被視為需要立即調整介入方式的訊號，而非治療必經的過程。"
+  },
+  {
+    q: "如果我們已經嘗試過很多方法，治療師還能做什麼不一樣的事？",
+    a: "治療師不會重複既有的說服、協調或解決問題的策略，而是協助你們看見：這些努力是如何被既有的互動模式所抵銷。治療的切入點是互動的組織方式。"
+  },
+  {
+    q: "治療的目標一定是讓關係變得更親密嗎？",
+    a: "治療師關注的是關係在情緒層面是否變得更安全、更清晰。親密感會隨著互動的穩定自然產生，而不是被設定為必須達成的目標。"
+  },
+  {
+    q: "如果最後我們發現無法繼續走下去，這段治療還有意義嗎？",
+    a: "（資料待補）" // 您提供的文本此題無回答，暫時留空
+  }
+];
 
 export default function CoupleTherapyPage() {
   // FAQ Accordion State
   const [openQA, setOpenQA] = useState<number | null>(null);
+  
   const toggleQA = (index: number) => {
-    setOpenQA(openQA === index ? null : index);
+    setOpenQA(prev => prev === index ? null : index);
   };
 
-  const QA_LIST = [
-    {
-      q: "在伴侶治療中，治療師會如何工作？",
-      a: "我們每次卡住的點都一樣，治療師還會要我們再談一次嗎？治療師不會只是重複討論事件本身，而是協助你們在治療現場中覺察：當同樣的互動再度發生時，彼此是如何被拉進那個熟悉的循環。工作的重點放在當下，而非一再回顧過去。"
-    },
-    {
-      q: "如果其中一方其實已經很累，甚至不確定還想不想繼續，治療還能進行嗎？",
-      a: "治療師會將「疲累」視為一項重要的關係訊號，而不是治療無效的指標。治療並不要求雙方一開始就做出關係承諾，而是先去理解彼此目前困在什麼樣的互動模式中。"
-    },
-    {
-      q: "治療時，會不會被要求說出自己其實還沒準備好的情緒或想法？",
-      a: "治療師會持續調整治療的節奏，確保情緒經驗能在可承受的範圍內被觸及。情感的表達深度與速度，會根據每個人的狀態而調整，而不是由治療方法預設。"
-    },
-    {
-      q: "如果我們真正卡住的是現實問題或價值觀差異，治療師會怎麼處理？",
-      a: "治療師會聚焦於這些議題如何影響彼此的情感連結，而不是急於解決問題本身。治療的目的是讓討論能在更穩定、安全的關係狀態中進行。"
-    },
-    {
-      q: "會不會變成其中一方一直被檢討或被要求改變？",
-      a: "治療師的工作單位是關係中的「互動模式」，而非個別的個性或立場。如果治療過程偏向某一方，治療師會主動將視角拉回到雙方的互動結構。"
-    },
-    {
-      q: "如果一方比較會表達，另一方比較退縮，治療師會怎麼處理？",
-      a: "治療師會同時照顧不同位置的需求。表達較多的一方會被協助放慢、調整步調；而退縮的一方則會在不被逼迫的情況下，逐漸建立起自己的表達空間。"
-    },
-    {
-      q: "治療會不會讓衝突一開始反而更嚴重？",
-      a: "治療師會以穩定互動為優先目標。如果衝突強度升高，會被視為需要立即調整介入方式的訊號，而非治療必經的過程。"
-    },
-    {
-      q: "如果我們已經嘗試過很多方法，治療師還能做什麼不一樣的事？",
-      a: "治療師不會重複既有的說服、協調或解決問題的策略，而是協助你們看見：這些努力是如何被既有的互動模式所抵銷。治療的切入點是互動的組織方式。"
-    },
-    {
-      q: "治療的目標一定是讓關係變得更親密嗎？",
-      a: "治療師關注的是關係在情緒層面是否變得更安全、更清晰。親密感會隨著互動的穩定自然產生，而不是被設定為必須達成的目標。"
-    },
-    {
-      q: "如果最後我們發現無法繼續走下去，這段治療還有意義嗎？",
-      a: "治療師的工作是陪伴伴侶在更少防衛、更少混亂的狀態下，理解彼此的立場與限制。這樣的理解，本身就是一種關係工作的完成。"
-    }
-  ];
+  const { language } = useLanguage();
+  
+  // 安全地獲取 Dictionary 資料，若無則使用預設值
+  const dictionaryAny = DICTIONARY as any;
+  const content = dictionaryAny[language]?.couple;
+
+  // 使用我們剛剛定義的 LOCAL_QA_DATA
+  const QA_LIST = LOCAL_QA_DATA;
 
   return (
     <main className="min-h-screen bg-[#F9F8F6] font-sans selection:bg-[#EBD0C5] selection:text-[#5E4B45]">
@@ -76,18 +88,20 @@ export default function CoupleTherapyPage() {
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/60 rounded-full mb-8 backdrop-blur-sm border border-[#EBD0C5] shadow-sm">
               <HeartHandshake size={16} className="text-[#AA7B81]" />
-              <span className="text-xs font-bold tracking-widest text-[#7E7185] uppercase">Couple Therapy</span>
+              <span className="text-xs font-bold tracking-widest text-[#7E7185] uppercase">
+                {content?.title ?? 'Couple Therapy'}
+              </span>
             </div>
             
             <h1 className="font-serif text-4xl md:text-6xl text-[#5E4B45] leading-[1.3] mb-8 font-medium">
-              依附關係 × 情緒互動<br />
-              <span className="text-[#AA7B81] text-3xl md:text-5xl mt-3 block">伴侶治療的第一步</span>
+              {content?.hero?.heading?.[0] ?? '依附關係 × 情緒互動'}<br />
+              <span className="text-[#AA7B81] text-3xl md:text-5xl mt-3 block">
+                {content?.hero?.heading?.[1] ?? '伴侶治療的第一步'}
+              </span>
             </h1>
 
             <p className="text-[#7E7185] text-lg font-light leading-loose mb-10">
-              我們每個人處理親密關係的方式，其實都跟<strong>「依附」</strong>有關。<br/>
-              這不是某種標籤，而是我們在關係裡怎麼維持安全感、<br/>
-              怎麼面對距離與衝突的一套自動反應。
+              {content?.hero?.intro ?? '我們每個人處理親密關係的方式，其實都跟「依附」有關。'}
             </p>
           </div>
 
@@ -231,7 +245,7 @@ export default function CoupleTherapyPage() {
              <img 
                 src="https://cwjen.vercel.app/Photos/c12.png" 
                 alt="面具與杯子並置，指向表層角色與內在狀態的關係"
-                className="w-full h-auto rounded-xl shadow-2xl relative z-10 bg-[#D4D2D3]" // bg added for image transparency safety
+                className="w-full h-auto rounded-xl shadow-2xl relative z-10 bg-[#D4D2D3]"
              />
           </div>
 

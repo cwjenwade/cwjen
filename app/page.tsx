@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from 'react';
 import { 
@@ -16,7 +16,6 @@ export default function IndexPage() {
   
   return (
     <div className="min-h-screen bg-[#F8F8EC] font-sans text-[#3A4535] overflow-x-hidden selection:bg-[#E2C351] selection:text-white">
-
       {/* ================= HERO SECTION: 思想的存在 ================= */}
       <section className="relative pt-24 pb-32 px-6 md:px-12 max-w-7xl mx-auto">
         {/* Background Decor */}
@@ -310,7 +309,6 @@ export default function IndexPage() {
 
       {/* Decorative Footer Element */}
       <div className="h-4 w-full bg-gradient-to-r from-[#A3BFA7] via-[#E2C351] to-[#79976B]"></div>
-
     </div>
   );
 }

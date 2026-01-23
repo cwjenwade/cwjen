@@ -1,0 +1,11 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "psychotherapy": "Psychotherapy"
+  },
+  "home": {
+    "title": "Welcome to Wade Jen",
+    "description": "Academic and professional resources on psychotherapy and counseling."
+  }
+}
