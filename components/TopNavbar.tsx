@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import type { Locale } from '@/lib/dictionary';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/app/context/LanguageContext'; 
@@ -79,21 +78,52 @@ export default function TopNavbar() {
   // 1. 取得全域語言狀態
   const { language, setLanguage } = useLanguage();
 
+  // [新增] 在組件掛載時，檢查 Cookie 以同步 Google 翻譯的狀態
+  // 如果使用者之前已經切換成英文，這裡會強制同步 Context 狀態，確保按鈕顯示正確
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
+
+    // 檢查 Google Translate Cookie
+    const cookies = document.cookie.split(';');
+    const gtCookie = cookies.find(c => c.trim().startsWith('googtrans='));
+    
+    // 如果 Cookie 包含 '/en'，表示目前是翻譯狀態，強制設為 'en'
+    if (gtCookie && gtCookie.includes('/en')) {
+      if (language !== 'en') setLanguage('en');
+    }
+
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [language, setLanguage]);
 
   const toggleMobileExpand = useCallback((key: string) => {
     setMobileExpand(prev => prev === key ? null : key);
   }, []);
 
-  // 修正部分：直接使用 language 變數進行判斷，而非傳入函式
+  // [修改] 整合 Google 翻譯邏輯的切換函式
   const toggleLanguage = useCallback(() => {
-    setLanguage(language === 'en' ? 'zh' : 'en');
+    const targetLang = language === 'zh' ? 'en' : 'zh';
+    
+    // 1. 更新 React 狀態 (讓 UI 立即反應)
+    setLanguage(targetLang);
+
+    // 2. 設定 Google 翻譯所需的 Cookie
+    if (targetLang === 'en') {
+      // 設定 Cookie：從 繁體中文(zh-TW) 翻譯到 英文(en)
+      document.cookie = `googtrans=/zh-TW/en; path=/; domain=${window.location.hostname}`;
+      document.cookie = `googtrans=/zh-TW/en; path=/`; // 雙重保險
+    } else {
+      // 清除 Cookie：回到原始語言
+      document.cookie = `googtrans=; path=/; domain=${window.location.hostname}; expires=Thu, 01 Jan 1970 00:00:01 GMT`;
+      document.cookie = `googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT`;
+    }
+
+    // 3. 重新整理頁面以觸發/取消翻譯
+    // 這是讓 Google 翻譯生效最穩定、最簡單的方式
+    window.location.reload();
+
   }, [language, setLanguage]);
 
   // --- 字體樣式定義 ---
@@ -103,6 +133,12 @@ export default function TopNavbar() {
 
   return (
     <>
+      {/* [新增] Google 翻譯掛載點 
+        這是 layout.tsx 中腳本尋找的目標。
+        我們使用 'hidden' 將其隱藏，因為我們使用自定義按鈕觸發它。
+      */}
+      <div id="google_translate_element" className="hidden fixed bottom-0 right-0 z-[-1]"></div>
+
       {/* --- Desktop & Mobile Header --- */}
       <header 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out
