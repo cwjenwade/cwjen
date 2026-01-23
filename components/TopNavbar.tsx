@@ -106,6 +106,7 @@ export default function TopNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpand, setMobileExpand] = useState<string | null>(null);
   const pathname = usePathname();
+  const { language, navMode, setNavMode } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -147,9 +148,10 @@ export default function TopNavbar() {
               {NAV_ITEMS.map((item) => {
                 const isActive = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href || '');
                 const hasSub = item.subItems.length > 0;
-                const { language } = useLanguage();
-                const navLabel = (DICTIONARY as any)[language]?.navigation?.[item.key] ?? item.en;
-                const navLabelZh = (DICTIONARY as any)[language === 'zh' ? 'zh' : 'en']?.navigation?.[item.key] ?? item.zh;
+
+                const primaryLabel = (DICTIONARY as any)[language]?.navigation?.[item.key] ?? (language === 'zh' ? item.zh : item.en);
+                const otherLang = language === 'zh' ? 'en' : 'zh';
+                const secondaryLabel = (DICTIONARY as any)[otherLang]?.navigation?.[item.key] ?? (otherLang === 'zh' ? item.zh : item.en);
 
                 return (
                   <div key={item.key} className="relative group px-1">
@@ -162,11 +164,13 @@ export default function TopNavbar() {
                       `}
                     >
                       <span className={`text-[15px] font-bold tracking-tight ${isActive ? 'text-teal-900' : 'text-stone-700'}`}>
-                        {navLabel}
+                        {primaryLabel}
                       </span>
-                      <span className="text-xs text-stone-500 font-medium mt-0.5 group-hover:text-stone-600 transition-colors">
-                        {language === 'zh' ? item.zh : ''}
-                      </span>
+                      {navMode === 'both' && (
+                        <span className="text-xs text-stone-500 font-medium mt-0.5 group-hover:text-stone-600 transition-colors">
+                          {secondaryLabel}
+                        </span>
+                      )}
                     </Link>
 
                     {/* Dropdown Menu */}
@@ -177,7 +181,8 @@ export default function TopNavbar() {
                           
                           <div className={`grid ${item.subItems.length > 6 ? 'grid-cols-2 gap-x-3' : 'grid-cols-1'} gap-y-1`}>
                             {item.subItems.map((sub) => {
-                              const subLabel = (DICTIONARY as any)[language]?.navigation?.[sub.href?.split('/').pop() ?? ''] ?? sub.en;
+                              const subPrimary = language === 'zh' ? sub.zh : sub.en;
+                              const subSecondary = language === 'zh' ? sub.en : sub.zh;
                               return (
                                 <Link 
                                   key={sub.href}
@@ -186,11 +191,13 @@ export default function TopNavbar() {
                                 >
                                   <div className="flex flex-col">
                                     <span className="text-[14px] font-bold text-stone-600 group-hover/sub:text-teal-800 transition-colors">
-                                      {language === 'zh' ? sub.zh : sub.en}
+                                      {subPrimary}
                                     </span>
-                                    <span className="text-xs text-stone-400 group-hover/sub:text-stone-500 font-medium mt-0.5">
-                                      {''}
-                                    </span>
+                                    {navMode === 'both' && (
+                                      <span className="text-xs text-stone-400 group-hover/sub:text-stone-500 font-medium mt-0.5">
+                                        {subSecondary}
+                                      </span>
+                                    )}
                                   </div>
                                 </Link>
                               );
@@ -202,6 +209,22 @@ export default function TopNavbar() {
                   </div>
                 );
               })}
+
+              {/* Nav display-mode toggle (desktop) */}
+              <div className="hidden lg:flex items-center gap-2 ml-2">
+                <button
+                  onClick={() => setNavMode('both')}
+                  className={`px-3 py-1 rounded-md text-sm ${navMode === 'both' ? 'bg-stone-200' : 'bg-transparent'}`}
+                >
+                  雙語
+                </button>
+                <button
+                  onClick={() => setNavMode('single')}
+                  className={`px-3 py-1 rounded-md text-sm ${navMode === 'single' ? 'bg-stone-200' : 'bg-transparent'}`}
+                >
+                  單語
+                </button>
+              </div>
             </nav>
 
             {/* --- Mobile Menu Button --- */}
@@ -228,6 +251,20 @@ export default function TopNavbar() {
              <div className="flex flex-col">
                 <span className="font-serif text-2xl font-bold text-stone-800">Menu</span>
                 <span className="text-xs text-stone-500 uppercase tracking-widest font-medium">Navigation</span>
+                <div className="mt-3 flex items-center gap-2">
+                  <button
+                    onClick={() => setNavMode('both')}
+                    className={`px-3 py-1 rounded ${navMode === 'both' ? 'bg-stone-200' : 'bg-transparent'}`}
+                  >
+                    雙語
+                  </button>
+                  <button
+                    onClick={() => setNavMode('single')}
+                    className={`px-3 py-1 rounded ${navMode === 'single' ? 'bg-stone-200' : 'bg-transparent'}`}
+                  >
+                    單語
+                  </button>
+                </div>
               </div>
             <button 
               onClick={() => setMobileMenuOpen(false)}
@@ -258,9 +295,10 @@ export default function TopNavbar() {
                         {item.icon}
                       </div>
                       <div className="flex flex-col text-left">
-                        <span className="text-lg font-bold text-stone-800">{item.en}</span>
-                        {/* 手機版中文改為 text-sm (14px) 以利閱讀 */}
-                        <span className="text-sm text-stone-500 font-medium">{item.zh}</span>
+                        <span className="text-lg font-bold text-stone-800">{language === 'zh' ? item.zh : item.en}</span>
+                        {navMode === 'both' && (
+                          <span className="text-sm text-stone-500 font-medium">{language === 'zh' ? item.en : item.zh}</span>
+                        )}
                       </div>
                     </Link>
                     
