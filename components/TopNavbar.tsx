@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useLanguage } from '@/app/context/LanguageContext';
+import { DICTIONARY } from '@/lib/dictionary';
 import { 
   Menu, 
   X, 
@@ -143,8 +145,11 @@ export default function TopNavbar() {
             {/* --- Desktop Navigation --- */}
             <nav className="hidden lg:flex items-center gap-2">
               {NAV_ITEMS.map((item) => {
-                const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+                const isActive = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href || '');
                 const hasSub = item.subItems.length > 0;
+                const { language } = useLanguage();
+                const navLabel = (DICTIONARY as any)[language]?.navigation?.[item.key] ?? item.en;
+                const navLabelZh = (DICTIONARY as any)[language === 'zh' ? 'zh' : 'en']?.navigation?.[item.key] ?? item.zh;
 
                 return (
                   <div key={item.key} className="relative group px-1">
@@ -157,11 +162,10 @@ export default function TopNavbar() {
                       `}
                     >
                       <span className={`text-[15px] font-bold tracking-tight ${isActive ? 'text-teal-900' : 'text-stone-700'}`}>
-                        {item.en}
+                        {navLabel}
                       </span>
-                      {/* 中文大小調整為 text-xs (12px)，顏色加深一點點 */}
                       <span className="text-xs text-stone-500 font-medium mt-0.5 group-hover:text-stone-600 transition-colors">
-                        {item.zh}
+                        {language === 'zh' ? item.zh : ''}
                       </span>
                     </Link>
 
@@ -172,23 +176,25 @@ export default function TopNavbar() {
                           <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-l border-t border-stone-100"></div>
                           
                           <div className={`grid ${item.subItems.length > 6 ? 'grid-cols-2 gap-x-3' : 'grid-cols-1'} gap-y-1`}>
-                            {item.subItems.map((sub) => (
-                              <Link 
-                                key={sub.href}
-                                href={sub.href}
-                                className="flex items-center justify-between px-4 py-3 rounded-xl hover:bg-stone-50 transition-all duration-200 group/sub"
-                              >
-                                <div className="flex flex-col">
-                                  <span className="text-[14px] font-bold text-stone-600 group-hover/sub:text-teal-800 transition-colors">
-                                    {sub.en}
-                                  </span>
-                                  {/* 下拉選單中文大小調整為 text-xs (12px) */}
-                                  <span className="text-xs text-stone-400 group-hover/sub:text-stone-500 font-medium mt-0.5">
-                                    {sub.zh}
-                                  </span>
-                                </div>
-                              </Link>
-                            ))}
+                            {item.subItems.map((sub) => {
+                              const subLabel = (DICTIONARY as any)[language]?.navigation?.[sub.href?.split('/').pop() ?? ''] ?? sub.en;
+                              return (
+                                <Link 
+                                  key={sub.href}
+                                  href={sub.href}
+                                  className="flex items-center justify-between px-4 py-3 rounded-xl hover:bg-stone-50 transition-all duration-200 group/sub"
+                                >
+                                  <div className="flex flex-col">
+                                    <span className="text-[14px] font-bold text-stone-600 group-hover/sub:text-teal-800 transition-colors">
+                                      {language === 'zh' ? sub.zh : sub.en}
+                                    </span>
+                                    <span className="text-xs text-stone-400 group-hover/sub:text-stone-500 font-medium mt-0.5">
+                                      {''}
+                                    </span>
+                                  </div>
+                                </Link>
+                              );
+                            })}
                           </div>
                         </div>
                       </div>
