@@ -99,7 +99,7 @@ export default function AboutPage() {
   const training = [
     {
       category: "Emotionally Focused Therapy (EFT)",
-      icon: <Brain className="w-6 h-6 text-[#D8944F]" />,
+      icon: <Brain className="w-5 h-5 text-[#6D7A3F]" />,
       items: [
         "Emotionally Focused Couples Therapy (EFCT) – Advanced Training Course（情緒焦點治療－EFCT 伴侶治療三階課程）",
         "Emotionally Focused Couples Therapy (EFCT) – Intermediate Training Course（情緒焦點治療－EFCT 伴侶治療二階課程）",
@@ -111,7 +111,7 @@ export default function AboutPage() {
     },
     {
       category: "Attachment & Mentalization",
-      icon: <Anchor className="w-6 h-6 text-[#6D7A3F]" />,
+      icon: <Anchor className="w-5 h-5 text-[#D8944F]" />,
       items: [
         "Attachment-Oriented Individual Counseling – CPTSD Practice Workshop（依戀取向個別諮商－複雜性創傷療癒實務工作坊）",
         "Mentalization-Based Therapy (MBT) for Borderline Personality Disorder / Online Course（心智化治療 MBT 於邊緣性人格障礙之應用）"
@@ -119,7 +119,7 @@ export default function AboutPage() {
     },
     {
       category: "Group Therapy",
-      icon: <Users className="w-6 h-6 text-[#CDB07B]" />,
+      icon: <Users className="w-5 h-5 text-[#6D7A3F]" />,
       items: [
         "Unstructured Group Counseling for College Students with Alexithymia（非結構團體諮商帶領－大學生述情障礙人際關係團體）",
         "Interpersonal/Family and Self Exploration Group Therapy – Second Edition（人際、家庭與自我關係探究團體－第二期）",
@@ -129,7 +129,7 @@ export default function AboutPage() {
     },
     {
       category: "Other Approaches",
-      icon: <Layers className="w-6 h-6 text-[#8CBD9A]" />,
+      icon: <Layers className="w-5 h-5 text-[#8CBD9A]" />,
       items: [
         "Application of Gestalt Approach in Counseling / Online Course（心理諮商運用－完形取向）"
       ]
@@ -140,11 +140,6 @@ export default function AboutPage() {
     "品牌策發展顧問", "品牌識別", "團隊營運優化", "專案管理", "平面設計", "醫療糾紛處理"
   ];
 
-  // Colors:
-  // Bg: #FEFCF3
-  // Accents: #6D7A3F (Green), #D8944F (Orange), #CDB07B (Mustard), #B5D1AE (Light Green)
-  // Text: #2C3325 (Dark), #5C6150 (Med)
-
   return (
     <div className="font-sans bg-[#FEFCF3] text-[#4A4D3E] pb-24 overflow-x-hidden">
       
@@ -153,28 +148,38 @@ export default function AboutPage() {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left: Text & Info */}
+          {/* Left: Text & Info - Redesigned Layout */}
           <div className="lg:col-span-6 relative z-10">
-            <div className="mb-8">
-              <div className="inline-block px-4 py-1.5 mb-6 border border-[#6D7A3F] bg-white rounded-full text-xs tracking-[0.15em] text-[#6D7A3F] font-bold uppercase">
-                Licensed Counseling Psychologist
+            <div className="space-y-10">
+              {/* Name & Title Block */}
+              <div className="relative">
+                <div className="absolute -top-6 -left-6 w-20 h-20 bg-[#CDB07B] rounded-full opacity-20 -z-10"></div>
+                <div className="inline-block px-4 py-1.5 mb-6 border border-[#6D7A3F] bg-white rounded-full text-xs tracking-[0.15em] text-[#6D7A3F] font-bold uppercase shadow-sm">
+                  Licensed Counseling Psychologist
+                </div>
+                <h1 className="text-7xl md:text-8xl font-serif font-bold text-[#2C3325] leading-none tracking-tight mb-2">
+                  任祈蔚
+                </h1>
+                <span className="text-[#6D7A3F] text-4xl md:text-5xl italic font-serif opacity-80 block ml-2">
+                  Jen Chi-Wei
+                </span>
               </div>
-              <h1 className="text-6xl md:text-7xl font-serif font-bold text-[#2C3325] leading-none mb-4">
-                任祈蔚<br/>
-                <span className="text-[#6D7A3F] text-4xl md:text-5xl italic font-serif opacity-80 mt-2 block">Jen Chi-Wei</span>
-              </h1>
-              <p className="text-[#5C6150] mt-8 font-serif text-2xl leading-relaxed border-b border-[#D4E8D6] pb-8 inline-block">
-                Ph.D. Program in Clinical Psychology, <br/>National Taiwan University
-              </p>
-            </div>
 
-            {/* Quote Block (Static Collage) */}
-            <div className="relative p-10 bg-white border border-[#E0E0D5] rounded-tr-[3rem] shadow-[8px_8px_0_#CDB07B]">
-              <Quote className="absolute top-6 left-6 w-8 h-8 text-[#D8944F] opacity-40" />
-              <div className="relative z-10 pt-4 pl-4 space-y-4">
-                <p className="font-serif italic text-[#4A4D3E] text-xl leading-relaxed">
+              {/* Education Block */}
+              <div className="pl-6 border-l-4 border-[#D8944F]">
+                <p className="text-[#5C6150] font-serif text-xl leading-relaxed">
+                  <span className="font-bold text-[#2C3325] block text-2xl mb-1">Ph.D. Program in Clinical Psychology</span>
+                  National Taiwan University
+                </p>
+              </div>
+
+              {/* Quote Block - Redesigned */}
+              <div className="bg-white p-8 rounded-2xl shadow-[8px_8px_0_#B5D1AE] border border-[#E0E0D5] relative mt-8">
+                <Quote className="absolute -top-4 -right-4 w-10 h-10 text-[#D8944F] bg-[#FEFCF3] p-1 rounded-full border border-[#D8944F]" />
+                <p className="font-serif italic text-[#4A4D3E] text-lg leading-loose mb-6">
                   "Most of the time, I read—philosophy, psychology, and religion. The more I observe the world, the more I find it difficult to fully comprehend."
                 </p>
+                <div className="w-full h-px bg-[#D4E8D6] mb-6"></div>
                 <p className="text-base text-[#6D7A3F] leading-relaxed tracking-wide font-medium">
                   多數的時候都在閱讀，讀哲學、讀心理學、宗教。世界的現象自覺看不懂，讀了很多書，來找對於世界的解答。
                 </p>
@@ -184,7 +189,7 @@ export default function AboutPage() {
 
           {/* Right: Portrait Collage (Circular + Geometric Blocks) */}
           <div className="lg:col-span-6 relative flex justify-center lg:justify-end mt-12 lg:mt-0">
-            <div className="relative w-[400px] h-[500px] flex items-center justify-center">
+            <div className="relative w-[450px] h-[550px] flex items-center justify-center">
                 {/* Layer 1: Back Rectangle (Mustard) */}
                 <div className="absolute top-0 right-10 w-[280px] h-[350px] bg-[#CDB07B] -z-20 opacity-80"></div>
                 
@@ -192,14 +197,14 @@ export default function AboutPage() {
                 <div className="absolute bottom-0 left-0 w-[300px] h-[200px] bg-[#B5D1AE] -z-10 opacity-60"></div>
                 
                 {/* Layer 3: Accent Circle (Orange) */}
-                <div className="absolute top-20 left-[-20px] w-24 h-24 bg-[#D8944F] rounded-full -z-10 opacity-90"></div>
+                <div className="absolute top-10 left-[-30px] w-32 h-32 bg-[#D8944F] rounded-full -z-10 opacity-90"></div>
 
-                {/* Main Image - Circular with Border */}
-                <div className="relative w-[380px] h-[380px] rounded-full border-[8px] border-white shadow-xl overflow-hidden bg-white">
+                {/* Main Image - Circular with Border - ENLARGED */}
+                <div className="relative w-[420px] h-[420px] rounded-full border-[10px] border-white shadow-2xl overflow-hidden bg-white">
                   <img 
                     src="https://cwjen.vercel.app/Photos/wade.png" 
                     alt="Jen Chi-Wei Portrait" 
-                    className="w-full h-full object-cover scale-110 translate-y-2"
+                    className="w-full h-full object-cover scale-110 translate-y-4"
                   />
                 </div>
             </div>
