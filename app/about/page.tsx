@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 
 export default function AboutPage() {
-  // --- Data Content (Unchanged) ---
+  // --- Data Content ---
   const educationData = [
     {
       period: "2025 - Present",
@@ -98,7 +98,7 @@ export default function AboutPage() {
   const training = [
     {
       category: "Emotionally Focused Therapy (EFT)",
-      icon: <Brain className="w-5 h-5 text-[#E3AEAE]" />,
+      icon: <Brain className="w-5 h-5 text-[#D8944F]" />,
       items: [
         "Emotionally Focused Couples Therapy (EFCT) – Advanced Training Course（情緒焦點治療－EFCT 伴侶治療三階課程）",
         "Emotionally Focused Couples Therapy (EFCT) – Intermediate Training Course（情緒焦點治療－EFCT 伴侶治療二階課程）",
@@ -110,7 +110,7 @@ export default function AboutPage() {
     },
     {
       category: "Attachment & Mentalization",
-      icon: <Anchor className="w-5 h-5 text-[#E7CBA7]" />,
+      icon: <Anchor className="w-5 h-5 text-[#6D7A3F]" />,
       items: [
         "Attachment-Oriented Individual Counseling – CPTSD Practice Workshop（依戀取向個別諮商－複雜性創傷療癒實務工作坊）",
         "Mentalization-Based Therapy (MBT) for Borderline Personality Disorder / Online Course（心智化治療 MBT 於邊緣性人格障礙之應用）"
@@ -118,7 +118,7 @@ export default function AboutPage() {
     },
     {
       category: "Group Therapy",
-      icon: <Users className="w-5 h-5 text-[#CDC8D3]" />,
+      icon: <Users className="w-5 h-5 text-[#CDB07B]" />,
       items: [
         "Unstructured Group Counseling for College Students with Alexithymia（非結構團體諮商帶領－大學生述情障礙人際關係團體）",
         "Interpersonal/Family and Self Exploration Group Therapy – Second Edition（人際、家庭與自我關係探究團體－第二期）",
@@ -128,7 +128,7 @@ export default function AboutPage() {
     },
     {
       category: "Other Approaches",
-      icon: <Layers className="w-5 h-5 text-[#CCE2DC]" />,
+      icon: <Layers className="w-5 h-5 text-[#8CBD9A]" />,
       items: [
         "Application of Gestalt Approach in Counseling / Online Course（心理諮商運用－完形取向）"
       ]
@@ -140,86 +140,86 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="font-sans bg-[#FFFDF6] text-[#4A464F] pb-24 overflow-x-hidden">
+    <div className="font-sans bg-[#FEFCF3] text-[#4A503D] pb-24 overflow-x-hidden">
       
       {/* ================= HERO SECTION (Collage Style) ================= */}
-      <section className="relative pt-12 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+      <section className="relative pt-16 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
         
-        {/* Background Decor Shapes (Static) */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#CCE2DC] rounded-full opacity-40 -z-10 blur-xl"></div>
-        <div className="absolute bottom-10 left-0 w-[300px] h-[300px] bg-[#E3AEAE] rounded-full opacity-30 -z-10 blur-xl"></div>
+        {/* Background Shapes */}
+        <div className="absolute top-[-50px] right-[-50px] w-[600px] h-[600px] bg-[#D4E8D6] rounded-full opacity-40 -z-10 blur-3xl"></div>
+        <div className="absolute bottom-20 left-[-100px] w-[400px] h-[400px] bg-[#CDB07B] rounded-full opacity-20 -z-10 blur-3xl"></div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* Left: Text & Info */}
-          <div className="lg:col-span-5 relative z-10 space-y-6">
+          {/* Left: Text Info - Tighter spacing */}
+          <div className="lg:col-span-7 relative z-10 space-y-8 pr-0 lg:pr-12">
             <div>
-              <div className="inline-block px-3 py-1 mb-4 border border-[#E7CBA7] rounded-full text-xs tracking-[0.1em] text-[#8C857B] bg-white uppercase font-serif">
+              <div className="inline-block px-4 py-1.5 mb-5 border-l-4 border-[#D8944F] bg-white shadow-sm text-xs font-bold tracking-[0.15em] text-[#6D7A3F] uppercase">
                 Licensed Counseling Psychologist
               </div>
-              <h1 className="text-5xl md:text-6xl font-serif font-bold text-[#4A464F] leading-tight mb-2">
+              <h1 className="text-6xl md:text-7xl font-serif font-bold text-[#2C3325] leading-none mb-3">
                 任祈蔚<br/>
-                <span className="text-[#CDC8D3] text-4xl italic font-normal">Jen Chi-Wei</span>
+                <span className="text-[#6D7A3F] text-4xl md:text-5xl italic font-serif opacity-80 mt-2 block">Jen Chi-Wei</span>
               </h1>
-              <p className="text-[#8C857B] mt-4 font-serif text-lg leading-relaxed">
+              <p className="text-[#5C6150] mt-6 font-serif text-xl leading-relaxed border-b border-[#D4E8D6] pb-6 inline-block">
                 Ph.D. Program in Clinical Psychology, <br/>National Taiwan University
               </p>
             </div>
 
-            {/* Quote Block */}
-            <div className="relative p-6 bg-[#F8F6F4] border-l-4 border-[#E3AEAE] rounded-r-xl shadow-[2px_4px_16px_rgba(0,0,0,0.02)]">
-              <Quote className="absolute top-4 left-3 w-5 h-5 text-[#E3AEAE]" />
-              <div className="relative z-10 space-y-3 pt-2 pl-2">
-                <p className="font-serif italic text-[#5C5552] text-lg leading-relaxed">
+            {/* Quote Block - Overlapping Effect */}
+            <div className="relative p-8 bg-[#F0F4EC] rounded-tr-[40px] rounded-bl-[40px] border border-[#D4E8D6]">
+              <Quote className="absolute top-6 left-6 w-8 h-8 text-[#CDB07B] opacity-40" />
+              <div className="relative z-10 pt-4 pl-4">
+                <p className="font-serif italic text-[#4A503D] text-lg leading-loose">
                   "Most of the time, I read—philosophy, psychology, and religion. The more I observe the world, the more I find it difficult to fully comprehend."
                 </p>
-                <p className="text-sm text-[#8C857B] leading-relaxed tracking-wide">
+                <p className="text-base text-[#6D7A3F] mt-4 font-medium">
                   多數的時候都在閱讀，讀哲學、讀心理學、宗教。世界的現象自覺看不懂，讀了很多書，來找對於世界的解答。
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right: Portrait Collage (Static Layering) */}
-          <div className="lg:col-span-7 relative flex justify-center lg:justify-end mt-8 lg:mt-0">
-            {/* Geometric Backdrops - No Animation */}
-            <div className="absolute top-8 right-8 w-[280px] h-[380px] md:w-[360px] md:h-[460px] bg-[#CDC8D3] rounded-[4px] -z-10 rotate-3"></div>
-            <div className="absolute bottom-4 left-8 w-[180px] h-[180px] bg-[#E7CBA7] rounded-full -z-10 opacity-70"></div>
+          {/* Right: Portrait Collage */}
+          <div className="lg:col-span-5 relative flex justify-center lg:justify-end mt-12 lg:mt-0">
+            {/* Geometric Layers - Static */}
+            <div className="absolute top-[-20px] right-[-20px] w-[320px] h-[420px] bg-[#6D7A3F] rounded-t-full -z-20 opacity-90"></div>
+            <div className="absolute bottom-[-30px] left-[-30px] w-48 h-48 bg-[#D8944F] rounded-full -z-10 opacity-80"></div>
             
             {/* Main Image Container */}
-            <div className="relative w-[300px] h-[400px] md:w-[380px] md:h-[480px] bg-white p-2 shadow-lg rounded-[4px] rotate-[-2deg] border border-[#F0F0F0]">
+            <div className="relative w-[340px] h-[440px] bg-white p-3 shadow-xl rounded-t-full border border-[#D4E8D6]">
               <img 
                 src="https://cwjen.vercel.app/Photos/wade.png" 
                 alt="Jen Chi-Wei Portrait" 
-                className="w-full h-full object-cover rounded-[2px]"
+                className="w-full h-full object-cover rounded-t-full"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ================= ABOUT ME (Split Layout with Beige) ================= */}
-      <section id="about" className="mb-20 bg-[#E7CBA7]/15 py-20 border-y border-[#E7CBA7]/30">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-12">
+      {/* ================= ABOUT ME (Split Layout) ================= */}
+      <section id="about" className="py-24 bg-[#EFEFE6] border-y border-[#D4E8D6]">
+        <div className="max-w-6xl mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-16 items-start">
           
-          <div className="md:col-span-4">
-            <h2 className="text-3xl font-serif font-bold text-[#4A464F] mb-6 flex items-center gap-3">
-              <User className="text-[#E7CBA7]" size={28}/> 關於我<span className="text-lg font-light text-[#8C857B]">About Me</span>
+          <div className="md:col-span-4 sticky top-10">
+            <h2 className="text-3xl font-serif font-bold text-[#2C3325] mb-6 flex items-center gap-3">
+              <User className="text-[#D8944F]" size={32}/> 關於我<br/><span className="text-lg font-sans font-normal text-[#6D7A3F] mt-1 block">About Me</span>
             </h2>
-            <div className="w-12 h-1 bg-[#E7CBA7] mb-6"></div>
-            <p className="text-[#8C857B] text-sm leading-loose font-serif">
+            <div className="w-16 h-1 bg-[#D8944F] mb-8"></div>
+            <p className="text-[#5C6150] text-sm leading-loose font-serif">
               Research centers on human emotion, group therapy, couple therapy, experiential approaches to psychotherapy, and empathy. I am deeply drawn to the dialogue between psychological healing and aesthetics.
             </p>
           </div>
 
-          <div className="md:col-span-8 space-y-6 text-[#5C5552] text-lg leading-loose font-serif tracking-wide">
+          <div className="md:col-span-8 space-y-8 text-[#4A503D] text-lg leading-loose font-serif tracking-wide">
             <p>
               因著工作，合作，認識了一些夥伴，在這些交流中彼此成長，也長成。有一些名謂或抬頭，不過那只是世界的一些指稱。其中倒也不代表，或意味著什麼。
             </p>
-            <p>
+            <p className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#6D7A3F]">
               跨領域成就了背景的多元，思維上的多絮，不過終究為人，亦是常人，受五蘊之擾。
             </p>
-            <p className="font-bold text-[#4A464F]">
+            <p className="font-bold text-[#2C3325]">
               研究的主軸是人類的情緒、團體治療、伴侶治療、經驗取向治療、與同理心。對心理治療與美學感到熱衷。
             </p>
           </div>
@@ -227,51 +227,51 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= EDUCATION & EXPERIENCE (Grid Layout) ================= */}
-      <section className="px-6 md:px-12 max-w-7xl mx-auto mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* ================= EDUCATION & EXPERIENCE (Larger Font) ================= */}
+      <section className="px-6 md:px-12 max-w-7xl mx-auto my-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           
-          {/* Column 1: Education (Green Theme) */}
-          <div className="bg-[#CCE2DC]/20 p-8 rounded-[4px] border-l-4 border-[#CCE2DC]">
-            <div className="flex items-center gap-3 mb-8 pb-4 border-b border-[#CCE2DC]/50">
-              <GraduationCap size={24} className="text-[#8FA39D]"/>
-              <h2 className="text-2xl font-serif font-bold text-[#4A464F]">
-                學歷背景 <span className="text-lg font-light text-[#8C857B]">Education</span>
+          {/* Column 1: Education */}
+          <div className="bg-[#D4E8D6]/30 p-10 rounded-[4px] border-t-8 border-[#6D7A3F]">
+            <div className="flex items-center gap-4 mb-10 pb-4 border-b border-[#6D7A3F]/20">
+              <GraduationCap size={32} className="text-[#6D7A3F]"/>
+              <h2 className="text-3xl font-serif font-bold text-[#2C3325]">
+                學歷背景 <br/><span className="text-xl font-sans font-light text-[#5C6150]">Education</span>
               </h2>
             </div>
             
-            <div className="space-y-10">
+            <div className="space-y-12">
               {educationData.map((item, index) => (
-                <div key={index} className="relative pl-6">
-                  <div className="absolute -left-[9px] top-2 w-3 h-3 rounded-full bg-[#8FA39D] ring-4 ring-[#FFFDF6]"></div>
-                  <span className="text-xs font-bold text-[#8FA39D] tracking-widest block mb-1 font-sans">{item.period}</span>
-                  <h3 className="text-lg font-bold text-[#4A464F] leading-snug mb-1 font-serif">{item.school}</h3>
-                  <p className="text-sm text-[#5C5552] font-medium">{item.degree}</p>
-                  <p className="text-xs text-[#8C857B] mt-1">{item.dept}</p>
+                <div key={index} className="relative pl-8">
+                  <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-[#6D7A3F] ring-4 ring-[#FEFCF3]"></div>
+                  <span className="text-sm font-bold text-[#D8944F] tracking-widest block mb-2 font-sans uppercase">{item.period}</span>
+                  <h3 className="text-2xl font-serif font-bold text-[#2C3325] leading-snug mb-2">{item.school}</h3>
+                  <p className="text-lg text-[#4A503D] font-medium">{item.degree}</p>
+                  <p className="text-base text-[#5C6150] mt-1">{item.dept}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Column 2: Experience & Awards (Lavender Theme) */}
-          <div className="bg-[#CDC8D3]/15 p-8 rounded-[4px] border-l-4 border-[#CDC8D3]">
-            <div className="flex items-center gap-3 mb-8 pb-4 border-b border-[#CDC8D3]/50">
-              <Award size={24} className="text-[#9C8B9F]"/>
-              <h2 className="text-2xl font-serif font-bold text-[#4A464F]">
-                經歷與獎項 <span className="text-lg font-light text-[#8C857B]">Experience</span>
+          {/* Column 2: Experience & Awards */}
+          <div className="bg-white p-10 rounded-[4px] border border-[#D4E8D6] shadow-sm">
+            <div className="flex items-center gap-4 mb-10 pb-4 border-b border-[#D4E8D6]">
+              <Award size={32} className="text-[#D8944F]"/>
+              <h2 className="text-3xl font-serif font-bold text-[#2C3325]">
+                經歷與獎項 <br/><span className="text-xl font-sans font-light text-[#5C6150]">Experience</span>
               </h2>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-8">
               {experienceData.map((item, index) => (
-                <div key={index} className="bg-white p-6 rounded-sm shadow-sm border border-[#F0F0F0]">
+                <div key={index} className="group">
                   <div className="flex justify-between items-start mb-2">
-                    <span className={`text-xs px-2 py-1 rounded-sm font-bold tracking-wide ${item.type === 'award' ? 'bg-[#E3AEAE]/20 text-[#AA7B81]' : 'bg-[#E7CBA7]/20 text-[#8C7B70]'}`}>
+                    <span className={`text-xs px-3 py-1 rounded-full font-bold tracking-wide ${item.type === 'award' ? 'bg-[#D8944F] text-white' : 'bg-[#CDB07B] text-white'}`}>
                       {item.year}
                     </span>
                   </div>
-                  <h3 className="text-base font-bold text-[#4A464F] mb-1 font-serif">{item.title}</h3>
-                  <p className="text-sm text-[#8C857B]">{item.org}</p>
+                  <h3 className="text-xl font-bold text-[#2C3325] mb-2 font-serif group-hover:text-[#6D7A3F] transition-colors duration-300">{item.title}</h3>
+                  <p className="text-base text-[#5C6150]">{item.org}</p>
                 </div>
               ))}
             </div>
@@ -280,31 +280,31 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= TRAINING & SKILLS (Collage Cards) ================= */}
-      <section className="px-6 md:px-12 max-w-7xl mx-auto mb-20">
+      {/* ================= TRAINING & SKILLS (Cards) ================= */}
+      <section className="px-6 md:px-12 max-w-7xl mx-auto mb-24">
         
-        <div className="flex items-center gap-4 mb-10">
-           <div className="h-[1px] bg-[#E3AEAE] w-12"></div>
-           <h2 className="text-3xl font-serif font-bold text-[#4A464F]">
-             心理治療訓練 <span className="text-xl font-light text-[#8C857B]">Psychotherapy Training</span>
+        <div className="flex items-center gap-6 mb-12">
+           <div className="h-2 w-2 bg-[#D8944F] rounded-full"></div>
+           <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#2C3325]">
+             心理治療訓練 <span className="text-2xl font-sans font-light text-[#5C6150]">Psychotherapy Training</span>
            </h2>
         </div>
 
         {/* Training Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
           {training.map((t, idx) => (
-            <div key={idx} className="bg-white p-8 border border-[#F0F0F0] shadow-sm relative overflow-hidden group">
-              {/* Static decorative corner */}
-              <div className="absolute top-0 right-0 w-16 h-16 bg-[#FFFDF6] rounded-bl-full border-b border-l border-[#F0F0F0]"></div>
+            <div key={idx} className="bg-white p-10 border border-[#E0E0D5] shadow-sm relative overflow-hidden">
+              {/* Corner Accent */}
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#B5D1AE]"></div>
               
-              <div className="flex items-center gap-3 mb-6 relative z-10">
-                <div className="p-2 bg-[#FFFDF6] rounded-md border border-[#F0F0F0]">{t.icon}</div>
-                <h3 className="font-bold text-[#4A464F] text-xl font-serif">{t.category}</h3>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="p-3 bg-[#FEFCF3] rounded-lg border border-[#D4E8D6]">{t.icon}</div>
+                <h3 className="font-bold text-[#2C3325] text-2xl font-serif">{t.category}</h3>
               </div>
-              <ul className="space-y-4 relative z-10">
+              <ul className="space-y-5">
                 {t.items.map((item, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-[#5C5552] leading-relaxed">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#E3AEAE] mt-2 shrink-0"></span>
+                  <li key={i} className="flex gap-4 text-base text-[#5C6150] leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6D7A3F] mt-2.5 shrink-0"></span>
                     {item}
                   </li>
                 ))}
@@ -314,13 +314,13 @@ export default function AboutPage() {
         </div>
 
         {/* Skills Section */}
-        <div className="bg-[#E3AEAE]/10 p-8 rounded-xl border border-[#E3AEAE]/30 text-center">
-           <h3 className="text-lg font-serif font-bold text-[#AA7B81] mb-6 flex items-center justify-center gap-2">
-             <Palette size={18}/> 專業技能 Professional Skills
+        <div className="bg-[#B5D1AE]/20 p-10 rounded-2xl border border-[#B5D1AE] text-center">
+           <h3 className="text-xl font-serif font-bold text-[#6D7A3F] mb-8 flex items-center justify-center gap-3">
+             <Palette size={24}/> 專業技能 Professional Skills
            </h3>
-           <div className="flex flex-wrap gap-3 justify-center">
+           <div className="flex flex-wrap gap-4 justify-center">
             {skills.map((skill, i) => (
-              <span key={i} className="px-5 py-2 bg-white border border-[#E3AEAE]/50 text-[#5C5552] text-sm shadow-sm tracking-wide font-serif">
+              <span key={i} className="px-6 py-3 bg-white border-b-4 border-[#D8944F] text-[#4A503D] text-base font-medium tracking-wide rounded-t-lg">
                 {skill}
               </span>
             ))}
@@ -329,28 +329,28 @@ export default function AboutPage() {
       </section>
 
       {/* ================= SPEAKING EXPERIENCE (Timeline List) ================= */}
-      <section className="bg-white py-20 border-y border-[#F0F0F0]">
+      <section className="bg-white py-24 border-y border-[#D4E8D6]">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="flex items-center justify-center gap-3 mb-16">
-             <Mic className="text-[#E3AEAE]" size={28} />
-             <h2 className="text-3xl font-serif font-bold text-[#4A464F]">
-               演講經歷 <span className="text-xl font-light text-[#8C857B]">Speaking Experience</span>
+          <div className="flex items-center justify-center gap-4 mb-20">
+             <Mic className="text-[#D8944F]" size={32} />
+             <h2 className="text-4xl font-serif font-bold text-[#2C3325]">
+               演講經歷 <span className="text-2xl font-sans font-light text-[#5C6150]">Speaking Experience</span>
              </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16">
+          <div className="grid md:grid-cols-2 gap-20">
             {/* Left: Psychology */}
             <div>
-              <h3 className="text-lg font-bold text-[#4A464F] mb-8 pb-2 border-b-2 border-[#CCE2DC] inline-block font-serif">
+              <h3 className="text-xl font-bold text-[#6D7A3F] mb-10 pb-2 border-b-2 border-[#6D7A3F] inline-block font-serif">
                 Psychology & Counseling
               </h3>
-              <div className="space-y-8">
+              <div className="space-y-10">
                 {speechPsychology.map((s, i) => (
-                  <div key={i} className="relative pl-6 border-l border-[#CCE2DC]">
-                    <div className="absolute -left-[3px] top-2 w-1.5 h-1.5 bg-[#CCE2DC] rounded-full"></div>
-                    <span className="text-sm font-bold text-[#8FA39D] font-serif">{s.year}</span>
-                    <h4 className="font-medium text-[#5C5552] mt-1 mb-1 text-base">{s.title}</h4>
-                    <p className="text-xs text-[#8C857B]">{s.location}</p>
+                  <div key={i} className="relative pl-8 border-l border-[#D4E8D6]">
+                    <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-[#6D7A3F] rounded-full"></div>
+                    <span className="text-sm font-bold text-[#CDB07B] font-sans">{s.year}</span>
+                    <h4 className="font-bold text-[#2C3325] mt-1 mb-2 text-lg font-serif">{s.title}</h4>
+                    <p className="text-sm text-[#5C6150] bg-[#FEFCF3] px-2 py-1 inline-block">{s.location}</p>
                   </div>
                 ))}
               </div>
@@ -358,16 +358,16 @@ export default function AboutPage() {
 
             {/* Right: Dentistry */}
             <div>
-              <h3 className="text-lg font-bold text-[#4A464F] mb-8 pb-2 border-b-2 border-[#E7CBA7] inline-block font-serif">
+              <h3 className="text-xl font-bold text-[#D8944F] mb-10 pb-2 border-b-2 border-[#D8944F] inline-block font-serif">
                 Dentistry & Management
               </h3>
-              <div className="space-y-8">
+              <div className="space-y-10">
                 {speechDentistry.map((s, i) => (
-                  <div key={i} className="relative pl-6 border-l border-[#E7CBA7]">
-                    <div className="absolute -left-[3px] top-2 w-1.5 h-1.5 bg-[#E7CBA7] rounded-full"></div>
-                    <span className="text-sm font-bold text-[#AA9B8A] font-serif">{s.year}</span>
-                    <h4 className="font-medium text-[#5C5552] mt-1 mb-1 text-base">{s.title}</h4>
-                    <p className="text-xs text-[#8C857B]">{s.location}</p>
+                  <div key={i} className="relative pl-8 border-l border-[#E7CBA7]">
+                    <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-[#D8944F] rounded-full"></div>
+                    <span className="text-sm font-bold text-[#CDB07B] font-sans">{s.year}</span>
+                    <h4 className="font-bold text-[#2C3325] mt-1 mb-2 text-lg font-serif">{s.title}</h4>
+                    <p className="text-sm text-[#5C6150] bg-[#FEFCF3] px-2 py-1 inline-block">{s.location}</p>
                   </div>
                 ))}
               </div>
@@ -377,23 +377,23 @@ export default function AboutPage() {
       </section>
 
       {/* ================= PUBLICATIONS (Simple Clean List) ================= */}
-      <section className="bg-[#CCE2DC]/10 py-20 px-6">
-        <div className="max-w-5xl mx-auto bg-white p-10 md:p-16 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#CCE2DC]/30">
-          <div className="flex items-center gap-3 mb-12 border-b border-[#F0F0F0] pb-6">
-            <BookOpen className="text-[#8FA39D]" size={24} />
-            <h2 className="text-3xl font-serif font-bold text-[#4A464F]">
-              學術著作 <span className="text-xl font-light text-[#8C857B]">Academic Publications</span>
+      <section className="bg-[#CDB07B]/10 py-24 px-6">
+        <div className="max-w-5xl mx-auto bg-[#FEFCF3] p-10 md:p-20 shadow-[8px_8px_0_#D4E8D6] border border-[#D4E8D6]">
+          <div className="flex items-center gap-4 mb-16 border-b border-[#E0E0D5] pb-8">
+            <BookOpen className="text-[#6D7A3F]" size={32} />
+            <h2 className="text-3xl font-serif font-bold text-[#2C3325]">
+              學術著作 <span className="text-xl font-sans font-light text-[#5C6150]">Academic Publications</span>
             </h2>
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-16">
             <div>
-              <h3 className="text-sm font-bold tracking-widest text-[#8FA39D] uppercase mb-6 flex items-center gap-2 font-serif">
-                <Sparkles size={14}/> Journal Articles
+              <h3 className="text-sm font-bold tracking-widest text-[#D8944F] uppercase mb-8 flex items-center gap-2 font-serif">
+                <Sparkles size={16}/> Journal Articles
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-6">
                 {publications.journals.map((pub, i) => (
-                  <li key={i} className="text-[#5C5552] leading-relaxed text-sm pl-4 border-l-2 border-[#F0F0F0] font-serif">
+                  <li key={i} className="text-[#4A503D] leading-loose text-base pl-6 border-l-4 border-[#CDB07B] font-serif">
                     {pub}
                   </li>
                 ))}
@@ -401,12 +401,12 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <h3 className="text-sm font-bold tracking-widest text-[#8FA39D] uppercase mb-6 flex items-center gap-2 font-serif">
-                <Sparkles size={14}/> Conference Presentations
+              <h3 className="text-sm font-bold tracking-widest text-[#D8944F] uppercase mb-8 flex items-center gap-2 font-serif">
+                <Sparkles size={16}/> Conference Presentations
               </h3>
-              <ul className="space-y-6">
+              <ul className="space-y-8">
                 {publications.conferences.map((pub, i) => (
-                  <li key={i} className="text-[#5C5552] leading-relaxed text-sm pl-4 border-l-2 border-[#F0F0F0] font-serif">
+                  <li key={i} className="text-[#4A503D] leading-loose text-base pl-6 border-l-4 border-[#B5D1AE] font-serif">
                     {pub}
                   </li>
                 ))}
