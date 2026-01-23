@@ -5,7 +5,6 @@ import type { Locale } from '@/lib/dictionary';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/app/context/LanguageContext'; 
-// 移除未使用的 DICTIONARY 導入
 import { 
   Menu, 
   X, 
@@ -52,7 +51,7 @@ const NAV_ITEMS: NavItem[] = [
     subItems: [
       { en: 'Psychoanalysis', zh: '精神分析', href: '/psychotherapy/psychoanalysis' },
       { en: 'Adlerian Therapy', zh: '阿德勒學派', href: '/psychotherapy/adler' },
-      { en: 'Existential Therapy', zh: '存在主義', href: '/psychotherapy/existential' }, // 修正拼字
+      { en: 'Existential Therapy', zh: '存在主義', href: '/psychotherapy/existential' },
       { en: 'Person-Centered', zh: '個人中心', href: '/psychotherapy/person-centered' },
       { en: 'Gestalt Therapy', zh: '完形治療', href: '/psychotherapy/gestalt-therapy' },
       { en: 'CBT', zh: '認知行為', href: '/psychotherapy/cbt' },
@@ -61,7 +60,7 @@ const NAV_ITEMS: NavItem[] = [
       { en: 'Postmodern', zh: '後現代取向', href: '/psychotherapy/postmodern' },
     ] 
   },
-  { key: 'couple', en: 'Couple Therapy', zh: '伴侶治療', icon: <HeartHandshake size={18} />, href: '/couple-therapy', subItems: [] }, // 修正路由格式
+  { key: 'couple', en: 'Couple Therapy', zh: '伴侶治療', icon: <HeartHandshake size={18} />, href: '/couple-therapy', subItems: [] },
   { key: 'group', en: 'Group Therapy', zh: '團體治療', icon: <Users size={18} />, href: '/group-therapy', subItems: [] },
   { 
     key: 'project', en: 'Projects', zh: '專案計畫', icon: <FolderGit2 size={18} />, href: '/project', 
@@ -92,13 +91,12 @@ export default function TopNavbar() {
     setMobileExpand(prev => prev === key ? null : key);
   }, []);
 
+  // 修正部分：直接使用 language 變數進行判斷，而非傳入函式
   const toggleLanguage = useCallback(() => {
-    setLanguage((prev: Locale) => (prev === 'en' ? 'zh' : 'en'));
-  }, [setLanguage]);
+    setLanguage(language === 'en' ? 'zh' : 'en');
+  }, [language, setLanguage]);
 
   // --- 字體樣式定義 ---
-  // 中文：襯線體 (Serif) + 寬字距 (高貴感)
-  // 英文：無襯線體 (Sans) + 緊湊字距 (現代感)
   const fontStyle = language === 'zh' 
     ? "font-serif tracking-widest font-medium" 
     : "font-sans tracking-tight font-bold";
@@ -133,7 +131,6 @@ export default function TopNavbar() {
                   const isActive = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href || '');
                   const hasSub = item.subItems.length > 0;
                   
-                  // 嚴格切換顯示文字
                   const displayText = language === 'zh' ? item.zh : item.en;
 
                   return (
@@ -161,7 +158,6 @@ export default function TopNavbar() {
                                   href={sub.href}
                                   className="block px-4 py-2.5 rounded-xl hover:bg-stone-50 transition-all duration-200 group/sub"
                                 >
-                                  {/* 子選單嚴格切換 */}
                                   <span className={`text-[14px] text-stone-600 group-hover/sub:text-teal-800 transition-colors ${fontStyle}`}>
                                     {language === 'zh' ? sub.zh : sub.en}
                                   </span>
@@ -241,7 +237,6 @@ export default function TopNavbar() {
               const isExpanded = mobileExpand === item.key;
               const isActive = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href || '');
               
-              // 手機版：同樣嚴格切換
               const mobileText = language === 'zh' ? item.zh : item.en;
 
               return (
@@ -258,7 +253,6 @@ export default function TopNavbar() {
                       <div className={`p-3 rounded-xl ${isActive ? 'bg-teal-50 text-teal-700' : 'bg-stone-100 text-stone-500'}`}>
                         {item.icon}
                       </div>
-                      {/* 只顯示單一語言 */}
                       <span className={`text-lg ${fontStyle} text-stone-800`}>
                         {mobileText}
                       </span>
@@ -289,7 +283,6 @@ export default function TopNavbar() {
                           onClick={() => setMobileMenuOpen(false)}
                           className="flex items-center justify-between py-1 group"
                         >
-                          {/* 子項目只顯示單一語言 */}
                           <span className={`text-[15px] text-stone-600 group-hover:text-teal-700 ${fontStyle}`}>
                             {language === 'zh' ? sub.zh : sub.en}
                           </span>
