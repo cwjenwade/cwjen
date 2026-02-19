@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -21,7 +20,7 @@ import {
 
 export default function AboutPage() {
   
-  // --- Professional Tracks Data (Updated with Morandi Colors) ---
+  // --- Professional Tracks Data (Updated with new experience data) ---
   const professionalTracks = [
     {
       id: "counseling",
@@ -29,13 +28,13 @@ export default function AboutPage() {
       titleZh: "諮商心理與臨床研究",
       descEn: "Counseling psychologist and clinical researcher specializing in emotion, relational processes, and experiential psychotherapy. Research focuses on alexithymia, interpersonal regulation, group therapy, and couple therapy. Conducts empirical and narrative inquiry studies integrating psychometrics, qualitative analysis, and clinical theory. Recipient of national thesis award and presenter at international conferences. Experienced in psychological training, supervision, and interdisciplinary mental health collaboration.",
       descZh: "諮商心理師與臨床研究者。專長為情緒歷程、人際互動與經驗式心理治療。研究主軸涵蓋述情障礙、人際調節、團體治療與伴侶治療。執行量化與敘說研究並整合心理計量、質性分析與臨床理論。曾獲全國論文獎並於國際學術會議發表。具心理訓練、督導與跨專業心理健康合作經驗。",
-      experience: ["光合心理諮商所", "新北市家扶中心"],
+      experience: ["光合心理諮商所 諮商心理師", "新北市家扶中心 諮商心理師"],
       icon: <Brain className="w-10 h-10 text-[#7C8B56]" />,
       // Morandi Green
       bgColor: "bg-[#E9EDE7]",
       borderColor: "border-[#7C8B56]",
       titleColor: "text-[#515B38]",
-      tagBg: "bg-[#7C8B56]/10",
+      tagBg: "bg-[#7C8B56]/15",
       tagText: "text-[#515B38]"
     },
     {
@@ -44,13 +43,13 @@ export default function AboutPage() {
       titleZh: "品牌策略與管理",
       descEn: "Brand strategy consultant with 8 years of brand development experience in healthcare organizations. Led positioning, visual identity redesign, and integrated online offline campaigns that increased inquiries by 36 percent and conversion by 40 percent. Directed multi-site expansion initiatives and team training programs, achieving up to 300 percent annual growth and revenue increases exceeding 450 percent. Experienced in cross functional leadership, market planning, workflow redesign, and organizational performance optimization.",
       descZh: "品牌策略顧問。具8年以上醫療品牌建構經驗。負責品牌定位、識別系統重整與整合行銷，曾使諮詢量提升36%，轉換率提升40%。帶領跨院區擴展與團隊訓練計畫，最高達成300%年度成長與450%以上營收成長。專長包含市場策略規劃、流程優化、跨部門整合與組織效能提升。",
-      experience: [],
+      experience: ["東群牙醫聯盟 專案經理", "生活家牙醫診所 品牌專案發展顧問"],
       icon: <Layers className="w-10 h-10 text-[#6B8BA4]" />,
       // Morandi Blue
       bgColor: "bg-[#E6ECEF]",
       borderColor: "border-[#6B8BA4]",
       titleColor: "text-[#455A6B]",
-      tagBg: "bg-[#6B8BA4]/10",
+      tagBg: "bg-[#6B8BA4]/15",
       tagText: "text-[#455A6B]"
     },
     {
@@ -59,13 +58,13 @@ export default function AboutPage() {
       titleZh: "口腔衛生與數位臨床",
       descEn: "Dental Hygienist with 11 years of clinical experience in digital orthodontics and clear aligner treatment. Provided care for over 1,000 patients and optimized more than 2,000 ClinCheck plans through biomechanical control and staging design. Trained under orthodontists from seven countries and collaborated with 50+ clinicians on evidence based treatment planning. Expertise includes treatment plan design, patient communication, workflow implementation, dispute mediation, and interdisciplinary coordination.",
       descZh: "口腔衛生師。具11年數位矯正與隱形矯正臨床經驗。累積服務逾一千名患者，並完成兩千例以上 ClinCheck 設計與優化，涵蓋力學控制與分期移動規劃。曾接受七國矯正專家指導並與五十位以上臨床醫師協作治療規劃。專長包含治療計畫設計、患者溝通、流程建置、醫療協調與跨專業合作。",
-      experience: ["東群牙醫聯盟", "生活家牙醫"],
+      experience: ["東群牙醫聯盟 口腔衛生師"],
       icon: <Activity className="w-10 h-10 text-[#BC7666]" />,
       // Morandi Vermilion (朱色)
       bgColor: "bg-[#F3E8E6]",
       borderColor: "border-[#BC7666]",
       titleColor: "text-[#824E42]",
-      tagBg: "bg-[#BC7666]/10",
+      tagBg: "bg-[#BC7666]/15",
       tagText: "text-[#824E42]"
     }
   ];
@@ -283,67 +282,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= PROFESSIONAL TRACKS (3 Columns Grid) ================= */}
-      <section className="py-24 px-6 md:px-12 max-w-[90rem] mx-auto">
-        <div className="flex items-center gap-6 mb-16 justify-center">
-           <div className="h-[1px] bg-[#CDB07B] w-24"></div>
-           <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#2C3325] text-center leading-tight">
-             跨領域專業視角 <br/><span className="text-xl font-sans font-light text-[#5C6150] block mt-2">Cross-Field Expertise</span>
-           </h2>
-           <div className="h-[1px] bg-[#CDB07B] w-24"></div>
-        </div>
-
-        {/* 3 Columns Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-          {professionalTracks.map((track) => (
-            <div 
-              key={track.id} 
-              className={`flex flex-col rounded-3xl p-8 lg:p-10 transition-all duration-300 hover:-translate-y-2 shadow-sm hover:shadow-xl border border-white/50 relative overflow-hidden ${track.bgColor}`}
-            >
-              {/* Top Section: Icon & Titles */}
-              <div className="mb-6 flex flex-col items-start gap-4">
-                <div className="p-3 bg-white/60 rounded-2xl backdrop-blur-sm shadow-sm inline-block">
-                  {track.icon}
-                </div>
-                <div>
-                  <h3 className={`text-sm tracking-widest uppercase font-bold mb-2 opacity-80 ${track.titleColor}`}>{track.titleEn}</h3>
-                  <h2 className={`text-2xl font-serif font-bold ${track.titleColor}`}>{track.titleZh}</h2>
-                </div>
-              </div>
-
-              {/* Divider */}
-              <div className={`w-full h-px bg-black/5 mb-6`}></div>
-              
-              {/* Content Section (Flex-grow ensures the bottom elements align) */}
-              <div className="flex-grow space-y-5 mb-8">
-                <p className="text-black/60 leading-relaxed text-[15px] font-serif">
-                  {track.descEn}
-                </p>
-                <p className="text-black/80 leading-relaxed text-base font-serif font-medium">
-                  {track.descZh}
-                </p>
-              </div>
-
-              {/* Bottom Section: Experience Tags */}
-              {track.experience.length > 0 && (
-                <div className="mt-auto pt-6 border-t border-black/5">
-                  <h4 className={`text-xs tracking-widest uppercase mb-3 font-bold flex items-center gap-2 opacity-70 ${track.titleColor}`}>
-                    <Briefcase size={14} /> Selected Experience
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {track.experience.map((exp, i) => (
-                      <span key={i} className={`px-3 py-1.5 text-xs font-bold tracking-wide rounded-lg backdrop-blur-sm ${track.tagBg} ${track.tagText}`}>
-                        {exp}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ================= EDUCATION & EXPERIENCE ================= */}
       <section className="px-6 md:px-12 max-w-7xl mx-auto my-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -392,6 +330,67 @@ export default function AboutPage() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* ================= PROFESSIONAL TRACKS (3 Columns Grid) ================= */}
+      <section className="py-24 px-6 md:px-12 max-w-[90rem] mx-auto">
+        <div className="flex items-center gap-6 mb-16 justify-center">
+           <div className="h-[1px] bg-[#CDB07B] w-24"></div>
+           <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#2C3325] text-center leading-tight">
+             跨領域專業視角 <br/><span className="text-xl font-sans font-light text-[#5C6150] block mt-2">Cross-Field Expertise</span>
+           </h2>
+           <div className="h-[1px] bg-[#CDB07B] w-24"></div>
+        </div>
+
+        {/* 3 Columns Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          {professionalTracks.map((track) => (
+            <div 
+              key={track.id} 
+              className={`flex flex-col rounded-3xl p-8 lg:p-10 transition-all duration-300 hover:-translate-y-2 shadow-sm hover:shadow-xl border border-white/50 relative overflow-hidden ${track.bgColor}`}
+            >
+              {/* Top Section: Icon & Titles */}
+              <div className="mb-6 flex flex-col items-start gap-4">
+                <div className="p-3 bg-white/60 rounded-2xl backdrop-blur-sm shadow-sm inline-block">
+                  {track.icon}
+                </div>
+                <div>
+                  <h3 className={`text-sm tracking-widest uppercase font-bold mb-2 opacity-80 ${track.titleColor}`}>{track.titleEn}</h3>
+                  <h2 className={`text-2xl font-serif font-bold ${track.titleColor}`}>{track.titleZh}</h2>
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className={`w-full h-px bg-black/5 mb-6`}></div>
+              
+              {/* Content Section (Flex-grow ensures the bottom elements align) */}
+              <div className="flex-grow space-y-5 mb-8">
+                <p className="text-black/60 leading-relaxed text-[15px] font-serif">
+                  {track.descEn}
+                </p>
+                <p className="text-black/80 leading-relaxed text-base font-serif font-medium">
+                  {track.descZh}
+                </p>
+              </div>
+
+              {/* Bottom Section: Experience Tags */}
+              {track.experience.length > 0 && (
+                <div className="mt-auto pt-6 border-t border-black/10">
+                  <h4 className={`text-sm md:text-base tracking-widest uppercase mb-4 font-bold flex items-center gap-2 opacity-90 ${track.titleColor}`}>
+                    <Briefcase size={18} /> Selected Experience
+                  </h4>
+                  <div className="flex flex-col gap-3">
+                    {track.experience.map((exp, i) => (
+                      <span key={i} className={`px-4 py-2.5 text-sm md:text-base font-bold tracking-wide rounded-xl backdrop-blur-sm inline-block border border-white/30 shadow-sm ${track.tagBg} ${track.tagText}`}>
+                        {exp}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
