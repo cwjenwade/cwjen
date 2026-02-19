@@ -1,15 +1,3 @@
-這是一版為你重新設計、符合現代感精美 UI/UX 的程式碼。
-
-我將「跨領域專業視角」區塊改為了 **三欄並排 (3 Columns Grid)**，並為你的三個專業領域分別配上了**莫蘭迪色系**的底色：
-
-1. **諮商心理與臨床 (Counseling)**：莫蘭迪綠 (Sage Green)
-2. **品牌策略與管理 (Branding)**：莫蘭迪藍 (Dusty Blue)
-3. **口腔衛生與臨床 (Dental)**：莫蘭迪朱色 (Muted Vermilion/Terracotta)
-
-同時，我已經將畫面中多餘的「English / 中文」標題刪除，並利用現代感的排版與字體大小對比，讓中英文的閱讀體驗流暢且視覺優雅。卡片加入了懸浮 (Hover) 效果與彈性高度 (Flex-grow) 設定，讓三張卡片在並排時能保持高度一致與底部對齊。
-
-請直接將以下程式碼替換進你的 `AboutPage.jsx` 或 `page.tsx` 中：
-
 ```javascript
 'use client';
 
