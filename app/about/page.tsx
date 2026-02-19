@@ -1,4 +1,4 @@
-```javascript
+
 'use client';
 
 import React from 'react';
@@ -137,9 +137,9 @@ export default function AboutPage() {
       "任祈蔚（2025）。以依附為基礎的家族治療於青少年憂鬱與自殺介入之應用與本土化考量。輔導季刊，61(3)，33-49。"
     ],
     conferences: [
-      "Jen, C. W., Fang, M. C., & Hsu, Y. K. (2026, June 24–27). Differences in emotional experience and intensity in alexithymia: A psychometric analysis. [Poster presentation] 57th International "
-      "Jen, C. W., Fang, M. C., & Hsu, Y. K. (2026, June 24–27). Preliminary exploration of the experience of transformation in alexithymia with psychic retreat: A two-case narrative inquiry. [Brief paper presentation] 57th International Annual Meeting of the Society for Psychotherapy Research (SPR). Osaka, Japan."
-      "Li, R. Y., Lee, S. C., & Jen, C. W. (2026, June 24–27). Expressive therapy mediated by music in an adolescent with non-suicidal self-injury: A single-case study. [Poster presentation] 57th International Annual Meeting of the Society for Psychotherapy Research (SPR). Osaka, Japan."
+       "Jen, C. W., Fang, M. C., & Hsu, Y. K. (2026, June 24–27). Differences in emotional experience and intensity in alexithymia: A psychometric analysis. [Poster presentation] 57th International ",
+      "Jen, C. W., Fang, M. C., & Hsu, Y. K. (2026, June 24–27). Preliminary exploration of the experience of transformation in alexithymia with psychic retreat: A two-case narrative inquiry. [Brief paper presentation] 57th International Annual Meeting of the Society for Psychotherapy Research (SPR). Osaka, Japan.",
+      "Li, R. Y., Lee, S. C., & Jen, C. W. (2026, June 24–27). Expressive therapy mediated by music in an adolescent with non-suicidal self-injury: A single-case study. [Poster presentation] 57th International Annual Meeting of the Society for Psychotherapy Research (SPR). Osaka, Japan.",
       "Jen, C.-W., & Hsu, Y. K. (2025, November 15). Narrative inquiry for the transformation process of alexithymia tendency college students in group counseling based on interpersonal interaction orientation [Conference presentation]. Taiwan Counseling Association Annual Meeting, Taichung, Taiwan.",
       "Jen, C. W. Hsu, Y. K. (2025, June 25-29). The Emotions and Emodiversity in Alexithymia. [Conference presentation] 56th International Annual Meeting of the Society for Psychotherapy Research (SPR). Krakow, Poland.",
       "Jen, C.-W., Hsu, Y. K., & Chuah, S. K. (2025, June 25-29). Defensiveness in Encounter Groups for Taiwanese Sexual Minority Males. [Conference presentation] 56th International Annual Meeting of the Society for Psychotherapy Research (SPR). Krakow, Poland.",
@@ -298,7 +298,7 @@ export default function AboutPage() {
           {professionalTracks.map((track) => (
             <div 
               key={track.id} 
-              className={["flex flex-col rounded-3xl p-8 lg:p-10 transition-all duration-300 hover:-translate-y-2 shadow-sm hover:shadow-xl border border-white/50 relative overflow-hidden", track.bgColor].join(" ")}
+              className={`flex flex-col rounded-3xl p-8 lg:p-10 transition-all duration-300 hover:-translate-y-2 shadow-sm hover:shadow-xl border border-white/50 relative overflow-hidden ${track.bgColor}`}
             >
               {/* Top Section: Icon & Titles */}
               <div className="mb-6 flex flex-col items-start gap-4">
@@ -528,5 +528,3 @@ export default function AboutPage() {
     </div>
   );
 }
-
-```
