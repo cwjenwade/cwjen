@@ -10,16 +10,57 @@ import {
   Layers, 
   GraduationCap, 
   Quote, 
-  FileText,
   Anchor,
   Users,
   Palette,
   Sparkles,
-  ArrowRight
+  Activity,
+  Briefcase
 } from 'lucide-react';
 
 export default function AboutPage() {
-  // --- Data Content (Unchanged) ---
+  
+  // --- Professional Tracks Data ---
+  const professionalTracks = [
+    {
+      id: "counseling",
+      titleEn: "Counseling and Psychotherapy",
+      titleZh: "諮商心理與臨床研究",
+      descEn: "Counseling psychologist and clinical researcher specializing in emotion, relational processes, and experiential psychotherapy. Research focuses on alexithymia, interpersonal regulation, group therapy, and couple therapy. Conducts empirical and narrative inquiry studies integrating psychometrics, qualitative analysis, and clinical theory. Recipient of national thesis award and presenter at international conferences. Experienced in psychological training, supervision, and interdisciplinary mental health collaboration.",
+      descZh: "諮商心理師與臨床研究者。專長為情緒歷程、人際互動與經驗式心理治療。研究主軸涵蓋述情障礙、人際調節、團體治療與伴侶治療。執行量化與敘說研究並整合心理計量、質性分析與臨床理論。曾獲全國論文獎並於國際學術會議發表。具心理訓練、督導與跨專業心理健康合作經驗。",
+      experience: ["光合心理諮商所  諮商心理師", "新北市家扶中心 諮商心理師"],
+      icon: <Brain className="w-10 h-10 text-[#6D7A3F]" />,
+      borderColor: "border-[#6D7A3F]",
+      bgColor: "bg-[#6D7A3F]/5",
+      titleColor: "text-[#6D7A3F]"
+    },
+    {
+      id: "branding",
+      titleEn: "Branding Management",
+      titleZh: "品牌策略與管理",
+      descEn: "Brand strategy consultant with 8 years of brand development experience in healthcare organizations. Led positioning, visual identity redesign, and integrated online offline campaigns that increased inquiries by 36 percent and conversion by 40 percent. Directed multi-site expansion initiatives and team training programs, achieving up to 300 percent annual growth and revenue increases exceeding 450 percent. Experienced in cross functional leadership, market planning, workflow redesign, and organizational performance optimization.",
+      descZh: "品牌策略顧問。具8年以上醫療品牌建構經驗。負責品牌定位、識別系統重整與整合行銷，曾使諮詢量提升36%，轉換率提升40%。帶領跨院區擴展與團隊訓練計畫，最高達成300%年度成長與450%以上營收成長。專長包含市場策略規劃、流程優化、跨部門整合與組織效能提升。",
+      experience: [],
+      icon: <Layers className="w-10 h-10 text-[#D8944F]" />,
+      borderColor: "border-[#D8944F]",
+      bgColor: "bg-[#D8944F]/5",
+      titleColor: "text-[#D8944F]"
+    },
+    {
+      id: "dental",
+      titleEn: "Dental Hygienist",
+      titleZh: "口腔衛生與數位臨床",
+      descEn: "Dental Hygienist with 11 years of clinical experience in digital orthodontics and clear aligner treatment. Provided care for over 1,000 patients and optimized more than 2,000 ClinCheck plans through biomechanical control and staging design. Trained under orthodontists from seven countries and collaborated with 50+ clinicians on evidence based treatment planning. Expertise includes treatment plan design, patient communication, workflow implementation, dispute mediation, and interdisciplinary coordination.",
+      descZh: "口腔衛生師。具11年數位矯正與隱形矯正臨床經驗。累積服務逾一千名患者，並完成兩千例以上 ClinCheck 設計與優化，涵蓋力學控制與分期移動規劃。曾接受七國矯正專家指導並與五十位以上臨床醫師協作治療規劃。專長包含治療計畫設計、患者溝通、流程建置、醫療協調與跨專業合作。",
+      experience: ["東群牙醫聯盟", "生活家牙醫"],
+      icon: <Activity className="w-10 h-10 text-[#CDB07B]" />,
+      borderColor: "border-[#CDB07B]",
+      bgColor: "bg-[#CDB07B]/5",
+      titleColor: "text-[#CDB07B]"
+    }
+  ];
+
+  // --- Education & Experience Data ---
   const educationData = [
     {
       period: "2025 - Present",
@@ -86,6 +127,9 @@ export default function AboutPage() {
       "任祈蔚（2025）。以依附為基礎的家族治療於青少年憂鬱與自殺介入之應用與本土化考量。輔導季刊，61(3)，33-49。"
     ],
     conferences: [
+      "Jen, C. W., Fang, M. C., & Hsu, Y. K. (2026, June 24–27). Differences in emotional experience and intensity in alexithymia: A psychometric analysis. [Poster presentation] 57th International Annual Meeting of the Society for Psychotherapy Research (SPR). Osaka, Japan."
+      "Jen, C. W., Fang, M. C., & Hsu, Y. K. (2026, June 24–27). Preliminary exploration of the experience of transformation in alexithymia with psychic retreat: A two-case narrative inquiry. [Brief paper presentation] 57th International "
+      "Li, R. Y., Lee, S. C., & Jen, C. W. (2026, June 24–27). Expressive therapy mediated by music in an adolescent with non-suicidal self-injury: A single-case study. [Poster presentation] 57th International Annual Meeting of the Society for Psychotherapy Research (SPR). Osaka, Japan."
       "Jen, C.-W., & Hsu, Y. K. (2025, November 15). Narrative inquiry for the transformation process of alexithymia tendency college students in group counseling based on interpersonal interaction orientation [Conference presentation]. Taiwan Counseling Association Annual Meeting, Taichung, Taiwan.",
       "Jen, C. W. Hsu, Y. K. (2025, June 25-29). The Emotions and Emodiversity in Alexithymia. [Conference presentation] 56th International Annual Meeting of the Society for Psychotherapy Research (SPR). Krakow, Poland.",
       "Jen, C.-W., Hsu, Y. K., & Chuah, S. K. (2025, June 25-29). Defensiveness in Encounter Groups for Taiwanese Sexual Minority Males. [Conference presentation] 56th International Annual Meeting of the Society for Psychotherapy Research (SPR). Krakow, Poland.",
@@ -145,13 +189,10 @@ export default function AboutPage() {
       
       {/* ================= HERO SECTION (Geometric Collage) ================= */}
       <section className="relative pt-20 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
-        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left: Text & Info - Redesigned Layout */}
           <div className="lg:col-span-6 relative z-10">
             <div className="space-y-10">
-              {/* Name & Title Block */}
               <div className="relative">
                 <div className="absolute -top-6 -left-6 w-20 h-20 bg-[#CDB07B] rounded-full opacity-20 -z-10"></div>
                 <div className="inline-block px-4 py-1.5 mb-6 border border-[#6D7A3F] bg-white rounded-full text-xs tracking-[0.15em] text-[#6D7A3F] font-bold uppercase shadow-sm">
@@ -165,7 +206,6 @@ export default function AboutPage() {
                 </span>
               </div>
 
-              {/* Education Block */}
               <div className="pl-6 border-l-4 border-[#D8944F]">
                 <p className="text-[#5C6150] font-serif text-xl leading-relaxed">
                   <span className="font-bold text-[#2C3325] block text-2xl mb-1">Ph.D. Program in Clinical Psychology</span>
@@ -173,7 +213,6 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              {/* Quote Block - Redesigned */}
               <div className="bg-white p-8 rounded-2xl shadow-[8px_8px_0_#B5D1AE] border border-[#E0E0D5] relative mt-8">
                 <Quote className="absolute -top-4 -right-4 w-10 h-10 text-[#D8944F] bg-[#FEFCF3] p-1 rounded-full border border-[#D8944F]" />
                 <p className="font-serif italic text-[#4A4D3E] text-lg leading-loose mb-6">
@@ -187,19 +226,11 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Right: Portrait Collage (Circular + Geometric Blocks) */}
           <div className="lg:col-span-6 relative flex justify-center lg:justify-end mt-12 lg:mt-0">
             <div className="relative w-[450px] h-[550px] flex items-center justify-center">
-                {/* Layer 1: Back Rectangle (Mustard) */}
                 <div className="absolute top-0 right-10 w-[280px] h-[350px] bg-[#CDB07B] -z-20 opacity-80"></div>
-                
-                {/* Layer 2: Middle Rectangle (Green) */}
                 <div className="absolute bottom-0 left-0 w-[300px] h-[200px] bg-[#B5D1AE] -z-10 opacity-60"></div>
-                
-                {/* Layer 3: Accent Circle (Orange) */}
                 <div className="absolute top-10 left-[-30px] w-32 h-32 bg-[#D8944F] rounded-full -z-10 opacity-90"></div>
-
-                {/* Main Image - Circular with Border - ENLARGED */}
                 <div className="relative w-[420px] h-[420px] rounded-full border-[10px] border-white shadow-2xl overflow-hidden bg-white">
                   <img 
                     src="https://cwjen.vercel.app/Photos/wade.png" 
@@ -212,7 +243,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= ABOUT ME (Split Layout) ================= */}
+      {/* ================= ABOUT ME ================= */}
       <section id="about" className="py-24 bg-[#D4E8D6]/20 border-y border-[#D4E8D6]">
         <div className="max-w-6xl mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-16 items-start">
           
@@ -242,11 +273,63 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= EDUCATION & EXPERIENCE (Large Type) ================= */}
+      {/* ================= PROFESSIONAL TRACKS ================= */}
+      <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="flex items-center gap-6 mb-16 justify-center">
+           <div className="h-[1px] bg-[#CDB07B] w-24"></div>
+           <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#2C3325] text-center leading-tight">
+             跨領域專業視角 <br/><span className="text-xl font-sans font-light text-[#5C6150] block mt-2">Cross-Field Expertise</span>
+           </h2>
+           <div className="h-[1px] bg-[#CDB07B] w-24"></div>
+        </div>
+
+        <div className="space-y-12">
+          {professionalTracks.map((track) => (
+            <div key={track.id} className={`bg-white border-l-8 ${track.borderColor} shadow-lg p-8 md:p-12 transition-transform duration-300 hover:-translate-y-1`}>
+              <div className="flex flex-col md:flex-row md:items-center gap-6 mb-8 border-b border-[#E0E0D5] pb-6">
+                <div className={`p-4 rounded-2xl ${track.bgColor} inline-block`}>
+                  {track.icon}
+                </div>
+                <div>
+                  <h3 className={`text-3xl font-serif font-bold ${track.titleColor} mb-2`}>{track.titleEn}</h3>
+                  <p className="text-2xl font-serif font-bold text-[#2C3325]">{track.titleZh}</p>
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-10">
+                <div>
+                  <h4 className="text-sm tracking-widest text-[#5C6150] uppercase mb-4 font-bold">English</h4>
+                  <p className="text-[#4A503D] leading-loose text-lg font-serif">{track.descEn}</p>
+                </div>
+                <div>
+                  <h4 className="text-sm tracking-widest text-[#5C6150] uppercase mb-4 font-bold">中文</h4>
+                  <p className="text-[#4A503D] leading-loose text-lg font-serif">{track.descZh}</p>
+                </div>
+              </div>
+
+              {track.experience.length > 0 && (
+                <div className="mt-8 pt-6 border-t border-dashed border-[#E0E0D5]">
+                  <h4 className="text-sm tracking-widest text-[#5C6150] uppercase mb-4 font-bold flex items-center gap-2">
+                    <Briefcase size={16} /> Selected Working Experience
+                  </h4>
+                  <div className="flex flex-wrap gap-3">
+                    {track.experience.map((exp, i) => (
+                      <span key={i} className={`px-4 py-2 ${track.bgColor} ${track.titleColor} text-sm font-bold tracking-wide rounded border ${track.borderColor}`}>
+                        {exp}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= EDUCATION & EXPERIENCE ================= */}
       <section className="px-6 md:px-12 max-w-7xl mx-auto my-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           
-          {/* Column 1: Education */}
           <div>
             <div className="flex items-end gap-4 mb-12 border-b-2 border-[#CDB07B] pb-4">
               <GraduationCap size={40} className="text-[#CDB07B]"/>
@@ -268,7 +351,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Column 2: Experience & Awards */}
           <div>
             <div className="flex items-end gap-4 mb-12 border-b-2 border-[#6D7A3F] pb-4">
               <Award size={40} className="text-[#6D7A3F]"/>
@@ -295,7 +377,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= TRAINING & SKILLS (Cards) ================= */}
+      {/* ================= TRAINING & SKILLS ================= */}
       <section className="px-6 md:px-12 max-w-7xl mx-auto mb-24">
         
         <div className="flex items-center gap-6 mb-16 justify-center">
@@ -306,7 +388,6 @@ export default function AboutPage() {
            <div className="h-[1px] bg-[#6D7A3F] w-24"></div>
         </div>
 
-        {/* Training Grid */}
         <div className="grid md:grid-cols-2 gap-10 mb-20">
           {training.map((t, idx) => (
             <div key={idx} className="bg-white p-10 border-t-8 border-[#6D7A3F] shadow-sm relative overflow-hidden">
@@ -326,7 +407,6 @@ export default function AboutPage() {
           ))}
         </div>
 
-        {/* Skills Section */}
         <div className="bg-[#D8944F]/10 p-12 rounded-3xl border border-[#D8944F]/30 text-center">
            <h3 className="text-2xl font-serif font-bold text-[#D8944F] mb-10 flex items-center justify-center gap-3">
              <Palette size={28}/> 專業技能 Professional Skills
@@ -341,7 +421,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= SPEAKING EXPERIENCE (Timeline List) ================= */}
+      {/* ================= SPEAKING EXPERIENCE ================= */}
       <section className="bg-white py-24 border-y border-[#D4E8D6]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="flex items-center justify-center gap-4 mb-20">
@@ -352,7 +432,6 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-20">
-            {/* Left: Psychology */}
             <div>
               <h3 className="text-2xl font-bold text-[#6D7A3F] mb-10 pb-4 border-b-4 border-[#6D7A3F] inline-block font-serif">
                 Psychology & Counseling
@@ -369,7 +448,6 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Right: Dentistry */}
             <div>
               <h3 className="text-2xl font-bold text-[#D8944F] mb-10 pb-4 border-b-4 border-[#D8944F] inline-block font-serif">
                 Dentistry & Management
@@ -389,7 +467,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= PUBLICATIONS (Simple Clean List) ================= */}
+      {/* ================= PUBLICATIONS ================= */}
       <section className="bg-[#CDB07B]/10 py-24 px-6">
         <div className="max-w-5xl mx-auto bg-[#FEFCF3] p-10 md:p-20 shadow-xl border border-[#D4E8D6]">
           <div className="flex items-center gap-4 mb-16 border-b border-[#E0E0D5] pb-8">
