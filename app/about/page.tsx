@@ -298,7 +298,7 @@ export default function AboutPage() {
           {professionalTracks.map((track) => (
             <div 
               key={track.id} 
-              className={`flex flex-col rounded-3xl p-8 lg:p-10 transition-all duration-300 hover:-translate-y-2 shadow-sm hover:shadow-xl border border-white/50 relative overflow-hidden ${track.bgColor}`}
+              className={["flex flex-col rounded-3xl p-8 lg:p-10 transition-all duration-300 hover:-translate-y-2 shadow-sm hover:shadow-xl border border-white/50 relative overflow-hidden", track.bgColor].join(" ")}
             >
               {/* Top Section: Icon & Titles */}
               <div className="mb-6 flex flex-col items-start gap-4">
