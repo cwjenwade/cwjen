@@ -30,7 +30,6 @@ export default function AboutPage() {
       descZh: "諮商心理師與臨床研究者。專長為情緒歷程、人際互動與經驗式心理治療。研究主軸涵蓋述情障礙、人際調節、團體治療與伴侶治療。執行量化與敘說研究並整合心理計量、質性分析與臨床理論。曾獲全國論文獎並於國際學術會議發表。具心理訓練、督導與跨專業心理健康合作經驗。",
       experience: ["光合心理諮商所 諮商心理師", "新北市家扶中心 諮商心理師"],
       icon: <Brain className="w-10 h-10 text-[#7C8B56]" />,
-      // Morandi Green
       bgColor: "bg-[#E9EDE7]",
       borderColor: "border-[#7C8B56]",
       titleColor: "text-[#515B38]",
@@ -45,7 +44,6 @@ export default function AboutPage() {
       descZh: "品牌策略顧問。具8年以上醫療品牌建構經驗。負責品牌定位、識別系統重整與整合行銷，曾使諮詢量提升36%，轉換率提升40%。帶領跨院區擴展與團隊訓練計畫，最高達成300%年度成長與450%以上營收成長。專長包含市場策略規劃、流程優化、跨部門整合與組織效能提升。",
       experience: ["東群牙醫聯盟 專案經理", "生活家牙醫診所 品牌專案發展顧問"],
       icon: <Layers className="w-10 h-10 text-[#6B8BA4]" />,
-      // Morandi Blue
       bgColor: "bg-[#E6ECEF]",
       borderColor: "border-[#6B8BA4]",
       titleColor: "text-[#455A6B]",
@@ -60,7 +58,6 @@ export default function AboutPage() {
       descZh: "口腔衛生師。具11年數位矯正與隱形矯正臨床經驗。累積服務逾一千名患者，並完成兩千例以上 ClinCheck 設計與優化，涵蓋力學控制與分期移動規劃。曾接受七國矯正專家指導並與五十位以上臨床醫師協作治療規劃。專長包含治療計畫設計、患者溝通、流程建置、醫療協調與跨專業合作。",
       experience: ["東群牙醫聯盟 口腔衛生師"],
       icon: <Activity className="w-10 h-10 text-[#BC7666]" />,
-      // Morandi Vermilion (朱色)
       bgColor: "bg-[#F3E8E6]",
       borderColor: "border-[#BC7666]",
       titleColor: "text-[#824E42]",
@@ -69,7 +66,6 @@ export default function AboutPage() {
     }
   ];
 
-  // --- Education & Experience Data ---
   const educationData = [
     {
       period: "2025 - Present",
@@ -204,9 +200,12 @@ export default function AboutPage() {
             <div className="space-y-10">
               <div className="relative">
                 <div className="absolute -top-6 -left-6 w-20 h-20 bg-[#CDB07B] rounded-full opacity-20 -z-10"></div>
+                {/* [修改] 標題前加上隱藏的完整身分描述 */}
+                <span className="sr-only">諮商心理師與臨床研究者：任祈蔚 CHI-WEI JEN (Wade Jen) 的學經歷與專業背景</span>
                 <div className="inline-block px-4 py-1.5 mb-6 border border-[#6D7A3F] bg-white rounded-full text-xs tracking-[0.15em] text-[#6D7A3F] font-bold uppercase shadow-sm">
                   Licensed Counseling Psychologist
                 </div>
+                {/* [修改] 將 H1 設計為最核心的關鍵字 */}
                 <h1 className="text-7xl md:text-8xl font-serif font-bold text-[#2C3325] leading-none tracking-tight mb-2">
                   任祈蔚
                 </h1>
@@ -241,9 +240,10 @@ export default function AboutPage() {
                 <div className="absolute bottom-0 left-0 w-[300px] h-[200px] bg-[#B5D1AE] -z-10 opacity-60"></div>
                 <div className="absolute top-10 left-[-30px] w-32 h-32 bg-[#D8944F] rounded-full -z-10 opacity-90"></div>
                 <div className="relative w-[420px] h-[420px] rounded-full border-[10px] border-white shadow-2xl overflow-hidden bg-white">
+                  {/* [修改] 加入具體的 alt 屬性 */}
                   <img 
                     src="https://cwjen.vercel.app/Photos/wade.png" 
-                    alt="Jen Chi-Wei Portrait" 
+                    alt="諮商心理師任祈蔚 (Wade Jen) 個人肖像" 
                     className="w-full h-full object-cover scale-110 translate-y-4"
                   />
                 </div>
@@ -257,10 +257,11 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-16 items-start">
           
           <div className="md:col-span-4 sticky top-10">
+            {/* [修改] 強化 H2 標題 */}
             <h2 className="text-4xl font-serif font-bold text-[#2C3325] mb-6 flex items-center gap-3">
               <User className="text-[#D8944F]" size={36}/> 關於我<br/>
             </h2>
-            <span className="text-xl font-sans font-normal text-[#6D7A3F] block mb-8">About Me</span>
+            <span className="text-xl font-sans font-normal text-[#6D7A3F] block mb-8">About Me - Counseling Psychologist</span>
             <div className="w-20 h-1.5 bg-[#D8944F] mb-8"></div>
             <p className="text-[#5C6150] text-base leading-loose font-serif">
               Research centers on human emotion, group therapy, couple therapy, experiential approaches to psychotherapy, and empathy. I am deeply drawn to the dialogue between psychological healing and aesthetics.
@@ -333,7 +334,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= PROFESSIONAL TRACKS (3 Columns Grid) ================= */}
+      {/* ================= PROFESSIONAL TRACKS ================= */}
       <section className="py-24 px-6 md:px-12 max-w-[90rem] mx-auto">
         <div className="flex items-center gap-6 mb-16 justify-center">
            <div className="h-[1px] bg-[#CDB07B] w-24"></div>
@@ -343,28 +344,24 @@ export default function AboutPage() {
            <div className="h-[1px] bg-[#CDB07B] w-24"></div>
         </div>
 
-        {/* 3 Columns Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
           {professionalTracks.map((track) => (
             <div 
               key={track.id} 
               className={`flex flex-col rounded-3xl p-8 lg:p-10 transition-all duration-300 hover:-translate-y-2 shadow-sm hover:shadow-xl border border-white/50 relative overflow-hidden ${track.bgColor}`}
             >
-              {/* Top Section: Icon & Titles */}
               <div className="mb-6 flex flex-col items-start gap-4">
                 <div className="p-3 bg-white/60 rounded-2xl backdrop-blur-sm shadow-sm inline-block">
                   {track.icon}
                 </div>
                 <div>
                   <h3 className={`text-sm tracking-widest uppercase font-bold mb-2 opacity-80 ${track.titleColor}`}>{track.titleEn}</h3>
-                  <h2 className={`text-2xl font-serif font-bold ${track.titleColor}`}>{track.titleZh}</h2>
+                  <h3 className={`text-2xl font-serif font-bold ${track.titleColor}`}>{track.titleZh}</h3>
                 </div>
               </div>
 
-              {/* Divider */}
               <div className={`w-full h-px bg-black/5 mb-6`}></div>
               
-              {/* Content Section (Flex-grow ensures the bottom elements align) */}
               <div className="flex-grow space-y-5 mb-8">
                 <p className="text-black/60 leading-relaxed text-[15px] font-serif">
                   {track.descEn}
@@ -374,7 +371,6 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              {/* Bottom Section: Experience Tags */}
               {track.experience.length > 0 && (
                 <div className="mt-auto pt-6 border-t border-black/10">
                   <h4 className={`text-sm md:text-base tracking-widest uppercase mb-4 font-bold flex items-center gap-2 opacity-90 ${track.titleColor}`}>
