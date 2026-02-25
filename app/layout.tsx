@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Noto_Serif_TC, Inter } from 'next/font/google';
-import Script from 'next/script'; // [新增] 引入 Script 組件
+import Script from 'next/script';
 import TopNavbar from '@/components/TopNavbar';
 import './globals.css';
 import Providers from '@/components/Providers';
@@ -13,25 +13,56 @@ const notoserif = Noto_Serif_TC({
 });
 
 export const metadata: Metadata = {
-  title: 'Wade Jen | Psychology Research',
-  description: 'Personal academic website for psychotherapy and counseling.',
+  title: {
+    template: '%s | 任祈蔚 Wade Jen',
+    default: '任祈蔚 CHI-WEI JEN (Wade Jen) | 諮商心理師',
+  },
+  description: '任祈蔚（CHI-WEI JEN, Wade Jen）諮商心理師的個人學術與專業網站，專注於心理諮商與心理治療。Personal academic website of Wade Jen, Counseling Psychologist.',
+  keywords: ['任祈蔚', 'CHI-WEI JEN', 'Wade Jen', '諮商心理師', '心理治療', '心理諮商', 'Counseling Psychologist'],
+  authors: [{ name: '任祈蔚 Wade Jen' }],
+  creator: '任祈蔚 Wade Jen',
+  openGraph: {
+    title: '任祈蔚 CHI-WEI JEN (Wade Jen) | 諮商心理師',
+    description: '任祈蔚（CHI-WEI JEN）諮商心理師的個人學術與專業網站。',
+    locale: 'zh_TW',
+    type: 'website',
+  },
+};
+
+// [新增] 結構化資料物件
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: '任祈蔚',
+  alternateName: ['CHI-WEI JEN', 'Wade Jen'],
+  jobTitle: '諮商心理師',
+  description: '專注於心理諮商與心理治療研究。',
+  knowsAbout: ['心理諮商', '心理治療', 'Counseling', 'Psychotherapy'],
+  url: 'https://您的網站網址.com', // 需替換為正式網域
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: '諮商心理師證照',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-TW" className={`${inter.variable} ${notoserif.variable}`}>
+      <head>
+        {/* [新增] 寫入 JSON-LD 腳本 */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="bg-[#FAF9F6] text-stone-800 font-sans antialiased min-h-screen flex flex-col">
-        {/* [新增] Google 翻譯樣式修正：隱藏頂部橫幅與預設樣式 */}
         <style>{`
-          /* 隱藏 Google 翻譯的頂部工具列 */
           .goog-te-banner-frame.skiptranslate {
             display: none !important;
           }
-          /* 移除 body 被 Google 強制推擠的 top margin */
           body {
             top: 0px !important;
           }
-          /* 隱藏滑鼠 hover 時的翻譯提示框 (可選) */
           .goog-tooltip {
             display: none !important;
           }
@@ -52,21 +83,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
         </Providers>
 
-        {/* [新增] Google 翻譯初始化腳本 */}
         <Script id="google-translate-init" strategy="afterInteractive">
           {`
             function googleTranslateElementInit() {
               new google.translate.TranslateElement({
-                pageLanguage: 'zh-TW',     // 網頁原語言：繁體中文
-                includedLanguages: 'en,zh-TW', // 只允許翻譯成：英文與繁中
+                pageLanguage: 'zh-TW',     
+                includedLanguages: 'en,zh-TW', 
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
                 autoDisplay: false
-              }, 'google_translate_element'); // 指定掛載點 ID，稍後會在 Navbar 中定義
+              }, 'google_translate_element'); 
             }
           `}
         </Script>
 
-        {/* [新增] Google 翻譯核心腳本 */}
         <Script 
           src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" 
           strategy="afterInteractive" 
