@@ -10,12 +10,12 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-// 定義 Banner 資料
+// 定義 Banner 資料 (已擴充 alt 屬性建議)
 const BANNERS = {
-  b01: { src: "https://cwjen.vercel.app/Photos/banner/b01.png", text: "愛，有時誕生於渴望，卻無法存於生活" },
-  b02: { src: "https://cwjen.vercel.app/Photos/banner/b02.png", text: "思緒是多元開展" },
-  b03: { src: "https://cwjen.vercel.app/Photos/banner/b03.png", text: "生活是一種持續發生。" },
-  b04: { src: "https://cwjen.vercel.app/Photos/banner/b04.png", text: "你如何感知。" },
+  b01: { src: "https://cwjen.vercel.app/Photos/banner/b01.png", text: "愛，有時誕生於渴望，卻無法存於生活", alt: "任祈蔚諮商心理師 - 愛的渴望與心理治療" },
+  b02: { src: "https://cwjen.vercel.app/Photos/banner/b02.png", text: "思緒是多元開展", alt: "諮商心理師任祈蔚 - 多元思緒開展" },
+  b03: { src: "https://cwjen.vercel.app/Photos/banner/b03.png", text: "生活是一種持續發生。", alt: "心理諮商與生活體驗 - 任祈蔚 Wade Jen" },
+  b04: { src: "https://cwjen.vercel.app/Photos/banner/b04.png", text: "你如何感知。", alt: "心理治療觀點：你如何感知 - 諮商心理師任祈蔚" },
 };
 
 export default function IndexPage() {
@@ -29,14 +29,16 @@ export default function IndexPage() {
         <div className="text-center max-w-4xl mx-auto">
           <Quote className="w-8 h-8 md:w-10 md:h-10 text-[#E2C351] mx-auto mb-6 opacity-80" />
           
+          {/* [修改] H1 標籤優化：置入核心關鍵字，原有的設計文字調整為 span 結構 */}
           <h1 className="text-3xl md:text-6xl font-serif font-bold text-[#2F3A29] leading-snug md:leading-[1.3] tracking-wide mb-6">
-            這裡是為了提供<br className="hidden md:block" />
+            <span className="sr-only">任祈蔚 Wade Jen | 諮商心理師</span>
+            <span>這裡是為了提供</span><br className="hidden md:block" />
             <span className="relative inline-block px-1 md:px-4 mx-1">
               <span className="relative z-10">能被人使用的思想</span>
               <span className="absolute bottom-1 md:bottom-2 left-0 w-full h-3 md:h-4 bg-[#E2C351]/30 -z-0"></span>
             </span>
             <span className="inline md:hidden">，</span>
-            而存在。
+            <span>而存在。</span>
           </h1>
           
           <p className="text-base md:text-xl text-[#5C6155] font-light leading-relaxed max-w-2xl mx-auto">
@@ -48,14 +50,12 @@ export default function IndexPage() {
       </section>
 
       {/* ================= BANNER 1: 感知 (b04) ================= */}
-      {/* 行銷邏輯：視覺衝擊。用滿版圖與提問「你如何感知」來喚醒讀者的感官，作為進入內容的過渡。 */}
       <section className="relative w-full h-[50vh] md:h-[80vh] overflow-hidden group">
          <img 
            src={BANNERS.b04.src} 
-           alt="Banner 04" 
+           alt={BANNERS.b04.alt} // [修改] 帶入定義好的 alt
            className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[20s] group-hover:scale-105"
          />
-         {/* 漸層遮罩：解決文字看不見的問題，同時營造電影感 */}
          <div className="absolute inset-0 bg-gradient-to-t from-[#2F3A29]/90 via-transparent to-transparent z-10"></div>
          
          <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 z-20 flex justify-center md:justify-start">
@@ -66,18 +66,17 @@ export default function IndexPage() {
       </section>
 
       {/* ================= BLOCK 1: 生活 (Life) ================= */}
-      {/* 行銷邏輯：痛點與解法。先談「受苦」（痛點），再談「心理治療」（解法）。 */}
       <section className="py-12 md:py-24 bg-[#A3BFA7]/10">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
           
-          {/* 文案區塊 */}
           <div className="order-1 lg:order-2 space-y-5 md:space-y-8">
             <div className="flex items-center gap-3">
               <span className="px-3 py-1 bg-[#A3BFA7] text-white text-[10px] md:text-xs tracking-widest font-bold uppercase rounded-full">Life & Reality</span>
             </div>
             
+            {/* [修改] H2 標籤優化：置入「心理諮商」 */}
             <h2 className="text-2xl md:text-4xl font-serif font-bold text-[#2F3A29]">
-              關於生活：<br className="hidden md:block"/>
+              關於心理諮商：<br className="hidden md:block"/>
               人因何受苦，又如何脫苦
             </h2>
             
@@ -94,7 +93,6 @@ export default function IndexPage() {
               </div>
             </div>
 
-            {/* CTA 按鈕 */}
             <div className="flex gap-4 md:gap-6 pt-2">
                <Link href="/psychotherapy" className="flex items-center gap-2 text-[#79976B] font-bold border-b border-transparent hover:border-[#79976B] transition-all text-sm md:text-base">
                  <Sparkles size={16} /> 心理治療 <ArrowRight size={14} />
@@ -105,13 +103,12 @@ export default function IndexPage() {
             </div>
           </div>
 
-          {/* 圖片拼貼區塊 */}
           <div className="order-2 lg:order-1 relative h-[300px] md:h-[500px] mt-4 md:mt-0 w-full max-w-sm mx-auto lg:max-w-none">
              <div className="absolute top-0 left-0 w-[65%] z-10 shadow-xl bg-white p-2 rotate-2 hover:rotate-0 transition-all duration-500 rounded-lg">
-                <img src="https://cwjen.vercel.app/Photos/Index/id01.png" alt="行走的人" className="w-full h-auto"/>
+                <img src="https://cwjen.vercel.app/Photos/Index/id01.png" alt="心理治療 - 行走的人" className="w-full h-auto"/> {/* [修改] alt 擴充 */}
              </div>
              <div className="absolute bottom-4 right-4 w-[50%] z-20 border-4 border-[#F8F8EC] shadow-lg -rotate-3 rounded-lg">
-                <img src="https://cwjen.vercel.app/Photos/Index/id09.png" alt="向上伸展" className="w-full h-auto"/>
+                <img src="https://cwjen.vercel.app/Photos/Index/id09.png" alt="心理諮商 - 向上伸展" className="w-full h-auto"/> {/* [修改] alt 擴充 */}
              </div>
           </div>
 
@@ -119,12 +116,11 @@ export default function IndexPage() {
       </section>
 
       {/* ================= BANNER 2: 持續發生 (b03) ================= */}
-      {/* 行銷邏輯：節奏轉換。用一張安靜的圖，承接上一段的思考，準備進入下一段關於「關係」的討論。 */}
       <section className="relative w-full h-[40vh] md:h-[70vh] overflow-hidden">
          <div className="absolute inset-0 bg-[#3A4535]/40 z-10 mix-blend-multiply"></div>
          <img 
            src={BANNERS.b03.src} 
-           alt="Banner 03" 
+           alt={BANNERS.b03.alt} // [修改]
            className="absolute inset-0 w-full h-full object-cover object-center"
          />
          <div className="absolute inset-0 flex items-center justify-center z-20 px-4">
@@ -135,7 +131,6 @@ export default function IndexPage() {
       </section>
 
       {/* ================= BLOCK 2: 人與人 (Connection) ================= */}
-      {/* 行銷邏輯：文化共鳴。點出台灣文化的「面子」問題，引起共鳴，再提出「團體治療」作為解方。 */}
       <section className="py-12 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
             
@@ -143,6 +138,7 @@ export default function IndexPage() {
                <div className="flex items-center gap-3">
                   <span className="px-3 py-1 bg-[#BAC680] text-white text-[10px] md:text-xs tracking-widest font-bold uppercase rounded-full">Connection</span>
                </div>
+               {/* [修改] H2 標籤維持，語義已足夠 */}
                <h2 className="text-2xl md:text-4xl font-serif font-bold text-[#2F3A29]">
                  關於人與人：<br/>在關係中重新感覺安全
                </h2>
@@ -167,13 +163,13 @@ export default function IndexPage() {
 
             <div className="relative h-[300px] md:h-[500px] w-full mt-4 md:mt-0 max-w-sm mx-auto lg:max-w-none">
                <div className="absolute top-0 right-0 w-[55%] z-10 shadow-lg border-4 border-white rounded-lg overflow-hidden">
-                  <img src="https://cwjen.vercel.app/Photos/Index/id11.png" alt="枝葉交織" className="w-full h-auto"/>
+                  <img src="https://cwjen.vercel.app/Photos/Index/id11.png" alt="團體治療 - 枝葉交織" className="w-full h-auto"/> {/* [修改] alt 擴充 */}
                </div>
                <div className="absolute top-[25%] left-0 w-[50%] z-20 shadow-2xl rotate-3 rounded-lg overflow-hidden border-2 border-white">
-                  <img src="https://cwjen.vercel.app/Photos/Index/id06.png" alt="同步跳躍" className="w-full h-auto"/>
+                  <img src="https://cwjen.vercel.app/Photos/Index/id06.png" alt="關係建立 - 同步跳躍" className="w-full h-auto"/> {/* [修改] alt 擴充 */}
                </div>
                <div className="absolute bottom-0 right-[10%] w-[55%] z-30 shadow-xl -rotate-2 bg-white p-1 rounded-lg">
-                  <img src="https://cwjen.vercel.app/Photos/Index/id10.png" alt="依靠" className="w-full h-auto"/>
+                  <img src="https://cwjen.vercel.app/Photos/Index/id10.png" alt="關係安全感 - 依靠" className="w-full h-auto"/> {/* [修改] alt 擴充 */}
                </div>
             </div>
         </div>
@@ -183,18 +179,18 @@ export default function IndexPage() {
       <section className="relative w-full h-[35vh] md:h-[60vh] overflow-hidden flex items-center justify-center bg-[#F8F8EC]">
          <img 
            src={BANNERS.b02.src} 
-           alt="Banner 02" 
+           alt={BANNERS.b02.alt} // [修改]
            className="absolute inset-0 w-full h-full object-cover opacity-80"
          />
          <div className="relative z-20 px-6 text-center">
-            <p className="text-[#2F3A29] text-xl md:text-4xl font-serif font-bold tracking-widest drop-shadow-sm">
+            {/* [修改] 將 p 標籤改為 h2，提升權重 */}
+            <h2 className="text-[#2F3A29] text-xl md:text-4xl font-serif font-bold tracking-widest drop-shadow-sm">
               {BANNERS.b02.text}
-            </p>
+            </h2>
          </div>
       </section>
 
       {/* ================= BLOCK 3: 愛 (Love) ================= */}
-      {/* 行銷邏輯：深度互動。用一連串的問題邀請讀者進行內在對話，這是建立深度連結的關鍵。 */}
       <section className="bg-[#E2C351]/10 border-b border-[#E2C351]/30 pb-16">
         
         {/* BANNER 4: 愛的渴望 (b01) */}
@@ -202,15 +198,16 @@ export default function IndexPage() {
            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#E2C351] z-10 opacity-90"></div>
            <img 
              src={BANNERS.b01.src} 
-             alt="Banner 01" 
+             alt={BANNERS.b01.alt} // [修改]
              className="absolute inset-0 w-full h-full object-cover object-top"
            />
            <div className="absolute bottom-0 left-0 w-full p-8 md:p-20 z-20 text-center flex flex-col items-center justify-end h-full">
               <Heart size={28} className="text-white mb-4 fill-current opacity-80" />
-              <p className="text-white text-xl md:text-5xl font-serif font-bold leading-snug drop-shadow-md">
-                 {BANNERS.b01.text.split('，')[0]}，<br/>
-                 {BANNERS.b01.text.split('，')[1]}
-              </p>
+              {/* [修改] 將 p 標籤改為 h2，並使用 span 包覆純裝飾性文字避免破壞語義 */}
+              <h2 className="text-white text-xl md:text-5xl font-serif font-bold leading-snug drop-shadow-md">
+                 <span>{BANNERS.b01.text.split('，')[0]}，</span><br/>
+                 <span>{BANNERS.b01.text.split('，')[1]}</span>
+              </h2>
            </div>
         </div>
 
@@ -254,7 +251,7 @@ export default function IndexPage() {
             <div className="relative mt-4 md:mt-0 flex justify-center">
                <div className="relative w-[240px] md:w-[70%] z-20">
                   <div className="absolute inset-0 bg-[#E2C351] rounded-full opacity-30 blur-2xl"></div>
-                  <img src="https://cwjen.vercel.app/Photos/Index/id13.png" alt="花朵與圓" className="relative w-full h-auto rounded-full border-4 md:border-8 border-[#F8F8EC] shadow-xl"/>
+                  <img src="https://cwjen.vercel.app/Photos/Index/id13.png" alt="伴侶治療與自我探索 - 花朵與圓" className="relative w-full h-auto rounded-full border-4 md:border-8 border-[#F8F8EC] shadow-xl"/> {/* [修改] alt 擴充 */}
                </div>
             </div>
           </div>
