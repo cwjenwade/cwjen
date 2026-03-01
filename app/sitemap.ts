@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://您的網站網址.com'; // 填入正式網域
+  const baseUrl = 'https://cwjen.vercel.app';
 
   return [
     {
