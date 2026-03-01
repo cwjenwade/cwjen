@@ -15,15 +15,15 @@ const notoserif = Noto_Serif_TC({
 export const metadata: Metadata = {
   title: {
     template: '%s | 任祈蔚 Wade Jen',
-    default: '任祈蔚 CHI-WEI JEN (Wade Jen) | 諮商心理師',
+    default: '任祈蔚 CHI-WEI JEN (Wade Jen) | 諮商心理、心理治療與諮商、團體諮商、伴侶諮商',
   },
-  description: '任祈蔚（CHI-WEI JEN, Wade Jen）諮商心理師的個人學術與專業網站，專注於心理諮商與心理治療。Personal academic website of Wade Jen, Counseling Psychologist.',
-  keywords: ['任祈蔚', 'CHI-WEI JEN', 'Wade Jen', '諮商心理師', '心理治療', '心理諮商', 'Counseling Psychologist'],
+  description: '任祈蔚（CHI-WEI JEN, Wade Jen）諮商心理師的個人學術與專業網站，專注於心理治療、諮商心理、團體諮商與伴侶諮商。Personal academic website of Wade Jen, Counseling Psychologist.',
+  keywords: ['任祈蔚', 'CHI-WEI JEN', 'Wade Jen', '諮商心理師', '諮商心理', '心理治療', '心理諮商', '諮商', '團體諮商', '伴侶諮商', 'Counseling Psychologist'],
   authors: [{ name: '任祈蔚 Wade Jen' }],
   creator: '任祈蔚 Wade Jen',
   openGraph: {
-    title: '任祈蔚 CHI-WEI JEN (Wade Jen) | 諮商心理師',
-    description: '任祈蔚（CHI-WEI JEN）諮商心理師的個人學術與專業網站。',
+    title: '任祈蔚 CHI-WEI JEN (Wade Jen) | 諮商心理、心理治療、團體諮商、伴侶諮商',
+    description: '任祈蔚（CHI-WEI JEN）諮商心理師的個人學術與專業網站，專注於心理治療、諮商心理、團體諮商與伴侶諮商。',
     locale: 'zh_TW',
     type: 'website',
   },
@@ -36,9 +36,9 @@ const jsonLd = {
   name: '任祈蔚',
   alternateName: ['CHI-WEI JEN', 'Wade Jen'],
   jobTitle: '諮商心理師',
-  description: '專注於心理諮商與心理治療研究。',
-  knowsAbout: ['心理諮商', '心理治療', 'Counseling', 'Psychotherapy'],
-  url: 'https://您的網站網址.com', // 需替換為正式網域
+  description: '專注於心理治療、諮商心理、團體諮商與伴侶諮商研究。',
+  knowsAbout: ['諮商心理', '心理治療', '諮商', '團體諮商', '伴侶諮商', 'Counseling', 'Psychotherapy'],
+  url: 'https://cwjen.vercel.app',
   hasCredential: {
     '@type': 'EducationalOccupationalCredential',
     credentialCategory: '諮商心理師證照',

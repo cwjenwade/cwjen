@@ -1,6 +1,5 @@
-'use client';
-
 import React from 'react';
+import type { Metadata } from 'next';
 import { 
   Users, 
   Clock, 
@@ -14,6 +13,16 @@ import {
   ArrowRight,
   ScanFace
 } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: '團體諮商與心理治療 | 讓改變在連結中發生',
+  description: '專業團體諮商與治療空間。透過非結構團體、動力取向團體與支持性團體，在真實的互動中覺察自我、練習人際連結，並學會健康的表達方式。',
+  keywords: ['團體諮商', '團體治療', '非結構團體', '動力取向團體', '心理治療', '人際互動', '自我覺察', '諮商心理'],
+  openGraph: {
+    title: '團體諮商與心理治療 | 任祈蔚 諮商心理師',
+    description: '團體不只是多人在場的治療，而是一個具有生命力的互動歷程。了解為什麼團體治療能帶來深層改變。',
+  }
+};
 
 export default function GroupTherapyPage() {
   return (

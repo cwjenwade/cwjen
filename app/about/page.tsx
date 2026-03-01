@@ -1,6 +1,5 @@
-'use client';
-
 import React from 'react';
+import type { Metadata } from 'next';
 import { 
   BookOpen, 
   Award, 
@@ -17,6 +16,16 @@ import {
   Activity,
   Briefcase
 } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: '關於我 | 任祈蔚 Wade Jen',
+  description: '任祈蔚（Wade Jen）諮商心理師與臨床研究者的學經歷背景，專長為情緒歷程、人際互動與經驗式心理治療，包含團體治療與伴侶治療。',
+  keywords: ['關於任祈蔚', '諮商心理師', '學歷背景', '臨床研究', '心理治療訓練', '演講經歷', '心理諮商'],
+  openGraph: {
+    title: '關於我 | 任祈蔚 Wade Jen | 諮商心理師與臨床研究者',
+    description: '任祈蔚的學術與專業背景介紹。深入了解他在心理諮商、情緒歷程、團體與伴侶治療等領域的專業經驗。',
+  }
+};
 
 export default function AboutPage() {
   
