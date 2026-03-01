@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { 
   Layers, 
@@ -17,6 +18,16 @@ import {
   Fingerprint,
   HeartHandshake
 } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: '心理治療 | 理論取向與個案概念化',
+  description: '探索心理治療的五大理論取向（精神分析、存在主義、個人中心、認知行為、後現代）。了解治療師如何透過折衷取向與個案概念化進行臨床工作。',
+  keywords: ['心理治療', '心理治療理論', '個案概念化', '精神分析', '存在主義', '個人中心', '完形治療', '認知行為 CBT', '諮商心理'],
+  openGraph: {
+    title: '心理治療與理論取向 | 任祈蔚 諮商心理師',
+    description: '深入了解心理治療的多重路徑與經驗場域。從精神分析到存在主義，從理論傳統到臨床實務中的個案概念化。',
+  }
+};
 
 export default function PsychotherapyPage() {
   return (

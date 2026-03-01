@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { 
   Quote, 
   Sparkles,
@@ -14,6 +15,16 @@ const BANNERS = {
   b02: { src: "https://cwjen.vercel.app/Photos/banner/b02.png", text: "思緒是多元開展", alt: "諮商心理師任祈蔚 - 多元思緒開展" },
   b03: { src: "https://cwjen.vercel.app/Photos/banner/b03.png", text: "生活是一種持續發生。", alt: "心理諮商與生活體驗 - 任祈蔚 Wade Jen" },
   b04: { src: "https://cwjen.vercel.app/Photos/banner/b04.png", text: "你如何感知。", alt: "心理治療觀點：你如何感知 - 諮商心理師任祈蔚" },
+};
+
+export const metadata: Metadata = {
+  title: '首頁 | 任祈蔚 CHI-WEI JEN (Wade Jen)',
+  description: '任祈蔚（CHI-WEI JEN, Wade Jen）諮商心理師的個人網站。透過心理諮商、團體治療與伴侶治療，協助您理解生活中的感知與關係建立，展開向內看的旅程。',
+  keywords: ['任祈蔚', 'Wade Jen', '諮商心理師', '心理諮商', '心理治療', '團體治療', '伴侶治療', '自我探索'],
+  openGraph: {
+    title: '首頁 | 任祈蔚 CHI-WEI JEN (Wade Jen) | 諮商心理、心理治療、團體諮商、伴侶諮商',
+    description: '任祈蔚（CHI-WEI JEN, Wade Jen）諮商心理師的個人網站。透過心理諮商、團體治療與伴侶治療，協助您理解生活中的感知與關係建立。',
+  }
 };
 
 export default function IndexPage() {
