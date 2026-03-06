@@ -81,6 +81,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
             {children}
           </main>
+          <footer className="bg-[#F8F8EC] text-center py-6 border-t border-[#BAC680]/30">
+            <p className="text-sm text-[#5C6155]">
+              © 2026 任祈蔚 Wade Jen | 諮商心理師
+            </p>
+          </footer>
         </Providers>
 
         <Script id="google-translate-init" strategy="afterInteractive">

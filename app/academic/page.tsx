@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/app/context/LanguageContext';
 import { DICTIONARY } from '@/lib/dictionary';
+import AuthorSignature from '@/components/AuthorSignature';
 
 export default function Academic() {
   const { language } = useLanguage();
@@ -15,6 +16,7 @@ export default function Academic() {
         <h2 className="text-2xl font-bold text-slate-900 mb-2">施工中</h2>
         <p className="text-slate-700">{dict['eis-heauton']?.description ?? 'Under construction.'}</p>
       </div>
+      <AuthorSignature />
     </div>
   );
 }

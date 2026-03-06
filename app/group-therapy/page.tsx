@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import AuthorSignature from '@/components/AuthorSignature';
 import { 
   Users, 
   Clock, 
@@ -449,6 +450,9 @@ export default function GroupTherapyPage() {
           </button>
         </div>
       </section>
+
+      {/* ================= AUTHOR SIGNATURE ================= */}
+      <AuthorSignature />
 
     </main>
   );

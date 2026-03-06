@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import AuthorSignature from '@/components/AuthorSignature';
 import { 
   Shield, 
   Heart, 
@@ -360,6 +361,15 @@ export default function ProjectPage() {
 
         </div>
       </section>
+
+      {/* ================= AUTHOR SIGNATURE ================= */}
+      <section className="py-12 bg-[#FAF9F6] text-center border-t border-[#E47C57]/30">
+        <p className="text-sm text-[#5E5448]">
+          本文由任祈蔚 Wade Jen 諮商心理師撰寫
+        </p>
+      </section>
+
+      <AuthorSignature />
 
       {/* ================= Footer ================= */}
       <footer className="bg-[#5E5448] py-24 text-center text-[#D6CFC7] relative">

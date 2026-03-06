@@ -306,6 +306,13 @@ const AdlerianTherapyChapter = () => {
            </div>
         </section>
 
+        {/* ================= AUTHOR SIGNATURE ================= */}
+        <section className="py-12 bg-[#F4F4F0] text-center border-t border-[#E0E0DB]">
+          <p className="text-sm text-[#5E5C5C]">
+            本文由任祈蔚 Wade Jen 諮商心理師撰寫
+          </p>
+        </section>
+
       </div>
     </div>
   );

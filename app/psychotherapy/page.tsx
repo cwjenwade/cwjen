@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
+import AuthorSignature from '@/components/AuthorSignature';
+import { pageMetadata } from '@/lib/seo';
 import { 
   Layers, 
   Activity,
@@ -19,6 +21,12 @@ import {
   Fingerprint,
   HeartHandshake
 } from 'lucide-react';
+
+export const metadata = pageMetadata(
+  '心理治療',
+  '介紹各種心理治療流派與觀點，由任祈蔚諮商心理師撰寫。',
+  '/psychotherapy'
+);
 
 export default function PsychotherapyPage() {
   return (
@@ -500,6 +508,9 @@ export default function PsychotherapyPage() {
           </div>
         </div>
       </section>
+
+      {/* ================= AUTHOR SIGNATURE ================= */}
+      <AuthorSignature />
 
     </main>
   );

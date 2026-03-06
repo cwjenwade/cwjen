@@ -320,6 +320,13 @@ const AcademicNewsletter = () => {
 
       </main>
 
+      {/* ================= AUTHOR SIGNATURE ================= */}
+      <section className="py-12 bg-[#FFFDF6] text-center border-t border-[#E0E0D5]">
+        <p className="text-sm text-[#2F3532]">
+          本文由任祈蔚 Wade Jen 諮商心理師撰寫
+        </p>
+      </section>
+
       {/* ================= FOOTER ================= */}
       <footer className="bg-[#F2F2F0] py-16 text-center mt-20 border-t border-[#E0E0D5]">
         <div className="max-w-2xl mx-auto px-6">

@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { useLanguage } from '@/app/context/LanguageContext';
 import { DICTIONARY } from '@/lib/dictionary';
+import AuthorSignature from '@/components/AuthorSignature';
+import { pageMetadata } from '@/lib/seo';
 import { 
   HeartHandshake, 
   Sparkles, 
@@ -12,6 +14,12 @@ import {
   ChevronDown, 
   ShieldCheck
 } from 'lucide-react';
+
+export const metadata = pageMetadata(
+  '伴侶治療',
+  '任祈蔚諮商心理師的伴侶治療介紹與常見問題。',
+  '/couple-therapy'
+);
 
 // --- 在此處直接定義 QA 資料 (Hardcoded Data) ---
 const LOCAL_QA_DATA = [
@@ -437,6 +445,9 @@ export default function CoupleTherapyPage() {
           })}
         </div>
       </section>
+
+      {/* ================= AUTHOR SIGNATURE ================= */}
+      <AuthorSignature />
 
       {/* --- Footer Area --- */}
       <footer className="bg-[#7E7185] py-12 text-center text-[#E4D5DA]">

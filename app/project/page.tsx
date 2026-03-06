@@ -1,3 +1,5 @@
+import AuthorSignature from '@/components/AuthorSignature';
+
 export default function MaleSexualMinority() {
   return (
     <div className="space-y-6">
@@ -7,6 +9,7 @@ export default function MaleSexualMinority() {
         <h2 className="text-2xl font-bold text-slate-900 mb-2">施工中</h2>
         <p className="text-slate-700">此頁面正在建設中，敬請期待。</p>
       </div>
+      <AuthorSignature />
     </div>
   );
 }

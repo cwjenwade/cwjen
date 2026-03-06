@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://您的網站網址.com/sitemap.xml',
+    sitemap: 'https://cwjen.vercel.app/sitemap.xml',
   };
 }
