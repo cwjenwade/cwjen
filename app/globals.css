@@ -26,3 +26,51 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Performance Optimizations */
+
+/* 優化圖片性能 */
+img {
+  @apply max-w-full h-auto;
+  /* 啟用原生懶加載 */
+  loading: lazy;
+  /* 確保正確的寬高比防止累積佈局偏移 */
+  aspect-ratio: auto;
+}
+
+/* 優化視頻 */
+video {
+  @apply max-w-full h-auto;
+}
+
+/* 優化字體加載 */
+@supports (font-variation-settings: normal) {
+  :root {
+    font-synthesis: style;
+  }
+}
+
+/* 減少重排和重繪 */
+* {
+  @apply box-border;
+}
+
+/* 優化動畫性能 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 優化列表渲染性能 */
+ul, ol {
+  @apply m-0 p-0;
+}
+
+li {
+  @apply list-none;
+}

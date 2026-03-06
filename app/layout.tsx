@@ -5,31 +5,73 @@ import TopNavbar from '@/components/TopNavbar';
 import './globals.css';
 import Providers from '@/components/Providers';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const inter = Inter({ 
+  subsets: ['latin'], 
+  variable: '--font-inter',
+  display: 'swap',
+  preload: true,
+});
 const notoserif = Noto_Serif_TC({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-serif',
+  display: 'swap',
+  preload: true,
 });
 
+const SITE_URL = 'https://cwjen.vercel.app';
+const SITE_NAME = '任祈蔚 Wade Jen';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     template: '%s | 任祈蔚 Wade Jen',
     default: '任祈蔚 CHI-WEI JEN (Wade Jen) | 諮商心理師',
   },
   description: '任祈蔚（CHI-WEI JEN, Wade Jen）諮商心理師的個人學術與專業網站，專注於心理諮商與心理治療。Personal academic website of Wade Jen, Counseling Psychologist.',
-  keywords: ['任祈蔚', 'CHI-WEI JEN', 'Wade Jen', '諮商心理師', '心理治療', '心理諮商', 'Counseling Psychologist'],
-  authors: [{ name: '任祈蔚 Wade Jen' }],
+  keywords: ['任祈蔚', 'CHI-WEI JEN', 'Wade Jen', '諮商心理師', '心理治療', '心理諮商', 'Counseling Psychologist', '伴侶治療', '團體治療'],
+  authors: [{ name: '任祈蔚 Wade Jen', url: SITE_URL }],
   creator: '任祈蔚 Wade Jen',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: '任祈蔚 CHI-WEI JEN (Wade Jen) | 諮商心理師',
     description: '任祈蔚（CHI-WEI JEN）諮商心理師的個人學術與專業網站。',
+    url: SITE_URL,
+    siteName: SITE_NAME,
     locale: 'zh_TW',
     type: 'website',
+    images: [
+      {
+        url: `${SITE_URL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: SITE_NAME,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '任祈蔚 CHI-WEI JEN (Wade Jen) | 諮商心理師',
+    description: '任祈蔚（CHI-WEI JEN）諮商心理師的個人學術與專業網站。',
+    creator: '@wadejen',
+    images: [`${SITE_URL}/og-image.jpg`],
+  },
+  alternates: {
+    canonical: SITE_URL,
   },
 };
 
-// [新增] 結構化資料物件
+// 結構化數據
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -37,19 +79,25 @@ const jsonLd = {
   alternateName: ['CHI-WEI JEN', 'Wade Jen'],
   jobTitle: '諮商心理師',
   description: '專注於心理諮商與心理治療研究。',
-  knowsAbout: ['心理諮商', '心理治療', 'Counseling', 'Psychotherapy'],
-  url: 'https://您的網站網址.com', // 需替換為正式網域
+  knowsAbout: ['心理諮商', '心理治療', '伴侶治療', '團體治療', 'Counseling', 'Psychotherapy'],
+  url: SITE_URL,
   hasCredential: {
     '@type': 'EducationalOccupationalCredential',
     credentialCategory: '諮商心理師證照',
   },
+  sameAs: [],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-TW" className={`${inter.variable} ${notoserif.variable}`}>
       <head>
-        {/* [新增] 寫入 JSON-LD 腳本 */}
+        {/* DNS Prefetch & Preconnect for performance */}
+        <link rel="dns-prefetch" href="https://cwjen.vercel.app" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

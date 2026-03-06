@@ -71,7 +71,7 @@ export default function CoupleTherapyPage() {
   const { language } = useLanguage();
   
   // 安全地獲取 Dictionary 資料，若無則使用預設值
-  const content = (DICTIONARY[language] as Record<string, unknown>)?.couple;
+  const content = (DICTIONARY[language] as Record<string, unknown>)?.couple as Record<string, unknown>;
 
   // 使用我們剛剛定義的 LOCAL_QA_DATA
   const QA_LIST = LOCAL_QA_DATA;
@@ -91,19 +91,19 @@ export default function CoupleTherapyPage() {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/60 rounded-full mb-8 backdrop-blur-sm border border-[#EBD0C5] shadow-sm">
               <HeartHandshake size={16} className="text-[#AA7B81]" />
               <span className="text-xs font-bold tracking-widest text-[#7E7185] uppercase">
-                {content?.title ?? 'Couple Therapy'}
+                {(content?.title as string) ?? 'Couple Therapy'}
               </span>
             </div>
             
             <h1 className="font-serif text-4xl md:text-6xl text-[#5E4B45] leading-[1.3] mb-8 font-medium">
-              {content?.hero?.heading?.[0] ?? '依附關係 × 情緒互動'}<br />
+              {((content?.hero as Record<string, unknown>)?.heading as string[])?.[0] ?? '依附關係 × 情緒互動'}<br />
               <span className="text-[#AA7B81] text-3xl md:text-5xl mt-3 block">
-                {content?.hero?.heading?.[1] ?? '伴侶治療的第一步'}
+                {((content?.hero as Record<string, unknown>)?.heading as string[])?.[1] ?? '伴侶治療的第一步'}
               </span>
             </h1>
 
             <p className="text-[#7E7185] text-lg font-light leading-loose mb-10">
-              {content?.hero?.intro ?? '我們每個人處理親密關係的方式，其實都跟「依附」有關。'}
+              {((content?.hero as Record<string, unknown>)?.intro as string) ?? '我們每個人處理親密關係的方式，其實都跟「依附」有關。'}
             </p>
           </div>
 
