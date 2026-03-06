@@ -1,19 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
 import { 
-  Users, 
   ShieldCheck, 
   Trophy, 
   Wind, 
   Smile, 
   Car, 
-  MapPin, 
   Target, 
-  HelpCircle, 
-  ClipboardList, 
-  CheckCircle2,
   BrainCircuit,
-  HeartHandshake
+  HeartHandshake,
+  HelpCircle
 } from './lucide-fallback';
 
 // 引入同一層目錄的圖片 (根據您的截圖路徑)

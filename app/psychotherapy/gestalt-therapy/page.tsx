@@ -2,14 +2,11 @@ import React from 'react';
 import { 
   Leaf, 
   Layers, 
-  Circle, 
   Activity, 
-  Repeat, 
   MessageSquare, 
   Eye, 
   Zap, 
   Shield, 
-  Minimize2,
   Users,
   Box
 } from 'lucide-react';

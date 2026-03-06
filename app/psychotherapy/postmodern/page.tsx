@@ -4,18 +4,15 @@ import React, { useState } from 'react';
 import { 
   Users, 
   MessageCircle, 
-  Search, 
   Sparkles, 
-  ArrowRight, 
   BookOpen, 
   Feather, 
   Compass,
   Mic,
   PenTool,
-  Clock,
   CheckCircle,
-  HelpCircle,
-  TrendingUp
+  TrendingUp,
+  AlertCircle
 } from 'lucide-react';
 
 const PostmodernTherapyChapter = () => {
@@ -329,7 +326,7 @@ const PostmodernTherapyChapter = () => {
 
                   <div className={`${colors.card} p-8 rounded-2xl border border-[#E0E2E5]`}>
                      <div className="flex items-center gap-3 mb-4">
-                        <HelpCircle className={`w-6 h-6 ${colors.accentPurpleText}`} />
+                        <AlertCircle className={`w-6 h-6 ${colors.accentPurpleText}`} />
                         <h3 className={`text-xl font-bold ${colors.primaryText}`}>限制與反思</h3>
                      </div>
                      <ul className="space-y-3 text-sm text-[#595E60]">

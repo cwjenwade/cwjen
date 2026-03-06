@@ -9,13 +9,14 @@ import {
   Heart
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // 定義 Banner 資料 (已擴充 alt 屬性建議)
 const BANNERS = {
-  b01: { src: "https://cwjen.vercel.app/Photos/banner/b01.png", text: "愛，有時誕生於渴望，卻無法存於生活", alt: "任祈蔚諮商心理師 - 愛的渴望與心理治療" },
-  b02: { src: "https://cwjen.vercel.app/Photos/banner/b02.png", text: "思緒是多元開展", alt: "諮商心理師任祈蔚 - 多元思緒開展" },
-  b03: { src: "https://cwjen.vercel.app/Photos/banner/b03.png", text: "生活是一種持續發生。", alt: "心理諮商與生活體驗 - 任祈蔚 Wade Jen" },
-  b04: { src: "https://cwjen.vercel.app/Photos/banner/b04.png", text: "你如何感知。", alt: "心理治療觀點：你如何感知 - 諮商心理師任祈蔚" },
+  b01: { src: "/Photos/banner/b01.png", text: "愛，有時誕生於渴望，卻無法存於生活", alt: "任祈蔚諮商心理師 - 愛的渴望與心理治療" },
+  b02: { src: "/Photos/banner/b02.png", text: "思緒是多元開展", alt: "諮商心理師任祈蔚 - 多元思緒開展" },
+  b03: { src: "/Photos/banner/b03.png", text: "生活是一種持續發生。", alt: "心理諮商與生活體驗 - 任祈蔚 Wade Jen" },
+  b04: { src: "/Photos/banner/b04.png", text: "你如何感知。", alt: "心理治療觀點：你如何感知 - 諮商心理師任祈蔚" },
 };
 
 export default function IndexPage() {
@@ -51,10 +52,13 @@ export default function IndexPage() {
 
       {/* ================= BANNER 1: 感知 (b04) ================= */}
       <section className="relative w-full h-[50vh] md:h-[80vh] overflow-hidden group">
-         <img 
+         <Image 
            src={BANNERS.b04.src} 
            alt={BANNERS.b04.alt} // [修改] 帶入定義好的 alt
-           className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[20s] group-hover:scale-105"
+           fill
+           priority
+           sizes="100vw"
+           className="object-cover object-center transition-transform duration-[20s] group-hover:scale-105"
          />
          <div className="absolute inset-0 bg-gradient-to-t from-[#2F3A29]/90 via-transparent to-transparent z-10"></div>
          
@@ -105,10 +109,10 @@ export default function IndexPage() {
 
           <div className="order-2 lg:order-1 relative h-[300px] md:h-[500px] mt-4 md:mt-0 w-full max-w-sm mx-auto lg:max-w-none">
              <div className="absolute top-0 left-0 w-[65%] z-10 shadow-xl bg-white p-2 rotate-2 hover:rotate-0 transition-all duration-500 rounded-lg">
-                <img src="https://cwjen.vercel.app/Photos/Index/id01.png" alt="心理治療 - 行走的人" className="w-full h-auto"/> {/* [修改] alt 擴充 */}
+                <Image src="/Photos/Index/id01.png" alt="心理治療 - 行走的人" width={400} height={400} className="w-full h-auto" loading="lazy"/> {/* [修改] alt 擴充 */}
              </div>
              <div className="absolute bottom-4 right-4 w-[50%] z-20 border-4 border-[#F8F8EC] shadow-lg -rotate-3 rounded-lg">
-                <img src="https://cwjen.vercel.app/Photos/Index/id09.png" alt="心理諮商 - 向上伸展" className="w-full h-auto"/> {/* [修改] alt 擴充 */}
+                <Image src="/Photos/Index/id09.png" alt="心理諮商 - 向上伸展" width={300} height={300} className="w-full h-auto" loading="lazy"/> {/* [修改] alt 擴充 */}
              </div>
           </div>
 
@@ -118,10 +122,12 @@ export default function IndexPage() {
       {/* ================= BANNER 2: 持續發生 (b03) ================= */}
       <section className="relative w-full h-[40vh] md:h-[70vh] overflow-hidden">
          <div className="absolute inset-0 bg-[#3A4535]/40 z-10 mix-blend-multiply"></div>
-         <img 
+         <Image 
            src={BANNERS.b03.src} 
            alt={BANNERS.b03.alt} // [修改]
-           className="absolute inset-0 w-full h-full object-cover object-center"
+           fill
+           sizes="100vw"
+           className="object-cover object-center"
          />
          <div className="absolute inset-0 flex items-center justify-center z-20 px-4">
             <p className="text-white text-2xl md:text-5xl font-serif font-bold tracking-widest text-center drop-shadow-xl">
@@ -163,13 +169,13 @@ export default function IndexPage() {
 
             <div className="relative h-[300px] md:h-[500px] w-full mt-4 md:mt-0 max-w-sm mx-auto lg:max-w-none">
                <div className="absolute top-0 right-0 w-[55%] z-10 shadow-lg border-4 border-white rounded-lg overflow-hidden">
-                  <img src="https://cwjen.vercel.app/Photos/Index/id11.png" alt="團體治療 - 枝葉交織" className="w-full h-auto"/> {/* [修改] alt 擴充 */}
+                  <Image src="/Photos/Index/id11.png" alt="團體治療 - 枝葉交織" width={300} height={200} className="w-full h-auto" loading="lazy"/> {/* [修改] alt 擴充 */}
                </div>
                <div className="absolute top-[25%] left-0 w-[50%] z-20 shadow-2xl rotate-3 rounded-lg overflow-hidden border-2 border-white">
-                  <img src="https://cwjen.vercel.app/Photos/Index/id06.png" alt="關係建立 - 同步跳躍" className="w-full h-auto"/> {/* [修改] alt 擴充 */}
+                  <Image src="/Photos/Index/id06.png" alt="關係建立 - 同步跳躍" width={250} height={200} className="w-full h-auto" loading="lazy"/> {/* [修改] alt 擴充 */}
                </div>
                <div className="absolute bottom-0 right-[10%] w-[55%] z-30 shadow-xl -rotate-2 bg-white p-1 rounded-lg">
-                  <img src="https://cwjen.vercel.app/Photos/Index/id10.png" alt="關係安全感 - 依靠" className="w-full h-auto"/> {/* [修改] alt 擴充 */}
+                  <Image src="/Photos/Index/id10.png" alt="關係安全感 - 依靠" width={300} height={200} className="w-full h-auto" loading="lazy"/> {/* [修改] alt 擴充 */}
                </div>
             </div>
         </div>
@@ -177,10 +183,12 @@ export default function IndexPage() {
 
       {/* ================= BANNER 3: 多元開展 (b02) ================= */}
       <section className="relative w-full h-[35vh] md:h-[60vh] overflow-hidden flex items-center justify-center bg-[#F8F8EC]">
-         <img 
+         <Image 
            src={BANNERS.b02.src} 
            alt={BANNERS.b02.alt} // [修改]
-           className="absolute inset-0 w-full h-full object-cover opacity-80"
+           fill
+           sizes="100vw"
+           className="object-cover opacity-80"
          />
          <div className="relative z-20 px-6 text-center">
             {/* [修改] 將 p 標籤改為 h2，提升權重 */}
@@ -196,10 +204,12 @@ export default function IndexPage() {
         {/* BANNER 4: 愛的渴望 (b01) */}
         <div className="relative w-full h-[50vh] md:h-[80vh] overflow-hidden mb-12 md:mb-16">
            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#E2C351] z-10 opacity-90"></div>
-           <img 
+           <Image 
              src={BANNERS.b01.src} 
              alt={BANNERS.b01.alt} // [修改]
-             className="absolute inset-0 w-full h-full object-cover object-top"
+             fill
+             sizes="100vw"
+             className="object-cover object-top"
            />
            <div className="absolute bottom-0 left-0 w-full p-8 md:p-20 z-20 text-center flex flex-col items-center justify-end h-full">
               <Heart size={28} className="text-white mb-4 fill-current opacity-80" />
@@ -251,7 +261,7 @@ export default function IndexPage() {
             <div className="relative mt-4 md:mt-0 flex justify-center">
                <div className="relative w-[240px] md:w-[70%] z-20">
                   <div className="absolute inset-0 bg-[#E2C351] rounded-full opacity-30 blur-2xl"></div>
-                  <img src="https://cwjen.vercel.app/Photos/Index/id13.png" alt="伴侶治療與自我探索 - 花朵與圓" className="relative w-full h-auto rounded-full border-4 md:border-8 border-[#F8F8EC] shadow-xl"/> {/* [修改] alt 擴充 */}
+                  <Image src="/Photos/Index/id13.png" alt="伴侶治療與自我探索 - 花朵與圓" width={300} height={200} className="relative w-full h-auto rounded-full border-4 md:border-8 border-[#F8F8EC] shadow-xl" loading="lazy"/> {/* [修改] alt 擴充 */}
                </div>
             </div>
           </div>

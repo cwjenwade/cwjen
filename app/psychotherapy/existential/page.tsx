@@ -1,6 +1,5 @@
 import React from 'react';
 import { 
-  User, 
   BookOpen, 
   Compass, 
   Feather, 
@@ -9,7 +8,6 @@ import {
   Unlock, 
   Fingerprint, 
   Search, 
-  CloudRain, 
   Hourglass, 
   Heart,
   Anchor,

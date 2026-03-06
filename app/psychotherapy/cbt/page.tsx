@@ -2,15 +2,9 @@ import React from 'react';
 import { 
   Brain, 
   Lightbulb, 
-  MessageCircle, 
-  Activity, 
   Target, 
-  Shield, 
-  PenTool, 
   RefreshCw, 
   AlertTriangle,
-  Users,
-  BookOpen,
   ArrowRight,
   Zap,
   Smile

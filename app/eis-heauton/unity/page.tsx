@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Calendar, Layers, Feather, Quote, ArrowRight, Minus, Heart, AlertCircle } from 'lucide-react';
+import { BookOpen, Calendar, Layers, Feather, Heart, AlertCircle } from 'lucide-react';
 
 const AcademicNewsletter = () => {
   // Theme: Natural Morandi Collage (NextPure Style)

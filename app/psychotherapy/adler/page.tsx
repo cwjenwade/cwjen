@@ -4,16 +4,11 @@ import {
   Users, 
   Target, 
   Compass, 
-  Heart, 
   Brain, 
   Activity, 
   Flag, 
-  HelpCircle, 
-  ArrowRight,
-  BookOpen,
   Feather,
   Anchor,
-  Sun,
   MessageCircle,
   AlertTriangle
 } from 'lucide-react';

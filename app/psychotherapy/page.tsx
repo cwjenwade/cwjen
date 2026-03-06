@@ -14,7 +14,6 @@ import {
   PenTool,
   Brain,
   ArrowUpRight,
-  Map,
   Compass,
   Lightbulb,
   Fingerprint,

@@ -1,17 +1,14 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import AuthorSignature from '@/components/AuthorSignature';
 import { 
-  Shield, 
   Heart, 
   Activity, 
   Users, 
   Zap, 
-  Anchor, 
-  Layers, 
   Quote,
-  Eye,
   Leaf
 } from 'lucide-react';
 
@@ -50,9 +47,11 @@ export default function ProjectPage() {
           <div className="lg:w-1/2 relative">
             {/* sm01: 人物輪廓與結構張力 */}
             <div className="relative z-10 p-6 bg-white shadow-[20px_20px_0px_0px_#EDA89D] border-4 border-white">
-              <img 
-                src="https://cwjen.vercel.app/Photos/sm01.png" 
+              <Image 
+                src="/Photos/sm01.png" 
                 alt="人物輪廓被外在結構牽引" 
+                width={400} 
+                height={300}
                 className="w-full h-auto grayscale-[10%] contrast-[1.05]"
               />
               <div className="mt-6 border-t border-[#EBE8E4] pt-4 flex justify-between items-end">
@@ -88,7 +87,7 @@ export default function ProjectPage() {
             <div className="lg:w-5/12 relative">
                {/* sm09: 碎片漂移 */}
                <div className="bg-[#FAF9F6] p-3 rounded-tr-[3rem] rounded-bl-[3rem] border border-[#DEECDA]">
-                 <img src="https://cwjen.vercel.app/Photos/sm09.png" alt="失序狀態" className="w-full h-auto rounded-xl mix-blend-multiply opacity-90"/>
+                 <Image src="/Photos/sm09.png" alt="失序狀態" width={300} height={200} className="w-full h-auto rounded-xl mix-blend-multiply opacity-90"/>
                  <p className="text-right text-xs text-[#8C857B] mt-2 mr-2">方形碎片隨線條漂移，結構尚未穩定</p>
                </div>
             </div>
@@ -191,7 +190,7 @@ export default function ProjectPage() {
                <div className="relative group">
                  <div className="absolute inset-0 bg-[#F2BC9C] rounded-[2rem] transform translate-x-2 translate-y-2 -z-10 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform"></div>
                  <div className="bg-white p-2 rounded-[2rem] border border-[#5E5448]/10">
-                   <img src="https://cwjen.vercel.app/Photos/sm05.png" alt="內縮防衛" className="w-full h-auto rounded-[1.5rem]"/>
+                   <Image src="/Photos/sm05.png" alt="內縮防衛" width={200} height={150} className="w-full h-auto rounded-[1.5rem]"/>
                  </div>
                  <div className="flex justify-between mt-3 px-4">
                    <span className="text-[#E47C57] font-bold text-sm tracking-widest uppercase">Defense Mechanism</span>
@@ -203,7 +202,7 @@ export default function ProjectPage() {
                <div className="relative w-[80%] self-end group">
                  <div className="absolute inset-0 bg-[#DEECDA] rounded-[2rem] transform translate-x-2 translate-y-2 -z-10 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform"></div>
                  <div className="bg-white p-2 rounded-[2rem] border border-[#5E5448]/10">
-                   <img src="https://cwjen.vercel.app/Photos/sm03.png" alt="關係框定" className="w-full h-auto rounded-[1.5rem]"/>
+                   <Image src="/Photos/sm03.png" alt="關係框定" width={200} height={150} className="w-full h-auto rounded-[1.5rem]"/>
                  </div>
                  <div className="flex justify-between mt-3 px-4">
                    <span className="text-[#8C857B] text-sm">關係邊界 / 關係框定</span>
@@ -230,8 +229,8 @@ export default function ProjectPage() {
             <div className="flex flex-col md:flex-row gap-16 items-center">
               <div className="md:w-1/2 relative">
                 <div className="grid grid-cols-2 gap-4">
-                  <img src="https://cwjen.vercel.app/Photos/sm04.png" alt="共情流動" className="w-full h-auto rounded-tl-[3rem] rounded-br-[3rem] bg-[#FAF9F6]"/>
-                  <img src="https://cwjen.vercel.app/Photos/sm06.png" alt="啟迪萌芽" className="w-full h-auto rounded-tr-[3rem] rounded-bl-[3rem] bg-[#FAF9F6] mt-12"/>
+                  <Image src="/Photos/sm04.png" alt="共情流動" width={200} height={150} className="w-full h-auto rounded-tl-[3rem] rounded-br-[3rem] bg-[#FAF9F6]"/>
+                  <Image src="/Photos/sm06.png" alt="啟迪萌芽" width={200} height={150} className="w-full h-auto rounded-tr-[3rem] rounded-bl-[3rem] bg-[#FAF9F6] mt-12"/>
                 </div>
                 {/* 裝飾線條 */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-2 border-[#DEECDA] rounded-full z-10"></div>
@@ -260,8 +259,8 @@ export default function ProjectPage() {
             <div className="flex flex-col md:flex-row-reverse gap-16 items-center">
               <div className="md:w-1/2 relative">
                 <div className="grid grid-cols-2 gap-4">
-                  <img src="https://cwjen.vercel.app/Photos/sm08.png" alt="賦能生長" className="w-full h-auto rounded-tr-[3rem] rounded-bl-[3rem] bg-[#FAF9F6]"/>
-                  <img src="https://cwjen.vercel.app/Photos/sm07.png" alt="會心連結" className="w-full h-auto rounded-tl-[3rem] rounded-br-[3rem] bg-[#FAF9F6] mt-12"/>
+                  <Image src="/Photos/sm08.png" alt="賦能生長" width={200} height={150} className="w-full h-auto rounded-tr-[3rem] rounded-bl-[3rem] bg-[#FAF9F6]"/>
+                  <Image src="/Photos/sm07.png" alt="會心連結" width={200} height={150} className="w-full h-auto rounded-tl-[3rem] rounded-br-[3rem] bg-[#FAF9F6] mt-12"/>
                 </div>
                 {/* 裝飾線條 */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-2 border-[#F2BC9C] rounded-full z-10"></div>
@@ -303,11 +302,11 @@ export default function ProjectPage() {
             <div className="lg:w-5/12 relative">
                {/* sm02: 主圖 - 團體支持 */}
                <div className="relative z-10 shadow-2xl rounded-full overflow-hidden border-[8px] border-white aspect-square">
-                 <img src="https://cwjen.vercel.app/Photos/sm02.png" alt="團體支持空間" className="w-full h-full object-cover"/>
+                 <Image src="/Photos/sm02.png" alt="團體支持空間" fill className="object-cover"/>
                </div>
                {/* sm11: 小圖 - 共同承接 */}
                <div className="absolute -bottom-6 -right-6 w-1/2 z-20 shadow-xl rounded-full overflow-hidden border-[6px] border-[#FAF9F6] aspect-square">
-                 <img src="https://cwjen.vercel.app/Photos/sm11.png" alt="共同承接" className="w-full h-full object-cover"/>
+                 <Image src="/Photos/sm11.png" alt="共同承接" fill className="object-cover"/>
                </div>
             </div>
             
@@ -336,7 +335,7 @@ export default function ProjectPage() {
                <div className="flex flex-col items-center text-center group">
                  <div className="w-full max-w-[280px] mb-8 relative">
                    <div className="absolute inset-0 bg-[#DEECDA] rounded-t-full opacity-0 group-hover:opacity-50 transition-opacity duration-500 -z-10 translate-y-4"></div>
-                   <img src="https://cwjen.vercel.app/Photos/sm10.png" alt="心理容器" className="w-full h-auto rounded-2xl border-2 border-[#DEECDA]"/>
+                   <Image src="/Photos/sm10.png" alt="心理容器" width={280} height={200} className="w-full h-auto rounded-2xl border-2 border-[#DEECDA]"/>
                  </div>
                  <h4 className="text-xl font-bold text-[#5E5448] mb-4">述情與真實</h4>
                  <p className="text-[#8C857B] leading-relaxed">
@@ -348,7 +347,7 @@ export default function ProjectPage() {
                <div className="flex flex-col items-center text-center group">
                  <div className="w-full max-w-[280px] mb-8 relative">
                    <div className="absolute inset-0 bg-[#E47C57] rounded-t-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10 translate-y-4"></div>
-                   <img src="https://cwjen.vercel.app/Photos/sm12.png" alt="經驗擴展" className="w-full h-auto rounded-2xl border-2 border-[#E47C57]"/>
+                   <Image src="/Photos/sm12.png" alt="經驗擴展" width={280} height={200} className="w-full h-auto rounded-2xl border-2 border-[#E47C57]"/>
                  </div>
                  <h4 className="text-xl font-bold text-[#5E5448] mb-4">從防衛到真實</h4>
                  <p className="text-[#8C857B] leading-relaxed">

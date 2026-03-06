@@ -8,11 +8,9 @@ import {
   Zap, 
   BookOpen, 
   Activity, 
-  MessageCircle, 
   Feather,
   GitMerge,
-  Eye,
-  HandMetal
+  Eye
 } from 'lucide-react';
 
 const FeministTherapyChapter = () => {
