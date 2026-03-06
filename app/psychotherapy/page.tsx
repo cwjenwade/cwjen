@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import AuthorSignature from '@/components/AuthorSignature';
-import { pageMetadata } from '@/lib/seo';
 import { 
   Layers, 
   Activity,
@@ -22,11 +21,7 @@ import {
   HeartHandshake
 } from 'lucide-react';
 
-export const metadata = pageMetadata(
-  '心理治療',
-  '介紹各種心理治療流派與觀點，由任祈蔚諮商心理師撰寫。',
-  '/psychotherapy'
-);
+// Removed metadata export as this is a client component
 
 export default function PsychotherapyPage() {
   return (
@@ -228,7 +223,7 @@ export default function PsychotherapyPage() {
                </div>
                <div className="flex-1 border-l border-[#FFCA8C]/20 pl-10 hidden md:block">
                  <p className="text-[#A09578] italic font-serif text-lg">
-                   "Change the thought, change the feeling."
+                   &ldquo;Change the thought, change the feeling.&rdquo;
                  </p>
                  <p className="text-[#C6C09C] text-xs mt-2 uppercase tracking-wider">Adjustment of Experience Patterns</p>
                </div>

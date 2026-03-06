@@ -46,7 +46,7 @@ const FeministTherapyChapter = () => {
             女性主義治療
           </h1>
           <p className={`${colors.secondaryText} text-lg max-w-2xl mx-auto italic`}>
-            "個人即政治 (The Personal Is Political)"
+            &ldquo;個人即政治 (The Personal Is Political)&rdquo;
           </p>
           <div className={`flex flex-wrap justify-center gap-4 ${colors.secondaryText} text-sm font-medium`}>
             <span className="px-3 py-1 bg-white rounded shadow-sm">賦權</span>

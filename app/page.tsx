@@ -267,7 +267,7 @@ export default function IndexPage() {
       {/* ================= FOOTER DECOR ================= */}
       <div className="py-10 bg-[#F8F8EC] text-center border-t border-[#BAC680]/30">
         <p className="font-serif italic text-[#79976B] text-sm md:text-lg">
-          "Love is a constant process of tuning in."
+          &ldquo;Love is a constant process of tuning in.&rdquo;
         </p>
         <p className="text-[10px] md:text-xs text-[#A3BFA7] mt-2 tracking-widest uppercase">
           © 2026 Titanic Research Lab

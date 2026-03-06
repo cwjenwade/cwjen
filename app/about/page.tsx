@@ -224,7 +224,7 @@ export default function AboutPage() {
               <div className="bg-white p-8 rounded-2xl shadow-[8px_8px_0_#B5D1AE] border border-[#E0E0D5] relative mt-8">
                 <Quote className="absolute -top-4 -right-4 w-10 h-10 text-[#D8944F] bg-[#FEFCF3] p-1 rounded-full border border-[#D8944F]" />
                 <p className="font-serif italic text-[#4A4D3E] text-lg leading-loose mb-6">
-                  "Most of the time, I read—philosophy, psychology, and religion. The more I observe the world, the more I find it difficult to fully comprehend."
+                  &ldquo;Most of the time, I read—philosophy, psychology, and religion. The more I observe the world, the more I find it difficult to fully comprehend.&rdquo;
                 </p>
                 <div className="w-full h-px bg-[#D4E8D6] mb-6"></div>
                 <p className="text-base text-[#6D7A3F] leading-relaxed tracking-wide font-medium">

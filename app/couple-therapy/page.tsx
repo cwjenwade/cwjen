@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { useLanguage } from '@/app/context/LanguageContext';
 import { DICTIONARY } from '@/lib/dictionary';
 import AuthorSignature from '@/components/AuthorSignature';
-import { pageMetadata } from '@/lib/seo';
 import { 
   HeartHandshake, 
   Sparkles, 
@@ -15,11 +14,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 
-export const metadata = pageMetadata(
-  '伴侶治療',
-  '任祈蔚諮商心理師的伴侶治療介紹與常見問題。',
-  '/couple-therapy'
-);
+// Removed metadata export as this is a client component
 
 // --- 在此處直接定義 QA 資料 (Hardcoded Data) ---
 const LOCAL_QA_DATA = [
@@ -76,8 +71,7 @@ export default function CoupleTherapyPage() {
   const { language } = useLanguage();
   
   // 安全地獲取 Dictionary 資料，若無則使用預設值
-  const dictionaryAny = DICTIONARY as any;
-  const content = dictionaryAny[language]?.couple;
+  const content = (DICTIONARY[language] as Record<string, unknown>)?.couple;
 
   // 使用我們剛剛定義的 LOCAL_QA_DATA
   const QA_LIST = LOCAL_QA_DATA;
@@ -451,7 +445,7 @@ export default function CoupleTherapyPage() {
 
       {/* --- Footer Area --- */}
       <footer className="bg-[#7E7185] py-12 text-center text-[#E4D5DA]">
-        <p className="font-serif italic px-6">"Love is a constant process of tuning in, connecting, missing and misreading cues, disconnecting, repairing, and finding deeper connection."</p>
+        <p className="font-serif italic px-6">&ldquo;Love is a constant process of tuning in, connecting, missing and misreading cues, disconnecting, repairing, and finding deeper connection.&rdquo;</p>
         <p className="text-xs text-[#CCBFD1] mt-4 uppercase tracking-widest">— Dr. Sue Johnson</p>
       </footer>
 

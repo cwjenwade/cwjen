@@ -347,7 +347,7 @@ const PostmodernTherapyChapter = () => {
                
                <div className="text-center p-8 bg-[#F0F2F5] rounded-2xl">
                   <p className="text-sm text-[#595E60] italic">
-                     "談論問題會創造更多的問題，談論改變會創造更多的改變。"
+                     &ldquo;談論問題會創造更多的問題，談論改變會創造更多的改變。&rdquo;
                   </p>
                </div>
             </div>

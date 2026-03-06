@@ -1,4 +1,4 @@
-export const DICTIONARY = {
+export const DICTIONARY: Record<string, Record<string, unknown>> = {
   en: {
     navigation: {
       home: 'Home',

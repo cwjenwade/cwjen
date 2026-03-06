@@ -29,7 +29,7 @@ export default function ProjectPage() {
           <div className="lg:w-1/2 z-10 pt-12">
             <div className="inline-block px-4 py-1.5 border border-[#5E5448] rounded-full mb-8 bg-white/80 backdrop-blur-sm">
               <span className="text-xs font-bold tracking-[0.2em] text-[#5E5448] uppercase">
-                Men's Encounter Group Project
+                Men&apos;s Encounter Group Project
               </span>
             </div>
             <h1 className="font-serif text-5xl md:text-7xl text-[#5E5448] leading-[1.1] mb-10">
@@ -384,7 +384,7 @@ export default function ProjectPage() {
           </p>
           <div className="w-12 h-1 bg-[#E47C57] mx-auto mb-12"></div>
           <div className="text-xs opacity-40 font-mono tracking-widest">
-            &copy; 2025 Men's Encounter Group Project. All Rights Reserved.
+            &copy; 2025 Men&apos;s Encounter Group Project. All Rights Reserved.
           </div>
         </div>
       </footer>

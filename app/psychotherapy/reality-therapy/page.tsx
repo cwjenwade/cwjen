@@ -366,7 +366,17 @@ function NeedCard({ icon, title, desc, color }: { icon: React.ReactNode, title: 
 }
 
 // 2. WDEP 卡片
-function WDEPCard({ letter, title, subtitle, content, color, textColor, isHighlight = false }: any) {
+interface WDEPCardProps {
+  letter: string;
+  title: string;
+  subtitle: string;
+  content: React.ReactNode;
+  color: string;
+  textColor: string;
+  isHighlight?: boolean;
+}
+
+function WDEPCard({ letter, title, subtitle, content, color, textColor, isHighlight = false }: WDEPCardProps) {
   return (
     <div className={`${color} p-6 rounded-[1.5rem] flex flex-col h-full hover:-translate-y-2 transition-transform duration-300 ${isHighlight ? 'ring-2 ring-[#8FBC8F] shadow-lg' : ''}`}>
       <div className={`text-5xl font-black ${textColor} opacity-20 mb-2`}>{letter}</div>
@@ -380,7 +390,14 @@ function WDEPCard({ letter, title, subtitle, content, color, textColor, isHighli
 }
 
 // 3. 流程步驟
-function ProcessStep({ number, title, content, isLast = false }: any) {
+interface ProcessStepProps {
+  number: string;
+  title: string;
+  content: React.ReactNode;
+  isLast?: boolean;
+}
+
+function ProcessStep({ number, title, content, isLast = false }: ProcessStepProps) {
   return (
     <div className={`relative pl-8 pb-10 ${isLast ? 'pb-0' : ''}`}>
       <div className="absolute left-[-21px] top-0 flex items-center justify-center w-10 h-10 rounded-full bg-[#FAEDCD] border-4 border-[#FDFCF8] text-[#8C7A56] font-bold shadow-sm z-10">

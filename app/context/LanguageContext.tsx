@@ -21,31 +21,43 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   // load persisted preferences on mount
   useEffect(() => {
-    try {
-      const storedLang = localStorage.getItem('wade:language') as Locale | null;
-      if (storedLang === 'en' || storedLang === 'zh') {
-        setLanguage(storedLang);
+    const initializePreferences = () => {
+      try {
+        const storedLang = localStorage.getItem('wade:language') as Locale | null;
+        const storedNav = localStorage.getItem('wade:navMode') as NavMode | null;
+        
+        if (storedLang !== null) {
+          const validLangs: Locale[] = ['en', 'zh'];
+          if (validLangs.includes(storedLang)) {
+            setLanguage(storedLang);
+          }
+        }
+        
+        if (storedNav !== null) {
+          const validModes: NavMode[] = ['both', 'single'];
+          if (validModes.includes(storedNav)) {
+            setNavMode(storedNav);
+          }
+        }
+      } catch {
+        // ignore (localStorage may be unavailable)
       }
-      const storedNav = localStorage.getItem('wade:navMode') as NavMode | null;
-      if (storedNav === 'both' || storedNav === 'single') {
-        setNavMode(storedNav);
-      }
-    } catch (e) {
-      // ignore (localStorage may be unavailable)
-    }
+    };
+    
+    initializePreferences();
   }, []);
 
   // persist preferences when they change
   useEffect(() => {
     try {
       localStorage.setItem('wade:language', language);
-    } catch (e) {}
+    } catch {}
   }, [language]);
 
   useEffect(() => {
     try {
       localStorage.setItem('wade:navMode', navMode);
-    } catch (e) {}
+    } catch {}
   }, [navMode]);
 
   return (

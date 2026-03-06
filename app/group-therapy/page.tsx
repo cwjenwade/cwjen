@@ -163,7 +163,7 @@ export default function GroupTherapyPage() {
                   />
                   {/* 疊加色塊說明 */}
                   <div className="absolute bottom-0 left-0 right-0 bg-[#3A4A38]/90 p-6 backdrop-blur-sm text-white">
-                    <p className="font-serif italic text-center">"共享注意與支持性在場"</p>
+                    <p className="font-serif italic text-center">&ldquo;共享注意與支持性在場&rdquo;</p>
                   </div>
                </div>
                {/* 背景跳色裝飾塊 */}
