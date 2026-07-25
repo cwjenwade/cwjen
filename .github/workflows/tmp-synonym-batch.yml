@@ -18,15 +18,15 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Fetch dictionary synonyms
-        run: python tmp/synonym_batch_20260725/fetch_synonyms.py
+      - name: Fetch definition-matched dictionary synonyms
+        run: python tmp/synonym_batch_20260725/fetch_sense_matched.py
       - name: Upload synonym results
         uses: actions/upload-artifact@v4
         with:
-          name: synonym-results
+          name: synonym-results-sense
           path: |
-            tmp/synonym_batch_20260725/synonym_mapping.json
-            tmp/synonym_batch_20260725/synonym_mapping.csv
-            tmp/synonym_batch_20260725/synonym_audit_30.csv
+            tmp/synonym_batch_20260725/synonym_mapping_sense.json
+            tmp/synonym_batch_20260725/synonym_mapping_sense.csv
+            tmp/synonym_batch_20260725/synonym_audit_sense_30.csv
           if-no-files-found: error
           retention-days: 1
