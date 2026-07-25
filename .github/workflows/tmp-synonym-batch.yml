@@ -19,8 +19,14 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
       - name: Fetch definition-matched dictionary synonyms
-        run: python tmp/synonym_batch_20260725/fetch_sense_matched.py
-      - name: Upload synonym results
+        id: fetch
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          python -u tmp/synonym_batch_20260725/fetch_sense_matched.py 2>&1 | tee tmp/synonym_batch_20260725/run.log
+      - name: Upload synonym results and log
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: synonym-results-sense
@@ -28,5 +34,9 @@ jobs:
             tmp/synonym_batch_20260725/synonym_mapping_sense.json
             tmp/synonym_batch_20260725/synonym_mapping_sense.csv
             tmp/synonym_batch_20260725/synonym_audit_sense_30.csv
-          if-no-files-found: error
+            tmp/synonym_batch_20260725/run.log
+          if-no-files-found: warn
           retention-days: 1
+      - name: Fail if fetch failed
+        if: steps.fetch.outcome == 'failure'
+        run: exit 1
